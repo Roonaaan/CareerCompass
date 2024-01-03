@@ -2,3 +2,5 @@
 
 CareerCompass is an AI powered web-based employee career growth and development system created to provide a career roadmap to the employee who wanted to pursue a certain job position.
 
+
+ADSFGHJKL
