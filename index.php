@@ -412,35 +412,35 @@
 						<div class="owl-carousel portfolio-slider">
 							<div class="single-pf">
 								<img src="img/pf1.jpg" alt="#">
-								<a href="portfolio-details.html" class="btn">View Details</a>
+								<a href="portfolio-details.php" class="btn">View Details</a>
 							</div>
 							<div class="single-pf">
 								<img src="img/pf2.jpg" alt="#">
-								<a href="portfolio-details.html" class="btn">View Details</a>
+								<a href="portfolio-details.php" class="btn">View Details</a>
 							</div>
 							<div class="single-pf">
 								<img src="img/pf3.jpg" alt="#">
-								<a href="portfolio-details.html" class="btn">View Details</a>
+								<a href="portfolio-details.php" class="btn">View Details</a>
 							</div>
 							<div class="single-pf">
 								<img src="img/pf4.jpg" alt="#">
-								<a href="portfolio-details.html" class="btn">View Details</a>
+								<a href="portfolio-details.php" class="btn">View Details</a>
 							</div>
 							<div class="single-pf">
 								<img src="img/pf1.jpg" alt="#">
-								<a href="portfolio-details.html" class="btn">View Details</a>
+								<a href="portfolio-details.php" class="btn">View Details</a>
 							</div>
 							<div class="single-pf">
 								<img src="img/pf2.jpg" alt="#">
-								<a href="portfolio-details.html" class="btn">View Details</a>
+								<a href="portfolio-details.php" class="btn">View Details</a>
 							</div>
 							<div class="single-pf">
 								<img src="img/pf3.jpg" alt="#">
-								<a href="portfolio-details.html" class="btn">View Details</a>
+								<a href="portfolio-details.php" class="btn">View Details</a>
 							</div>
 							<div class="single-pf">
 								<img src="img/pf4.jpg" alt="#">
-								<a href="portfolio-details.html" class="btn">View Details</a>
+								<a href="portfolio-details.php" class="btn">View Details</a>
 							</div>
 						</div>
 					</div>
@@ -466,7 +466,7 @@
 						<!-- Start Single Service -->
 						<div class="single-service">
 							<i class="icofont icofont-prescription"></i>
-							<h4><a href="service-details.html">General Treatment</a></h4>
+							<h4><a href="service-details.php">General Treatment</a></h4>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
 						</div>
 						<!-- End Single Service -->
@@ -475,7 +475,7 @@
 						<!-- Start Single Service -->
 						<div class="single-service">
 							<i class="icofont icofont-tooth"></i>
-							<h4><a href="service-details.html">Teeth Whitening</a></h4>
+							<h4><a href="service-details.php">Teeth Whitening</a></h4>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
 						</div>
 						<!-- End Single Service -->
@@ -484,7 +484,7 @@
 						<!-- Start Single Service -->
 						<div class="single-service">
 							<i class="icofont icofont-heart-alt"></i>
-							<h4><a href="service-details.html">Heart Surgery</a></h4>
+							<h4><a href="service-details.php">Heart Surgery</a></h4>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
 						</div>
 						<!-- End Single Service -->
@@ -493,7 +493,7 @@
 						<!-- Start Single Service -->
 						<div class="single-service">
 							<i class="icofont icofont-listening"></i>
-							<h4><a href="service-details.html">Ear Treatment</a></h4>
+							<h4><a href="service-details.php">Ear Treatment</a></h4>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
 						</div>
 						<!-- End Single Service -->
@@ -502,7 +502,7 @@
 						<!-- Start Single Service -->
 						<div class="single-service">
 							<i class="icofont icofont-eye-alt"></i>
-							<h4><a href="service-details.html">Vision Problems</a></h4>
+							<h4><a href="service-details.php">Vision Problems</a></h4>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
 						</div>
 						<!-- End Single Service -->
@@ -511,7 +511,7 @@
 						<!-- Start Single Service -->
 						<div class="single-service">
 							<i class="icofont icofont-blood"></i>
-							<h4><a href="service-details.html">Blood Transfusion</a></h4>
+							<h4><a href="service-details.php">Blood Transfusion</a></h4>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
 						</div>
 						<!-- End Single Service -->
@@ -647,7 +647,7 @@
 							<div class="news-body">
 								<div class="news-content">
 									<div class="date">22 Aug, 2020</div>
-									<h2><a href="blog-single.html">We have annnocuced our new product.</a></h2>
+									<h2><a href="blog-single.php">We have annnocuced our new product.</a></h2>
 									<p class="text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
 								</div>
 							</div>
@@ -663,7 +663,7 @@
 							<div class="news-body">
 								<div class="news-content">
 									<div class="date">15 Jul, 2020</div>
-									<h2><a href="blog-single.html">Top five way for solving teeth problems.</a></h2>
+									<h2><a href="blog-single.php">Top five way for solving teeth problems.</a></h2>
 									<p class="text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
 								</div>
 							</div>
@@ -679,7 +679,7 @@
 							<div class="news-body">
 								<div class="news-content">
 									<div class="date">05 Jan, 2020</div>
-									<h2><a href="blog-single.html">We provide highly business soliutions.</a></h2>
+									<h2><a href="blog-single.php">We provide highly business soliutions.</a></h2>
 									<p class="text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
 								</div>
 							</div>
