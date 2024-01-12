@@ -112,7 +112,7 @@
 				</div>
 				<!-- End Single Slider -->
 				<!-- Start Single Slider -->
-				<div class="single-slider" style="background-image:url('img/banner-1.jpg')">
+				<div class="single-slider" style="background-image:url('img/banner-1-career.jpg')">
 					<div class="container">
 						<div class="row">
 							<div class="col-lg-7">
@@ -130,7 +130,7 @@
 				</div>
 				<!-- Start End Slider -->
 				<!-- Start Single Slider -->
-				<div class="single-slider" style="background-image:url('img/banner-3.jpg')">
+				<div class="single-slider" style="background-image:url('img/banner-3-v3.jpg')">
 					<div class="container">
 						<div class="row">
 							<div class="col-lg-7">
@@ -160,9 +160,7 @@
 							<!-- single-schedule -->
 							<div class="single-schedule first">
 								<div class="inner">
-									<div class="icon">
-										<i class="fa fa-ambulance"></i>
-									</div>
+
 									<div class="single-content">
 										<span>Feature 1</span>
 										<h4>Assess Skills</h4>
@@ -176,9 +174,7 @@
 							<!-- single-schedule -->
 							<div class="single-schedule middle">
 								<div class="inner">
-									<div class="icon">
-										<i class="icofont-prescription"></i>
-									</div>
+
 									<div class="single-content">
 										<span>Feature 2</span>
 										<h4>Generate Career Roadmap</h4>
@@ -192,9 +188,7 @@
 							<!-- single-schedule -->
 							<div class="single-schedule last">
 								<div class="inner">
-									<div class="icon">
-										<i class="icofont-ui-clock"></i>
-									</div>
+
 									<div class="single-content">
 										<span>Feauture 3</span>
 										<h4>Track Development</h4>
@@ -215,9 +209,9 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="section-title">
-							<h2>We Are Always Ready to Help You & Your Family</h2>
+							<h2>Main Features</h2>
 							<img src="img/section-img.png" alt="#">
-							<p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+							<p>We aim to provide a comprehensive guide for employees within this company to achieve your intended roles with the assistance of Artificial Intelligence(AI)</p>
 						</div>
 					</div>
 				</div>
