@@ -14,11 +14,14 @@
 
 .navLeft {
   min-width: 200px;
+  display: flex;
 }
 
 .navRight {
-  width: 100%;
-  justify-content: space-between;
+  width: 200%;
+  display: flex;
+  justify-content: flex-end;
+  
 }
 
 .navLinksWrapper {
@@ -43,7 +46,7 @@
 }
 
 .brand {
-  width: 80%;
+  width: 90%;
   cursor: pointer;
 }
 
@@ -59,7 +62,7 @@
 .signup {
   padding: 0.7rem 1.1rem;
   border-radius: 50px;
-  background: #0aad0a;
+  background: #27374D;
   color: white;
   font-weight: bold;
   font-size: 18px;
