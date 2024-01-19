@@ -1,7 +1,7 @@
 .heroWrapper {
   width: 100%;
   min-height: 460px;
-  background: #deedd6;
+  background: #2F4858;
   position: relative;
   justify-content: flex-start;
   overflow: hidden;
@@ -29,50 +29,35 @@
 .headerText {
   letter-spacing: 0.5px;
   font-size: 2.5rem;
-  color: #353839;
+  color: #DDE6ED;
   font-weight: 600;
-  width: 60%;
+  width: 100%;
   margin-top: 5px;
 }
 
 .heroInner p {
   font-size: 18px;
   margin: 25px 0;
-}
-.inputLocation {
-  display: flex;
-  justify-content: flex-start;
-  width: 475px;
-  background: white;
-  border-radius: 0.75rem;
+  color: #DDE6ED;
 }
 
-.inputLocation i {
-  align-self: center;
-  justify-self: center;
-  padding: 25px;
-}
-.inputLocation input {
-  width: 100%;
-  border: none;
-  outline: none;
-  font-size: 1.2rem;
-}
-
-.inputLocation input::placeholder {
-  font-size: 1.2rem;
-}
-
-.heroImage {
+.herocreate {
+  padding: 0.7rem 1.1rem;
+  background: #33658A;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  margin-left: 0.2rem;
+  cursor: pointer;
+  outline-style: none;
+  border-style: none;
   position: absolute;
-  right: 0px;
-  top: 0px;
-  height: 100%;
 }
 
-.heroImage img {
-  height: 100%;
+.herologin {
+  color: #DDE6ED;
 }
+
 .arrow {
   color: #38bc38;
 }
@@ -81,6 +66,7 @@
   .heroImage {
     width: 100%;
   }
+
   .heroImage img {
     transform: rotate(-90deg) scale(1.2);
     height: 100vw;
@@ -89,6 +75,7 @@
     left: 10%;
     bottom: 10px;
   }
+
   .heroWrapper {
     align-items: flex-end;
   }
@@ -98,19 +85,20 @@
     overflow: hidden;
     width: 100%;
   }
-  .inputLocation {
+
+  .signup {
     margin-top: 20px;
-    width: 100%;
+    width: 0%;
   }
-  .inputLocation input {
-    width: 90%;
-  }
+
   .slogan {
     display: none;
   }
+
   .dropDown {
     display: none;
   }
+
   .headerText {
     font-size: 2rem;
   }
@@ -120,9 +108,11 @@
   .inputLocation {
     width: 100%;
   }
+
   .heroImage img {
     bottom: 160px;
   }
+
   .headerText {
     width: 80%;
     font-size: 1.75rem;
