@@ -1,7 +1,6 @@
 import { Fragment } from "react";
 import styles from "./Features.module.css";
 import { features } from "../../constants/features";
-import feature_1 from "src/assets/img/feature1.jpg"
 
 const Features = () => {
   return (
@@ -34,7 +33,6 @@ const Features = () => {
           })}
         </div>
       </div>
-      <button className={styles.shopBtn}>Start shopping</button>
     </div>
   );
 };
