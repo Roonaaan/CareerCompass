@@ -1,22 +1,23 @@
+import feature_1 from "src/assets/img/feature1.jpg"
 export const features = [
   {
-    feature: "Choose what you want",
+    feature: "Assess Skills",
     description:
-      "Select items from your favorite grocery stores at Instacart.com or in the app.",
+      "Assesses your skills, experience, and qualifications to give you the best career path",
     image:
-      "https://d2guulkeunn7d8.cloudfront.net/assets/homepage/how_it_works-163dcc1c8f91c63d7b0bdb648b5370a89267d54c8cb90bd858495395b8a9e5f3.jpg",
+      {feature_1},
   },
   {
-    feature: "See real-time updates",
+    feature: "Generate Career Roadmap",
     description:
-      "Personal shoppers pick items with care. Chat as they shop and manage your order.",
+      "Generates personalized learning plans where your skill gaps will be improved to achive your desired career goals.",
     image:
       "https://d2guulkeunn7d8.cloudfront.net/assets/homepage/real_time_updates-8330ec94f4d8006c6732bb2f65141e3596dcd3be02b0bf0376dcf5e2895fe37e.jpg",
   },
   {
-    feature: "Get your items same-day",
+    feature: "Track Development",
     description:
-      "Pick a convenient time for you. Enjoy Instacart’s 100% quality guarantee on every order.",
+      "Track your own milestonmes and accomplishments along your chosen career path.",
     image:
       "https://d2guulkeunn7d8.cloudfront.net/assets/homepage/same_day_delivery-a00a9a59cbdfc41e7449cbdd04c12d27303284bef1a8fe957ec2a0112a70d7e7.jpg",
   },

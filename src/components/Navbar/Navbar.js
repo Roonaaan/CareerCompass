@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Navbar.module.css";
-import logo from "./final-topright-logo.png"
+import logo from "./img/final-topright-logo.png"
 
 const Navbar = ({ hamActive, setHamActive }) => {
   const Logo = logo;
