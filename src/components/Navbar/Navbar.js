@@ -18,7 +18,7 @@ const Navbar = ({ hamActive, setHamActive }) => {
           <span className={styles.hamburgerLines}></span>
         </button>
         <div className={`${styles.navLeft}`}>
-          <img src={Logo} alt="logo" className={styles.brand} />
+        <img src={Logo} alt="logo" className={styles.brand} />
         </div>
         <div className={`${styles.navRight} center`}>
         <a href="/" className={styles.login}>
