@@ -10,9 +10,10 @@ import Questions from "./components/Questions/Questions";
 import Programs from "./components/Programs/Programs";
 import Footer from "./components/Footer/Footer";
 
-// Import data
+// Import datas
 import { programs_user } from "./constants/programs_user";
 import { programs_shopper } from "./constants/programs_shopper";
+
 
 const App = () => {
   const [hamActive, setHamActive] = useState(false);

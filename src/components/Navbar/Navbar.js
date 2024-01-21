@@ -21,13 +21,10 @@ const Navbar = ({ hamActive, setHamActive }) => {
         <img src={Logo} alt="logo" className={styles.brand} />
         </div>
         <div className={`${styles.navRight} center`}>
-        <a href="/" className={styles.login}>
-              Log in
-            </a>
+        <button className={styles.login}>
+              Log In
+            </button>
             <button className={styles.signup}>Sign Up</button>
-          <div>
-            
-          </div>
         </div>
       </div>
     </nav>

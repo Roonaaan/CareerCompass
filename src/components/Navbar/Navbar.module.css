@@ -58,6 +58,11 @@
   font-weight: 600;
   cursor: pointer;
   padding: 0.7rem 1.1rem;
+  outline-style: none;
+  border-style: none;
+  border-radius: 50px;
+  background-color: transparent;
+  
   /* background-color: red; */
 }
 
