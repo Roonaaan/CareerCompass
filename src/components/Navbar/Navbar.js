@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Navbar.module.css";
 import logo from "./img/final-topright-logo.png"
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const Logo = logo;
@@ -14,9 +15,9 @@ const Navbar = () => {
         <img src={Logo} alt="logo" className={styles.brand} />
         </div>
         <div className={`${styles.navRight} center`}>
-        <button className={styles.login}>
+        <Link to="Login" className={styles.login}>
               Log In
-            </button>
+            </Link>
         </div>
       </div>
     </nav>

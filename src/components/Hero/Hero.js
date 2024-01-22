@@ -1,4 +1,5 @@
 import styles from "./Hero.module.css";
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
@@ -14,9 +15,9 @@ const Hero = () => {
           </p>
         </div>
         <div className={styles.herocreate}>
-          <a href="/" className={styles.herologin}>
+          <Link to="Login" className={styles.herologin}>
             CREATE ROADMAP
-          </a>
+          </Link>
         </div>
       </div>
     </div>
