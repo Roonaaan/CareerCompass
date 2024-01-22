@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 // Components import
 import Navbar from "./components/Navbar/Navbar";
@@ -16,19 +16,19 @@ import { programs_shopper } from "./constants/programs_shopper";
 
 
 const App = () => {
-  const [hamActive, setHamActive] = useState(false);
 
   return (
+
     <div className="App">
-      <Navbar hamActive={hamActive} setHamActive={setHamActive} />
-      <NavbarResponsive hamActive={hamActive} />
+      <Navbar />
+      <NavbarResponsive />
       <Hero />
       <Features />
       <Growth />
       <Questions />
       <Programs programs={programs_user} />
       <Programs programs={programs_shopper} />
-      <Footer />
+      <Footer />    
     </div>
   );
 };
