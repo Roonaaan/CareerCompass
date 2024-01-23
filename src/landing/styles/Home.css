@@ -1,0 +1,418 @@
+/* Nav Bar */
+.navbarWrapper {
+  width: 100%;
+  height: min(10vh, 100px);
+  position: relative;
+  background: white;
+  display: flex;
+  justify-content: center;
+}
+
+.navbarInner {
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.navLeft {
+  min-width: 200px;
+}
+
+.navRight {
+  width: 250px;
+}
+
+.navLinksWrapper {
+  display: flex;
+  width: 400px;
+}
+
+.nav {
+  color: grey;
+  font-weight: 600;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.nav:hover {
+  color: #343538;
+}
+
+.verticalLine {
+  border-left: 3px solid #dadada;
+  height: 25px;
+  margin-right: 10px;
+}
+
+.brand {
+  width: 41%;
+  cursor: pointer;
+  margin: 30px 20px;
+}
+
+.login {
+  color: #343538;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.7rem 1.1rem;
+  outline-style: none;
+  border-style: none;
+  border-radius: 50px;
+  background-color: transparent;
+
+  /* background-color: red; */
+}
+
+.about {
+  padding: 0.7rem 1.1rem;
+  border-radius: 50px;
+  background: #27374D;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  margin-left: 0.2rem;
+  cursor: pointer;
+  outline-style: none;
+  border-style: none;
+}
+
+
+/* MEDIA QUERIES */
+@media (max-width: 900px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .navLinksWrapper {
+    display: none;
+  }
+
+  .navRight {
+    justify-content: flex-end;
+  }
+
+  .navLeft {
+    width: 300px;
+  }
+
+  .navbarWrapper {
+    box-shadow: 5px 2px 25px #cecece;
+  }
+
+  .navbarInner {
+    margin: 0 10px;
+  }
+}
+
+@media (max-width: 500px) {
+
+  .signup,
+  .login {
+    font-size: 14px;
+  }
+
+  .signup {
+    margin-left: 10px;
+  }
+
+  .navLeft {
+    min-width: 150px;
+  }
+
+  .navbarInner {
+    overflow: hidden;
+  }
+}
+
+/* Hero Part */
+
+.heroWrapper {
+  width: 100%;
+  min-height: 460px;
+  background: #2F4858;
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+}
+
+.heroInner {
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+  margin: 100px 0 0 60px;
+}
+
+.dropDown {
+  position: absolute;
+  left: 40px;
+  top: 40px;
+  padding: 20px 20px 20px 20px;
+  border: none;
+  border-radius: 10px;
+  background: white;
+  outline-style: none;
+  cursor: pointer;
+}
+
+.headerText {
+  letter-spacing: 0.5px;
+  font-size: 2.5rem;
+  color: #DDE6ED;
+  font-weight: 600;
+  width: 100%;
+  margin-top: 5px;
+}
+
+.heroInner p {
+  font-size: 18px;
+  margin: 25px 0;
+  color: #DDE6ED;
+}
+
+.herocreate {
+  padding: 0.7rem 1.1rem;
+  background: #33658A;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+  outline-style: none;
+  border-style: none;
+}
+
+.herologin {
+  color: #DDE6ED;
+}
+
+.arrow {
+  color: #38bc38;
+}
+
+@media (max-width: 900px) {
+  .heroImage {
+    width: 100%;
+  }
+
+  .heroImage img {
+    transform: rotate(-90deg) scale(1.2);
+    height: 100vw;
+    object-fit: cover;
+    position: absolute;
+    left: 10%;
+    bottom: 10px;
+  }
+
+  .heroWrapper {
+    align-items: flex-end;
+  }
+
+  .heroInner {
+    margin: 50px 20px;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .signup {
+    margin-top: 20px;
+    width: 0%;
+  }
+
+  .slogan {
+    display: none;
+  }
+
+  .dropDown {
+    display: none;
+  }
+
+  .headerText {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 550px) {
+  .inputLocation {
+    width: 100%;
+  }
+
+  .heroImage img {
+    bottom: 160px;
+  }
+
+  .headerText {
+    width: 80%;
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .headerText {
+    width: 80%;
+    font-size: 1.5rem;
+  }
+}
+
+/* Feature */
+.featuresWrapper {
+  flex-direction: column;
+}
+
+.featuresHeading {
+  margin: 75px 10px 30px 10px;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.featureDesc{
+  margin: 7px 10px 30px 10px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.featuresListWrapper {
+  width: 100%;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
+.featuresList {
+  height: 465px;
+  margin: 0 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.featureDiv {
+  flex-direction: column;
+  justify-content: space-between;
+  background: #f6f7f8;
+  width: 30%;
+  max-width: 450px;
+  flex-grow: 1;
+  flex-basis: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+}
+
+.featureDiv:nth-of-type(2) {
+  margin: 0 20px;
+}
+
+.feature {
+  font-size: 1.5rem;
+  padding: 30px 50px 30px 40px;
+  font-weight: 500;
+}
+
+.featureDescription {
+  padding: 0 50px 25px 40px;
+}
+
+.featureImg {
+  width: 100%;
+  height: 100%;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+.shopBtn {
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  background: #0aad0a;
+  padding: 15px;
+  width: 360px;
+  border-radius: 1rem;
+  outline-style: none;
+  border: none;
+  margin: 50px;
+  cursor: pointer;
+}
+.shopBtn:hover {
+  background: #039b03;
+}
+
+@media (max-width: 1100px) {
+  .featuresListWrapper {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 900px) {
+  .featuresHeading {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .featureDiv:nth-of-type(2) {
+    margin: 0 10px;
+  }
+
+  .featureDiv {
+    width: 50%;
+  }
+
+  .shopBtn {
+    width: 90%;
+  }
+}
+
+/* Footer */
+.footerNavbarWrapper {
+  width: 100%;
+  margin: 50px 0 25px 0;
+}
+
+.footerNavbarColumn {
+  border-top: 1px solid rgba(52, 53, 56, 0.1);
+  width: 100%;
+  height: 100%;
+}
+
+.footerNavbarInner {
+  justify-content: space-between;
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footerNavLeft {
+  font-weight: 500;
+  color: #231f20;
+  align-self: center;
+}
+
+.footerNavRight {
+  justify-content: space-between;
+}
+
+.footerNavLink {
+  margin-left: 20px;
+  color: #231f20;
+  font-weight: 500;
+}
+
+.footerText {
+  margin: 25px 0 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: lightslategrey;
+  font-size: 12px;
+  
+}
+
+@media (max-width: 600px) {
+  .footerNavbarInner {
+    flex-direction: column;
+  }
+}
