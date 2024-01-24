@@ -1,5 +1,6 @@
 import React, {Fragment} from "react";
 import { features } from './constants/features'
+import { useNavigate } from "react-router-dom";
 
 //import CSS
 import './styles/Home.css'
@@ -10,6 +11,11 @@ import logo from '../assets/final-topright-logo.png'
 const Home = () => {
     const Logo = logo;
 
+    const navigate = useNavigate();
+    const handleLoginClick = () => {
+        navigate('/Login')
+    }
+
     return(
         <>
         {/* Navigation Bar */}
@@ -19,7 +25,7 @@ const Home = () => {
                         <img src={Logo} alt="logo" className="brand" />
                     </div>
                     <div className="navRight">
-                        <button className="login">
+                        <button className="login" onClick={handleLoginClick}>
                             Log In
                         </button>
                         <button className="about">
@@ -42,7 +48,7 @@ const Home = () => {
                         </p>
                     </div>
                     <div className="herocreate">
-                        <a className="herologin">
+                        <a className="herologin" onClick={handleLoginClick}>
                             Create Roadmap
                         </a>
                     </div>
