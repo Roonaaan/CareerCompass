@@ -79,6 +79,14 @@
     cursor: pointer;
 }
 
+.password-icon{
+    transition: transform 0.2s ease-in-out;
+}
+
+.show-password-button:hover .password-icon{
+    transform: rotate(360deg);
+}
+
 .submit-container{
     display: flex;
     gap: 30px;
