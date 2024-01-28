@@ -69,8 +69,8 @@
 .about {
   padding: 0.7rem 1.1rem;
   border-radius: 50px;
-  background: #27374D;
-  color: white;
+  background-color: transparent;
+  color: #343538;
   font-weight: bold;
   font-size: 18px;
   margin-left: 0.2rem;
