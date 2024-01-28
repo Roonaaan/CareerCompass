@@ -53,6 +53,7 @@
     border-style: solid;
     border-color: #27374D;
     border-radius: 10px;
+    border-width: 1px;
 }
 
 .input input{

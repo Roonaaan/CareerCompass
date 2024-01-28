@@ -1,6 +1,6 @@
 import feature_1 from '../../assets/feature1.jpg'
-import feature_2 from '../../assets/feature1.jpg'
-import feature_3 from '../../assets/feature1.jpg'
+import feature_2 from '../../assets/feature2.jpg'
+import feature_3 from '../../assets/feature3.jpg'
 export const features = [
   {
     feature: "Assess Skills",

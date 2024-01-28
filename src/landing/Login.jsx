@@ -32,9 +32,9 @@ export const Login = () => {
                 </div>
             </div>
             <div className='footer'>
-                <a href='#'> Terms and Conditions </a>
+                <a href=''> Terms of use </a>
                 |
-                <a href='#'> Privacy Policy </a>
+                <a href=''> Privacy Policy </a>
             </div>
         </>
     )
