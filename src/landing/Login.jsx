@@ -75,7 +75,7 @@ export const Login = () => {
                             className='show-password-button'
                             onClick={() => {
                                 setShowPassword(!showPassword);
-                                setIconType(showPassword ? FaEyeSlash : FaEye); // This will Toggle the Icon
+                                setIconType(showPassword ? FaEye : FaEyeSlash); // This will Toggle the Icon
                             }}
                         >
                             <span className='password-icon'>{iconType}</span>
