@@ -79,6 +79,11 @@
     cursor: pointer;
 }
 
+.error-message{
+    padding-left: 100px;
+    padding-top: 1px;
+}
+
 .password-icon{
     transition: transform 0.2s ease-in-out;
 }
