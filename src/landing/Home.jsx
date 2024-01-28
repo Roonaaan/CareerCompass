@@ -15,6 +15,9 @@ const Home = () => {
     const handleLoginClick = () => {
         navigate('/Login')
     }
+    const handleAboutClick = () => {
+        navigate('/About')
+    }
 
     return (
         <>
@@ -25,7 +28,7 @@ const Home = () => {
                         <img src={Logo} alt="logo" className="brand" />
                     </div>
                     <div className="navRight">
-                        <button className="about">
+                        <button className="about" onClick={handleAboutClick}>
                             About Us
                         </button>
                         <button className="login" onClick={handleLoginClick}>
