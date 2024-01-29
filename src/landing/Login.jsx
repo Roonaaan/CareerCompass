@@ -27,17 +27,22 @@ export const Login = () => {
 
         if (!password) {
             setPasswordError('Please input your password');
-        } else if (password.length < 8) {
-            setPasswordError('Password must be at least 8 characters long');
-        } else if (!/[A-Z]/.test(password)) {
-            setPasswordError('Password must contain at least one uppercase letter');
-        } else if (!/[a-z]/.test(password)) {
-            setPasswordError('Password must contain at least one lowercase letter');
-        } else if (!/[0-9]/.test(password)) {
-            setPasswordError('Password must contain at least one number');
-        } else if (!/[^\w\s]/.test(password)) {
-            setPasswordError('Password must contain at least one special character');
         }
+
+        {/* Password Validation
+        
+            else if (password.length < 8) {
+                setPasswordError('Password must be at least 8 characters long');
+            } else if (!/[A-Z]/.test(password)) {
+                setPasswordError('Password must contain at least one uppercase letter');
+            } else if (!/[a-z]/.test(password)) {
+                setPasswordError('Password must contain at least one lowercase letter');
+            } else if (!/[0-9]/.test(password)) {
+                setPasswordError('Password must contain at least one number');
+            } else if (!/[^\w\s]/.test(password)) {
+                setPasswordError('Password must contain at least one special character');
+            }     
+        */}
     };
 
     // Show Password
@@ -55,7 +60,8 @@ export const Login = () => {
                     <div className='text'> Log In </div>
                 </div>
                 <div className='inputs'>
-                    <div className='input'>
+                    {/* Email Address*/}
+                    <div className='input'> 
                         <input
                             type='email'
                             placeholder='Email Address'
@@ -63,6 +69,7 @@ export const Login = () => {
                         />
                     </div>
                     {emailError && <div className='error-message'>{emailError} </div>}
+                    {/* Password */}
                     <div className='input'>
                         <input
                             type={showPassword ? 'text' : 'password'}
