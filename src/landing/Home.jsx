@@ -7,6 +7,7 @@ import './styles/Home.css'
 
 //images
 import logo from '../assets/final-topright-logo.png'
+import footerlogo from '../assets/footerLogo.png'
 
 const Home = () => {
     const Logo = logo;
@@ -19,14 +20,19 @@ const Home = () => {
         navigate('/About')
     }
 
+    const handleHomeClick = () => {
+        navigate('/')
+    }
+
     return (
         <>
             {/* Navigation Bar */}
             <nav className="navbarWrapper">
                 <div className="navbarInner">
                     <div className="navLeft">
-                        <img src={Logo} alt="logo" className="brand" />
+                        <img src={Logo} alt="logo" className="brand" onClick={handleHomeClick} />
                     </div>
+                    {/* Login and About Header
                     <div className="navRight">
                         <button className="about" onClick={handleAboutClick}>
                             About Us
@@ -35,6 +41,7 @@ const Home = () => {
                             Log In
                         </button>
                     </div>
+                    */}
                 </div>
             </nav>
             {/* End of Navigation Bar */}
@@ -61,7 +68,7 @@ const Home = () => {
             {/* Features */}
             <div className="featuresWrapper">
                 <div className="featuresHeading">
-                    <p> Main Features</p>
+                    <p className="featureTitle"> Main Features</p>
                     <p classname="featureDesc">
                         We aim to provide a guide for employees within this company to achieve your
                         intended roles with the assistance of Artificial Inteligence(AI)
@@ -96,40 +103,29 @@ const Home = () => {
             <nav className="footerNavbarWrapper">
                 <div className="footerNavbarColumn">
                     <div className="footerNavbarInner">
-                        <div className="footerNavleft">Legal</div>
-                        <div>
-                            <a href="/" className="footerNavLink">
-                                Terms of Use
-                            </a>
-                            <a href="/" className="footerNavLink">
-                                Privacy Policy
-                            </a>
+                        <div className="footerNavleft">
+                            <img src={footerlogo} alt="Logo" className="footerLogo" onClick={handleHomeClick} />
                         </div>
-                        <div>
-                            <span>
-                                <a href="#facebook" className="fab fa-facebook-square">
-                                    {" "}
-                                </a>
-                            </span>
-                            <span>
-                                <a href="#instagram" className="fab fa-instagram" style={{ color: "black" }}>
-                                    {" "}
-                                </a>
-                            </span>
-                            <span>
-                                <a href="#pinterest" className="fab fa-pinterest">
-                                    {" "}
-                                </a>
-                            </span>
+                        <div className="footerConnect">
+                            <h1> Connect with us </h1>
+                            <div>
+                                <span>
+                                    <a href="#facebook" className="fab fa-facebook-square fa-6x" style={{color: 'white'}}>
+                                        {''}
+                                    </a>
+                                </span>
+                                <span>
+                                    <a href="#facebook" className="fab fa-google fa-6x" style={{color: 'white'}}> 
+                                        {''}
+                                    </a>
+                                </span>
+                            </div>
                         </div>
-                        {/* </div> */}
                     </div>
+                    <div className="underline" />
                     <div className="footerText">
-                        <p>
-                            Apple and the Apple logo are trademarks of Apple Inc., registered in
-                            the U.S. and other countries. App Store is a service mark of Apple
-                            Inc. Android, Google Play and the Google Play logo are trademarks of
-                            Google LLC.
+                        <p className="footerTextCopyright">
+                            Copyright &#169; CareerCompass. All Rights Reserved
                         </p>
                     </div>
                 </div>
