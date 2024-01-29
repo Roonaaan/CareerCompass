@@ -102,7 +102,8 @@ const Home = () => {
             {/* Footer */}
             <nav className="footerNavbarWrapper">
                 <div className="footerNavbarColumn">
-                    <div className="footerNavbarInner">
+                    <div className="footerNavbarInner">                      
+                        <div className="footerLogoWrapper">
                         <div className="footerNavleft">
                             <img src={footerlogo} alt="Logo" className="footerLogo" onClick={handleHomeClick} />
                         </div>
@@ -110,16 +111,23 @@ const Home = () => {
                             <h1> Connect with us </h1>
                             <div>
                                 <span>
-                                    <a href="#facebook" className="fab fa-facebook-square fa-6x" style={{color: 'white'}}>
+                                    <a href="#facebook" className="fab fa-facebook-square fa-6x" style={{ color: 'white' }}>
                                         {''}
                                     </a>
                                 </span>
                                 <span>
-                                    <a href="#facebook" className="fab fa-google fa-6x" style={{color: 'white'}}> 
+                                    <a href="#facebook" className="fab fa-google fa-6x" style={{ color: 'white' }}>
                                         {''}
                                     </a>
                                 </span>
                             </div>
+                        </div>
+                        </div>
+                        <div className="footerAbout">
+                            <h1> Our Team </h1>
+                            <a href="" className="footerAboutLink"> About Us </a>
+                            <a href="" className="footerAboutLink"> Mission and Vision </a>
+                            <a href="" className="footerAboutLink"> Contact us </a>
                         </div>
                     </div>
                     <div className="underline" />

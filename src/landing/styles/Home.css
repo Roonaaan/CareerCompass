@@ -389,6 +389,11 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footerLogoWrapper{
+  display: flex;
 }
 
 .footerNavLeft {
@@ -401,6 +406,7 @@
   width: 180px;
   cursor: pointer;
   margin: 15px 49px;
+  flex-grow: 1;
 }
 
 .footerConnect{
@@ -409,7 +415,21 @@
   font-size: 10px;
   align-items: center;
   flex-direction: column;
-  margin-left: 170px;
+  margin-left: 0;
+}
+
+.footerAbout{
+  display: flex;
+  flex-direction: column;
+  font-size: 10px;
+  font-weight: 700;
+  color: white;
+  margin-right: 25px;
+}
+
+.footerAboutLink{
+  margin-top: 10px;
+  color: white;
 }
 
 .underline{
@@ -433,5 +453,6 @@
 @media (max-width: 600px) {
   .footerNavbarInner {
     flex-direction: column;
+    justify-content: space-between;
   }
 }
