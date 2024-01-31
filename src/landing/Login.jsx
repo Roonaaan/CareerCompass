@@ -5,7 +5,7 @@ import './styles/Login.css'
 
 // Images and Logo
 import Logo from '../assets/logo-dark.png'
-import { FaEye, FaEyeSlash } from 'react-icons/fa'
+import { FaLock, FaLockOpen } from 'react-icons/fa'
 
 export const Login = () => {
 
@@ -47,7 +47,10 @@ export const Login = () => {
 
     // Show Password
     const [showPassword, setShowPassword] = useState(false);
-    const [iconType, setIconType] = useState(FaEye); //serves as the Initial Icon
+    const [iconType, setIconType] = useState(FaLock); //serves as the Initial Icon
+
+    // Remember Me
+    const [isRememberMeChecked, setIsRememberMeChecked] = useState(false);
 
     return (
         <>
@@ -59,9 +62,10 @@ export const Login = () => {
                 <div className='header'>
                     <div className='text'> Log In </div>
                 </div>
+                <div className='loginHeaderText'> Please fill your detail to log in your account. </div>
                 <div className='inputs'>
                     {/* Email Address*/}
-                    <div className='input'> 
+                    <div className='input'>
                         <input
                             type='email'
                             placeholder='Email Address'
@@ -82,7 +86,7 @@ export const Login = () => {
                             className='show-password-button'
                             onClick={() => {
                                 setShowPassword(!showPassword);
-                                setIconType(showPassword ? FaEye : FaEyeSlash); // This will Toggle the Icon
+                                setIconType(showPassword ? FaLock : FaLockOpen); // This will Toggle the Icon
                             }}
                         >
                             <span className='password-icon'>{iconType}</span>
@@ -90,7 +94,18 @@ export const Login = () => {
                     </div>
                     {passwordError && <div className="error-message">{passwordError}</div>}
                 </div>
-                <div className='forgot-password'>Forgot Password? <span>Click Here!</span> </div>
+                <div className='password'>
+                    <div className='remember-me'>
+                        <input
+                            type='checkbox'
+                            id='remember-me'
+                            checked={isRememberMeChecked}
+                            onChange={(e) => setIsRememberMeChecked(e.target.checked)}
+                        />
+                        <label htmlFor='remember-me'> Remember me </label>
+                    </div>
+                    <div className='forgot-password'>Forgot Password? </div>
+                </div>
                 <div className='submit-container'>
                     <button className='submit' onClick={handleValidation}>Log In</button>
                 </div>
