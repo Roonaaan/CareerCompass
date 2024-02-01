@@ -125,7 +125,7 @@ const Home = () => {
                         </div>
                         <div className="footerAbout">
                             <h1> Our Team </h1>
-                            <a href="" className="footerAboutLink"> About Us </a>
+                            <a href="/About" className="footerAboutLink" onClick={handleAboutClick}> About Us </a>
                             <a href="" className="footerAboutLink"> Mission and Vision </a>
                             <a href="" className="footerAboutLink"> Contact us </a>
                         </div>
