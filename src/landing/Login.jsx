@@ -74,6 +74,7 @@ export const Login = () => {
                         <label for='email'> Email Address </label>
                     </div>
                     {emailError && <div className='error-message'>{emailError} </div>}
+                    {/* End of Email Address*/}
                     {/* Password */}
                     <div className='input'>
                         <input
@@ -95,6 +96,7 @@ export const Login = () => {
                         </button>
                     </div>
                     {passwordError && <div className="error-message">{passwordError}</div>}
+                    {/* End of Password */}
                 </div>
                 <div className='password'>
                     <div className='remember-me'>
