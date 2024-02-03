@@ -67,7 +67,7 @@ const Home = () => {
             {/* End of Hero */}
             {/* Features */}
             <div className="featuresWrapper">
-                <div className="featuresHeading">
+                <div className="featuresHeading">   
                     <p className="featureTitle"> Main Features</p>
                     <p classname="featureDesc">
                         We aim to provide a guide for employees within this company to achieve your
@@ -109,18 +109,19 @@ const Home = () => {
                         </div>
                         <div className="footerConnect">
                             <h1> Connect with us </h1>
-                            <div>
-                                <span>
-                                    <a href="#facebook" className="fab fa-facebook-square fa-6x" style={{ color: 'white' }}>
-                                        {''}
-                                    </a>
-                                </span>
-                                <span>
-                                    <a href="#facebook" className="fab fa-google fa-6x" style={{ color: 'white' }}>
-                                        {''}
-                                    </a>
-                                </span>
-                            </div>
+                            <div style={{ display: 'flex', justifyContent: 'center' }}>
+    <span style={{ margin: '0 10px' }}>
+        <a href="#facebook" className="fab fa-facebook-square fa-4x" style={{ color: 'white' }}>
+            {''}
+        </a>
+    </span>
+    <span style={{ margin: '0 10px' }}>
+        <a href="#google" className="fab fa-google fa-4x" style={{ color: 'white' }}>
+            {''}
+        </a>
+    </span>
+</div>
+
                         </div>
                         </div>
                         <div className="footerAbout">
