@@ -60,17 +60,45 @@
     border-color: #27374D;
     border-radius: 10px;
     border-width: 1px;
+    position: relative;
 }
 
 .input input{
     height: 50px;
     width: 360px;
-    background: transparent;
+    background: none;
     border: none;
     outline: none;
     color: black;
     font-size: 19px;
     margin-left: 22px;
+    padding: 1px;
+    border: 2px solid transparent;
+}
+
+.input label{
+    position: absolute;
+    top: 0;
+    left: 0;
+    translate: 20px 19px;
+    color: #999;
+    background-color: white;
+    border: 2px solid transparent;
+    pointer-events: none;
+    transition: translate 250ms,
+                background-color 250ms,
+                border-color 250ms;
+}
+
+.input:focus-within label,
+.input:not(:has(:placeholder-shown))
+label{
+    translate: 20px -14px;
+    color: black;
+}
+
+.input ::placeholder{
+    color: transparent;
 }
 
 .password{
