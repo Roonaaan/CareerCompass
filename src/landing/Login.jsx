@@ -68,20 +68,22 @@ export const Login = () => {
                     <div className='input'>
                         <input
                             type='email'
-                            placeholder='Email Address'
+                            placeholder=''
                             onChange={(e) => setEmail(e.target.value)}
                         />
+                        <label for='email'> Email Address </label>
                     </div>
                     {emailError && <div className='error-message'>{emailError} </div>}
                     {/* Password */}
                     <div className='input'>
                         <input
                             type={showPassword ? 'text' : 'password'}
-                            placeholder='Password'
+                            placeholder=''
                             onChange={(e) => {
                                 setPassword(e.target.value)
                             }}
                         />
+                        <label for='password'> Password </label>
                         <button
                             className='show-password-button'
                             onClick={() => {
