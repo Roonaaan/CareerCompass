@@ -1,0 +1,160 @@
+
+/* Nav Bar */
+.navbarWrapper {
+  width: 100%;
+  height: min(10vh, 100px);
+  position: relative;
+  background: white;
+  display: flex;
+  justify-content: center;
+}
+.navbarInner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.navRight {
+  width: 250px;
+}
+.navLinksWrapper {
+  display: flex;
+  width: 400px;
+}
+.nav {
+  color: grey;
+  font-weight: 600;
+  margin: 0 10px;
+  cursor: pointer;
+}
+.nav:hover {
+  color: #343538;
+}
+.verticalLine {
+  border-left: 3px solid #dadada;
+  height: 25px;
+  margin-right: 10px;
+}
+.brand {
+  width: 150px;
+  cursor: pointer;
+  margin: 25px;
+  padding: 0;
+}
+.login {
+  color: #343538;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.7rem 1.1rem;
+  outline-style: none;
+  border-style: none;
+  border-radius: 50px;
+  background-color: transparent;
+  /* background-color: red; */
+}
+.about {
+  padding: 0.7rem 1.1rem;
+  border-radius: 50px;
+  background-color: transparent;
+  color: #343538;
+  font-weight: bold;
+  font-size: 18px;
+  margin-left: 0.2rem;
+  cursor: pointer;
+  outline-style: none;
+  border-style: none;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 900px) {
+  .hamburger {
+    display: flex;
+  }
+  .navLinksWrapper {
+    display: none;
+  }
+  .navRight {
+    justify-content: flex-end;
+  }
+  .navLeft {
+    width: 300px;
+  }
+  .navbarWrapper {
+    box-shadow: 5px 2px 25px #cecece;
+  }
+  .navbarInner {
+    margin: 0 10px;
+  }
+}
+@media (max-width: 500px) {
+
+
+  .navLeft {
+    min-width: 150px;
+  }
+  .navbarInner {
+    overflow: hidden;
+  }
+}
+/* About Us */
+/* Description CSS */
+.description-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+}
+.description-container {
+  background-color: rgb(39, 55, 77);
+}
+
+.header {
+  font-size: 40px;
+  font-weight: bold;
+  width: 600px;
+  text-align: center;
+  color: white;
+  margin-bottom: 30px;
+  margin-top: 20px
+  ;
+}
+.sub-heading {
+  font-size: 16px;    
+  text-align: center;
+  margin-bottom: 50px;
+  margin-left: 330px;
+  margin-right: 330px;
+  color: white;
+}
+/* Mission CSS */
+.mission-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+}
+.mission-container {
+  background-color: white;
+  align-items: center;
+}
+
+.mission-header {
+  font-size: 40px;
+  font-weight: bold;
+  width: 600px;
+  text-align: center;
+  color: rgb(39, 55, 77)
+  margin-bottom: 30px;
+  margin-top: 50px
+  ;
+}
+.mission-sub-heading {
+  font-size: 16px;    
+  text-align: center;
+  margin-bottom: 50px;
+  margin-left: 330px;
+  margin-right: 330px;
+  color: rgb(39, 55, 77)
+}
