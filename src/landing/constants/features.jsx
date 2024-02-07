@@ -1,6 +1,9 @@
-import feature_1 from '../../assets/feature1.jpg'
-import feature_2 from '../../assets/feature2.jpg'
-import feature_3 from '../../assets/feature3.jpg'
+import feature_1 from '../../assets/f8.jpg'
+import feature_2 from '../../assets/f7.jpg'
+import feature_3 from '../../assets/f6.jpg'
+
+
+
 export const features = [
   {
     feature: "Assess Skills",
@@ -12,7 +15,7 @@ export const features = [
   {
     feature: "Generate Career Roadmap",
     description:
-      "Generates personalized learning plans where your skill gaps will be improved to achive your desired career goals.",
+      "Generate personalized learning plans where your skill will be improved to achive your desired career goals.",
     image:
     `${feature_2}`,
   },

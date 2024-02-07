@@ -1,3 +1,7 @@
+body {
+  font-size: 16px;
+}
+
 /* Navigation Bar */
 .navigationbarWrapper {
   width: 100%;
@@ -177,13 +181,15 @@
   width: 100%;
   height: 500px; 
   background-image: url(/src/assets/hero-1.jpg);
+  background-color: #27374D;
+  background-blend-mode:hard-light;
   background-size:fill;
   background-position:320px;
   position: relative;
   overflow: hidden;
   display: flex;
   align-items:flex-start;
-  
+
 }
 
 
@@ -361,7 +367,7 @@
 }
 
 .sloganTextDesc {
-  font-size: 24px;
+  font-size: 55px;
 }
 
 
@@ -414,10 +420,12 @@
   display: flex;
   flex-direction: column;
 
+
+
 }
 
 .featuresHeading {
-  margin-top: 64px;
+  margin-top: 48px;
   margin-left: 160px;
   margin-right: 160px;
   margin-bottom: 64px;
@@ -427,8 +435,10 @@
 
 .featureTitle {
   display: inline-block;
-  font-size: 32px;
+  font-size: 40px;
   font-weight: 600;
+  color: #27374D;  
+  margin-bottom: 15px;
   
 }
 
@@ -474,10 +484,16 @@
 
 .featuresListWrapper {
   width: 100%;
-  overflow: auto;
   display: flex;
   justify-content: center;
-}
+  width: 100%;
+  height: max-content;
+  align-items: center;
+  margin-bottom: 48px;
+
+
+
+} 
 ::-webkit-scrollbar {
   display: none;
 }
@@ -486,7 +502,12 @@
   height: 465px;
   margin: 0 10px;
   display: flex;
-  flex-wrap: wrap;
+  width: max-content;
+  height: max-content;
+  justify-content: center;
+  align-items: center;
+
+
 }
 
 .featureDiv {
@@ -499,6 +520,7 @@
   flex-basis: 100%;
   height: 100%;
   border-radius: 0.5rem;
+
   
 }
 
@@ -521,6 +543,8 @@
   height: 100%;
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
+  background-color: #3a557c;
+  background-blend-mode:lighten;
 }
 
 .shopBtn {
@@ -544,6 +568,7 @@
 @media (max-width: 1100px) {
   .featuresListWrapper {
     justify-content: flex-start;
+    width: max-content;
 
   }
 }
@@ -561,8 +586,10 @@
   }
 
   .featureDiv {
-    width: 100%; 
-    max-width: 350px;
+  width: max-content;
+  height: max-content;
+  justify-content: center;
+  align-items: center;
 
     
   }
@@ -587,6 +614,7 @@
   width: 100%;
   margin-top: 10px;
   background-color: #2F4858;
+
   
 }
 
@@ -597,7 +625,7 @@
 }
 
 .footerNavbarInner {
-  margin: 30px 0 0 ;
+  margin: 24px 0 0 ;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -615,9 +643,10 @@
 }
 
 .footerLogo {
-  width: 150px;
+  width: 120px;
   cursor: pointer;
-  margin: 15px 15px;
+  margin-left: 48px;
+  margin-left: 45ppx;
   flex-grow: 1;
   align-items: center;
 }
@@ -646,7 +675,7 @@
   font-size: 12px;
   align-items: center;
   flex-direction: column;
-  margin-left: 0;
+  margin-left: 24px;
 }
 
 
@@ -674,13 +703,15 @@
   font-size: 15px;
   font-weight: 700;
   color: white;
-  margin: 0 35px 10px 25px;
+  margin-right: 48px;
+  margin-bottom: 24px;
 }
 
 .footerAboutLink{
-  margin-top: 10px;
+  margin-top: 4px;
   color: white;
   font-weight: normal;
+  font-size:15px;
 }
 
 .underline{
@@ -692,15 +723,11 @@
 .footerText {
   width: 100%;
   height: 100%;
-  text-align: center;
+  text-align:center;
   color: white;
-  font-size: 18px;
+  font-size: 16px;
 }
 
-.footerTextCopyright{
-  padding-bottom: 20px;
-  margin-top: 20px;
-}
 
 @media (max-width: 600px) {
   .footerNavbarInner {
@@ -708,4 +735,17 @@
     justify-content: space-between;
   
   }
+}
+
+.footerTextCopyright {
+  margin: ;
+}
+
+.footerAboutHeader {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.connectWithUsText {
+  font-size: 16px;
 }

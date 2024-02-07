@@ -74,8 +74,10 @@ const Home = () => {
          <div className="heroSloganContainer">
             <p className="sloganTextDesc">
             Discover your own career path! Input your skills, experience, and
-              our system crafts a personalize roadmap just for you.
-            </p>
+              our system crafts a personalize roadmap just for you. 
+              
+              </p>
+            
          </div>
 
           <div className="heroButtonBar">
@@ -97,7 +99,7 @@ const Home = () => {
       {/* Features */}
       <div className="featuresWrapper">
         <div className="featuresHeading">
-          <p className="featureTitle"> Main Features</p>
+          <p className="featureTitle"> MAIN FEATURES</p>
          <p className="mainFeaturesText">We aim to provide a guide for employees within this company to
             achieve your intended roles with the assistance of Artificial
             Inteligence(AI)</p>
@@ -120,7 +122,7 @@ const Home = () => {
                     </div>
                   </Fragment>
                 </div>
-              );
+              )
             })}
             {/* end */}
           </div>
@@ -141,7 +143,7 @@ const Home = () => {
                 />
               </div>
               <div className="footerConnect">
-                <h1> Connect with us </h1>
+                <h1 className="connectWithUsText"> Connect with us </h1>
                 <div style={{ display: "flex", justifyContent: "center" }}>
                   <span style={{ margin: "0 10px" }}>
                     <a
@@ -165,7 +167,7 @@ const Home = () => {
               </div>
             </div>
             <div className="footerAbout">
-              <h1> Our Team </h1>
+              <h1 className="footerAboutHeader"> Our Team </h1>
               <a
                 href="/About"
                 className="footerAboutLink"
