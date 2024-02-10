@@ -31,6 +31,10 @@ const Home = () => {
     navigate("/");
   };
 
+  const handleContactClick = () => {
+    navigate("/Contact-Us");
+  };
+
   return (
     <>
       {/* Navigation Bar */}
@@ -49,9 +53,6 @@ const Home = () => {
             <btn className="login-text">Log in</btn>
             <btn className="Signup-text">Sign up</btn>
           </div>
-
-         
-
           {/* Login and About Header
                     <div className="navRight">
                         <button className="about" onClick={handleAboutClick}>
@@ -62,7 +63,6 @@ const Home = () => {
                         </button>
                     </div>
                     */}
-
         </div>
       </nav>
       {/* End of Navigation Bar */}
@@ -180,7 +180,7 @@ const Home = () => {
                 {" "}
                 Mission and Vision{" "}
               </a>
-              <a href="" className="footerAboutLink">
+              <a href="/Contact-Us" className="footerAboutLink" onClick={handleContactClick}>
                 {" "}
                 Contact us{" "}
               </a>
