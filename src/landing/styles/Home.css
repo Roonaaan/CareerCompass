@@ -232,12 +232,24 @@ body {
 .headerText {
   display: inline-block;
   letter-spacing: 0.5px;
-  font-size: 64px;
+  font-size: 64px; 
   color: #27374D;
   font-weight: 800;
   margin: 0px;
+}
+
+@media screen and (max-width: 768px) {
   
+  .headerText {
+    font-size: 48px; 
+  }
+}
+
+@media screen and (max-width: 480px) {
   
+  .headerText {
+    font-size: 36px; 
+  }
 }
 
 
@@ -367,7 +379,7 @@ body {
 }
 
 .sloganTextDesc {
-  font-size: 55px;
+  font-size: 18px; 
 }
 
 
@@ -419,9 +431,6 @@ body {
 .featuresWrapper {
   display: flex;
   flex-direction: column;
-
-
-
 }
 
 .featuresHeading {
@@ -429,8 +438,33 @@ body {
   margin-left: 160px;
   margin-right: 160px;
   margin-bottom: 64px;
-  font-size: 1.8rem;
+  font-size: 1.8rem; 
   text-align: center;
+}
+
+@media screen and (max-width: 1024px) {
+  .featuresHeading {
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  
+  .featuresHeading {
+    margin-left: 50px;
+    margin-right: 50px;
+    font-size: 1.5rem; 
+  }
+}
+
+@media screen and (max-width: 480px) {
+  
+  .featuresHeading {
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 1.2rem;
+  }
 }
 
 .featureTitle {
@@ -486,29 +520,42 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
-  width: 100%;
-  height: max-content;
   align-items: center;
-  margin-bottom: 48px;
+  margin-bottom: 3rem; 
+
+  
+  flex-wrap: wrap; 
+}
 
 
-
-} 
 ::-webkit-scrollbar {
   display: none;
 }
 
+
+.featuresListWrapper {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
 .featuresList {
-  height: 465px;
-  margin: 0 10px;
+  margin: 0 1rem; 
   display: flex;
-  width: max-content;
-  height: max-content;
   justify-content: center;
   align-items: center;
-
-
+  flex-grow: 1; 
+  max-width: 100%; 
 }
+
+@media screen and (max-width: 768px) {
+  .featuresList {
+    flex-direction: column;
+    height: auto; 
+    margin: 0.5rem; 
+  }
+}
+
+
 
 .featureDiv {
   flex-direction: column;
