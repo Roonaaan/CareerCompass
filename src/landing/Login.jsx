@@ -28,17 +28,17 @@ export const Login = () => {
     const handleInputChange = (e, type) => {
         switch (type) {
             case 'email':
-                setError('');
+                setEmailError('');
                 setEmail(e.target.value);
                 if (e.target.value === '') {
-                    setError('Email Address has left blank');
+                    setEmailError('Email Address has left blank');
                 }
                 break;
             case 'password':
-                setError('');
+                setPasswordError('');
                 setPassword(e.target.value);
                 if (e.target.value === '') {
-                    setError('Password has left blank');
+                    setPasswordError('Password has left blank');
                 }
                 break;
             default:
@@ -47,7 +47,7 @@ export const Login = () => {
 
     function loginSubmit(){
         if(email !== '' && password !== ''){
-            var url = "https://localhost/CareerCompass/backend/login.php";
+            var url = "https://localhost/CareerCompass/backend/login.php"; //Login.php folder location
             var headers = {
                 "Accept": "application/json",
                 "Content-type": "application.json"
@@ -76,7 +76,7 @@ export const Login = () => {
                 console.log(err);
             })
         } else {
-            setError('All field are required')
+            setError(''); {/*All field are required*/}
         }
     }
 
@@ -117,6 +117,17 @@ export const Login = () => {
     // Remember Me
     const [isRememberMeChecked, setIsRememberMeChecked] = useState(false);
 
+    // Enter Event Key (press enter)
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    const handleKeydown = (event) => {
+        if(event.key === 'Enter'){
+            handleValidation();
+            loginSubmit();
+        }
+    };
+    
+
     return (
         <>
 
@@ -146,8 +157,9 @@ export const Login = () => {
                             value={email}
                             onChange={(e) => {
                                 setEmail(e.target.value),
-                                    handleInputChange(e, 'email')
+                                handleInputChange(e, 'email')
                             }}
+                            onKeyDown={handleKeydown}
                         />
                         <label for='email'> Email Address </label>
                     </div>
@@ -161,7 +173,7 @@ export const Login = () => {
                             value={password}
                             onChange={(e) => {
                                 setPassword(e.target.value),
-                                    handleInputChange(e, 'password')
+                                handleInputChange(e, 'password')
                             }}
                         />
                         <label for='password'> Password </label>
@@ -197,6 +209,7 @@ export const Login = () => {
                             handleValidation();
                             loginSubmit();
                         }}
+                        onKeyDown={handleKeydown}
                         > Log In
                     </button>
                 </div>
