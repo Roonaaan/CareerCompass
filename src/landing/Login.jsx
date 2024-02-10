@@ -76,7 +76,7 @@ export const Login = () => {
                 console.log(err);
             })
         } else {
-            setError(''); {/*All field are required*/}
+            setError('adada'); {/*All field are required*/}
         }
     }
 
@@ -118,8 +118,6 @@ export const Login = () => {
     const [isRememberMeChecked, setIsRememberMeChecked] = useState(false);
 
     // Enter Event Key (press enter)
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-
     const handleKeydown = (event) => {
         if(event.key === 'Enter'){
             handleValidation();
@@ -175,6 +173,7 @@ export const Login = () => {
                                 setPassword(e.target.value),
                                 handleInputChange(e, 'password')
                             }}
+                            onKeyDown={handleKeydown}
                         />
                         <label for='password'> Password </label>
                         <button
