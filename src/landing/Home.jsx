@@ -112,7 +112,7 @@ const Home = () => {
                 <div className="featureDiv">
                   <Fragment>
                     <div className="feature">
-                      <p>{feature}</p>
+                      <p className="fecfec">{feature}</p>
                     </div>
                     <div className="featureDescription">
                       <p>{description}</p>
