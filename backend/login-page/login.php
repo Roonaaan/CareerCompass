@@ -24,14 +24,14 @@
             if(mysqli_num_rows($res) != 0) {
                 $row = mysqli_fetch_array($res);
                 if($pass != $row['ACCOUNT_PASSWORD']) {
-                    $result = "Invalid Password";
+                    $result = "Incorrect Password";
                 } 
                 else {
                     $result = "Logged in Successfully";
                 }
             } 
             else {
-                $result = "Invalid Email Address";
+                $result = "Incorrect Email Address";
             }
         } 
         else {

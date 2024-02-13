@@ -45,9 +45,9 @@ export const Login = () => {
         }
     }
 
-    function loginSubmit(){
+    function loginSubmit(){ //PHP to ReactJS Connection
         if(email !== '' && password !== ''){
-            var url = "https://localhost/CareerCompass/backend/login.php"; //Login.php folder location
+            var url = "https://localhost/CareerCompass/backend/login-page/login.php"; //Login.php folder location
             var headers = {
                 "Accept": "application/json",
                 "Content-type": "application.json"
@@ -62,7 +62,7 @@ export const Login = () => {
                 body: JSON.stringify(Data)
             }).then((response) => response.json())
             .then((response) => {
-                if(response[0].result === "Invalid Email Address" || response[0].result === "Invalid Password") {
+                if(response[0].result === "Incorrect Email Address" || response[0].result === "Incorrect Password") {
                     setError(response[0].result);
                 } 
                 else {
@@ -76,7 +76,7 @@ export const Login = () => {
                 console.log(err);
             })
         } else {
-            setError('adada'); {/*All field are required*/}
+            setError(''); {/*All field are required*/}
         }
     }
 
