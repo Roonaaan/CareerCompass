@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 //import CSS
 import "./styles/Home.css";
+import "./"
 
 //images
 import logo from "../assets/final-topright-logo.png";
@@ -112,7 +113,7 @@ const Home = () => {
                 <div className="featureDiv">
                   <Fragment>
                     <div className="feature">
-                      <p className="fecfec">{feature}</p>
+                      <p>{feature}</p>
                     </div>
                     <div className="featureDescription">
                       <p>{description}</p>
