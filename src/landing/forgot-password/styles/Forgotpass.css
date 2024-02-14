@@ -1,0 +1,84 @@
+.imageHeader {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px auto;
+    padding-top: 20px;
+}
+
+.imageHeaderLogo {
+    display: flex;
+    justify-content: center;
+    width: 60px;
+}
+
+.headerContainer {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 10px;
+    width: 600px;
+    padding-bottom: 30px;
+    align-items: center;
+}
+
+.forgotPassHeader {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
+    padding-top: 20px;
+}
+
+.forgotPassHeaderTitle {
+    color: #33658A;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.forgotPassHeaderText {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    text-align: center;
+    width: 21.5rem;
+    margin: 0 auto;
+}
+
+.inputs{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.forgotSubmit-container{
+    display: flex;
+    margin: 20px auto;
+}
+
+.forgotSubmit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 59px;
+    color: white;
+    background: #33658A;
+    border-radius: 5px;
+    border: 0;
+    outline: 0;
+    font-size: 19px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.return{
+    display: flex;
+}
+
+.return-submit{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}

@@ -124,16 +124,22 @@ export const Login = () => {
             loginSubmit();
         }
     };
+
+    // Forgot Password
+    const navigate = useNavigate();
+    const handleForgotPassClick = () => {
+        navigate('/Forgot-Password')
+    }
     
 
     return (
         <>
 
-            <div className='header'>
+            <div className='loginHeader'>
                 <img src={Logo} alt='Logo' className='logo' />
             </div>
             <div className='container'>
-                <div className='header'>
+                <div className='loginHeader'>
                     <div className='text'> Log In </div>
                 </div>
                 <div className='loginHeaderText'> Please fill your detail to log in your account. </div>
@@ -199,7 +205,7 @@ export const Login = () => {
                         />
                         <label htmlFor='remember-me'> Remember me </label>
                     </div>
-                    <div className='forgot-password'>Forgot Password? </div>
+                    <div className='forgot-password' onClick={handleForgotPassClick}>Forgot Password? </div>
                 </div>
                 <div className='submit-container'>
                     <button 

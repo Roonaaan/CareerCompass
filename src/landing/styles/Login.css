@@ -7,7 +7,7 @@
     padding-bottom: 30px;
 }
 
-.header{
+.loginHeader{
     display: flex;
     align-items: center;
     flex-direction: column;

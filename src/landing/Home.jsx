@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 
 //import CSS
 import "./styles/Home.css";
-import "./"
 
 //images
 import logo from "../assets/final-topright-logo.png";

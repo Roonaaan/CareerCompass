@@ -8,6 +8,9 @@ import About from './landing/About';
 import ContactUs from './landing/Contact';
 
 // Signed-In user page
+import ForgotPassword from './landing/forgot-password/Forgotpass';
+
+// Signed-In user page
 import Welcome from './signed_in/Home';
 
 function App() {
@@ -21,6 +24,9 @@ function App() {
           <Route path ="/Login" element={<Login />} />
           <Route path ="/About" element={<About />} />
           <Route path ="/Contact-Us" element={<ContactUs />} />
+
+          {/* Forgot Password Page */}
+          <Route path ="/Forgot-Password" element={<ForgotPassword />} />
 
           {/* Signed-In User Page */}
           <Route path ="/Welcome" element={<Welcome />} />
