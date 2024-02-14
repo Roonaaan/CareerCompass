@@ -4,7 +4,7 @@
     header("Access-Control-Allow-Methods: GET, POST");
     header("Access-Control-Allow-Headers: Content-Type");
 
-    $conn = new mysqli("localhost", "root", "P@55w0rd", "sys");
+    $conn = new mysqli("localhost", "root", "", "ccdb");
 
     if(mysqli_connect_error()) {
         echo mysqli_connect_error();
