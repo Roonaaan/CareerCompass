@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // CSS
-import './styles/Forgotpass.css'
+import './styles/Forgotpassword.css'
 
 // Logo
 import Logo from '../../assets/logo-dark.png'
@@ -14,6 +14,27 @@ export const Forgotpass = () => {
     const navigate = useNavigate();
     const handleLoginClick = () => {
         navigate('/Login');
+    };
+
+    // Email Validation
+    const [email, setEmail] = useState('');
+    const [emailError, setEmailError] = useState('');
+
+    const handleValidation = () => {
+        setEmailError('');
+
+        if (!email) {
+            setEmailError('Please enter your email address');
+        } else if (!/\S+@\S+\.\S+/.test(email)) { // Basic email validation
+            setEmailError('Please enter a valid email address');
+        }
+    }
+
+    // Enter Event Key (Press enter)
+    const handleKeydown = (event) => {
+        if(event.key === 'Enter'){
+            handleValidation();
+        }
     };
 
     return (
@@ -31,13 +52,17 @@ export const Forgotpass = () => {
                         <input
                             type='email'
                             placeholder=''
+                            onChange={(e) => setEmail(e.target.value)}
+                            onKeyDown={handleKeydown}
                         />
                         <label for='email'> Email Address </label>
                     </div>
+                    {emailError && <div className='forgotErrorMsg'>{emailError} </div>}
                 </div>
                 <div className="forgotSubmit-container">
                     <button
                         className='forgotSubmit'
+                        onClick={handleValidation}
                     > Continue
                     </button>
                 </div>

@@ -9,6 +9,7 @@ import ContactUs from './landing/Contact';
 
 // Signed-In user page
 import ForgotPassword from './landing/forgot-password/Forgotpass';
+import ForgotMessage from './landing/forgot-password/Forgotpassmessage';
 
 // Signed-In user page
 import Welcome from './signed_in/Home';
@@ -27,6 +28,7 @@ function App() {
 
           {/* Forgot Password Page */}
           <Route path ="/Forgot-Password" element={<ForgotPassword />} />
+          <Route path ="/Forgot-Password/Email-Sent" element={<ForgotMessage />} />
 
           {/* Signed-In User Page */}
           <Route path ="/Welcome" element={<Welcome />} />
