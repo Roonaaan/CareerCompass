@@ -1,38 +1,45 @@
-.contactUsWrapper{
-    width: 800px;
+.contactUsWrapper {
     height: 500px;
     display: flex;
     flex-direction: row;
     gap: 30px;
-    align-items: center;
     justify-content: center;
 }
 
-.contactForm{
+.contactForm {
     display: flex;
     flex-direction: column;
-    width: 50%;
     padding: 20px;
+    width: 40%;
 }
 
-.contactInputs{
+.contactInputs {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.contactInput{
+.contactInput {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 60%;
 }
 
-.contactInput label{
+.contactTextArea {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 80%;
+}
+
+.contactInput label,
+.contactTextArea label {
     font-weight: 600;
 }
 
 .contactInput input,
-.contactInput textarea{
+.contactTextArea textarea {
     width: 100%;
     padding: 10px;
     border: 1px solid black;
@@ -42,7 +49,7 @@
     font-family: "Poppins", sans-serif;
 }
 
-.contactSubmit button{
+.contactSubmit button {
     background-color: #33658A;
     color: white;
     padding: 10px 20px;
@@ -52,14 +59,13 @@
 }
 
 
-.contactInfoContainer{
+.contactInfoContainer {
     width: 50%;
     padding: 20px;
 }
 
 .contactInfoContainer {
     width: 500px;
-    margin: 0 auto;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -70,11 +76,10 @@
     width: 100%;
     background-color: #fff;
     border-radius: 5px;
-    padding: 20px;
+    padding: 0 20px;
 }
 
 .contactInfoHeader {
-    text-align: center;
     margin-bottom: 20px;
 }
 
@@ -82,25 +87,26 @@
     font-size: 16px;
     line-height: 1.5;
     margin-bottom: 20px;
+    text-align: justify;
 }
 
 .contactInfoContact {
     display: flex;
     flex-direction: column;
     gap: 20px;
-  }
-  
-  .contactInfoItem {
+}
+
+.contactInfoItem {
     display: flex;
     flex-direction: row;
     gap: 5px;
-  }
-  
-  .contactInfoItem p1 {
+}
+
+.contactInfoItem p1 {
     font-weight: bold;
     font-size: 14px;
-  }
-  
-  .contactInfoItem p {
+}
+
+.contactInfoItem p {
     font-size: 14px;
-  }
+}

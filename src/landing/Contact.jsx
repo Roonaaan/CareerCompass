@@ -73,7 +73,7 @@ const Contact = () => {
                                 placeholder=""
                             />
                         </div>
-                        <div className="contactInput">
+                        <div className="contactTextArea">
                             <label> Message Here </label>
                             <textarea
                                 rows='5'

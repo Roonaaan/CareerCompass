@@ -128,7 +128,7 @@ export const Login = () => {
     // Forgot Password
     const navigate = useNavigate();
     const handleForgotPassClick = () => {
-        navigate('/Forgot-Password')
+        navigate('/Login/Forgot-Password')
     }
     
 

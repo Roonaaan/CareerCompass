@@ -27,8 +27,8 @@ function App() {
           <Route path ="/Contact-Us" element={<ContactUs />} />
 
           {/* Forgot Password Page */}
-          <Route path ="/Forgot-Password" element={<ForgotPassword />} />
-          <Route path ="/Forgot-Password/Email-Sent" element={<ForgotMessage />} />
+          <Route path ="/Login/Forgot-Password" element={<ForgotPassword />} />
+          <Route path ="/Login/Forgot-Password/Email-Sent" element={<ForgotMessage />} />
 
           {/* Signed-In User Page */}
           <Route path ="/Welcome" element={<Welcome />} />
