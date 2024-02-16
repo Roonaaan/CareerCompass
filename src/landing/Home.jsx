@@ -2,19 +2,12 @@ import React, { Fragment } from "react";
 import { features } from "./constants/features";
 import { useNavigate } from "react-router-dom";
 
-//import CSS
+//link Home CSS
 import "./styles/Home.css";
 
-//images
+//link Images from Assets
 import logo from "../assets/final-topright-logo.png";
 import footerlogo from "../assets/footerLogo.png";
-import line from "../assets/line.png";
-import hero from "../assets/hero-3.jpg";
-import hero1 from "../assets/hero-1.jpg";
-import hero2 from "../assets/hero-2.jpg";
-import f1 from "../assets/f1.jpg";
-import f2 from "../assets/f2.jpg";
-import f3 from "../assets/f3.jpg";
 
 const Home = () => {
   const Logo = logo;
@@ -69,30 +62,23 @@ const Home = () => {
 
       {/* Hero */}
       <div className="heroWrapper">
-        <div className="heroInner">
-          <p className="headerText">CREATE YOUR OWN ROADMAP</p>
-         <div className="heroSloganContainer">
-            <p className="sloganTextDesc">
+        <div className="heroInner inner-frame">
+          <p className="header-text">CREATE YOUR OWN ROADMAP</p>
+
+          <p className="discover-text">
             Discover your own career path! Input your skills, experience, and
-              our system crafts a personalize roadmap just for you. 
-              
-              </p>
-            
-         </div>
+            our system crafts a personalize roadmap just for you.
+          </p>
 
           <div className="heroButtonBar">
             <btn className="create-Button" onClick={handleLoginClick}>
               CREATE ROADMAP
             </btn>
             <btn className="login-Button" onClick={handleLoginClick}>
-              SIGN UP
+              LOG IN
             </btn>
           </div>
-
-          
-
         </div>
-    
       </div>
       {/* End of Hero */}
 
@@ -100,9 +86,11 @@ const Home = () => {
       <div className="featuresWrapper">
         <div className="featuresHeading">
           <p className="featureTitle"> MAIN FEATURES</p>
-         <p className="mainFeaturesText">We aim to provide a guide for employees within this company to
+          <p className="mainFeaturesText">
+            We aim to provide a guide for employees within this company to
             achieve your intended roles with the assistance of Artificial
-            Inteligence(AI)</p>
+            Inteligence(AI)
+          </p>
         </div>
         <div className="featuresListWrapper">
           <div className="featuresList">
@@ -115,14 +103,14 @@ const Home = () => {
                       <p>{feature}</p>
                     </div>
                     <div className="featureDescription">
-                      <p>{description}</p>
+                      <p className="feature-text">{description}</p>
                     </div>
                     <div>
                       <img className="featureImg" src={image} alt="img" />
                     </div>
                   </Fragment>
                 </div>
-              )
+              );
             })}
             {/* end */}
           </div>
@@ -180,7 +168,11 @@ const Home = () => {
                 {" "}
                 Mission and Vision{" "}
               </a>
-              <a href="/Contact-Us" className="footerAboutLink" onClick={handleContactClick}>
+              <a
+                href="/Contact-Us"
+                className="footerAboutLink"
+                onClick={handleContactClick}
+              >
                 {" "}
                 Contact us{" "}
               </a>

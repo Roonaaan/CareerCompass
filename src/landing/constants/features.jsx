@@ -1,6 +1,6 @@
-import feature_1 from '../../assets/f8.jpg'
-import feature_2 from '../../assets/f7.jpg'
-import feature_3 from '../../assets/f6.jpg'
+import feature_1 from '../../assets/assess-skills.jpg'
+import feature_2 from '../../assets/roadmap.jpg'
+import feature_3 from '../../assets/track-dev.jpg'
 
 
 
@@ -15,14 +15,14 @@ export const features = [
   {
     feature: "GENERATE CAREER ROADMAP",
     description:
-      "Generate personalized learning plans where your skill will be improved to achive your desired career goals.",
+      "Generate learning plans to improve your skills and achieve your desired career path.",
     image:
     `${feature_2}`,
   },
   {
     feature: "TRACK DEVELOPMENT",
     description:
-      "Track your own milestonmes and accomplishments along your chosen career path.",
+      "Track your own milestones and accomplishments along your chosen career path.",
     image:
     `${feature_3}`,
   },

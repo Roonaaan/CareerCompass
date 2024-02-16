@@ -2,6 +2,8 @@ body {
   font-size: 16px;
 }
 
+
+
 /* Navigation Bar */
 .navigationbarWrapper {
   width: 100%;
@@ -178,42 +180,33 @@ body {
 
 /*Hero Section */
 .heroWrapper {
-  width: 100%;
-  height: 500px; 
-  background-image: url(/src/assets/hero-1.jpg);
-  background-color: #27374D;
-  background-blend-mode:hard-light;
-  background-size:fill;
-  background-position:320px;
-  position: relative;
-  overflow: hidden;
+  min-height: 500px; 
+  background-image: url(/src/assets/final-hero.jpg);
+  background-size:cover;
   display: flex;
-  align-items:flex-start;
-
+  flex-wrap: wrap;
+  justify-content:left;
+  align-items: center;
 }
-
-
-@media screen and (max-width: 768px) {
-  .heroWrapper {
-    min-height: 300px; 
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .heroWrapper {
-    min-height: 200px; 
-  }
-}
-
 
 .heroInner {
   display: flex;
   flex-direction: column;
-  align-items:flex-start;
-  margin-left: 130px;
-  margin-right: 0px;
-  margin-top: 44px;
-  width: 600px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  min-width: 100%;
+  min-height: 400px;
+  justify-content: center;
+
+}
+
+.discover-text {
+  color: white;
+  font-size: 20px;
+  margin-left: 30px;
+  margin-right: 80px;
+  line-height: 1.5em;
+  width:500px;
 
 }
 
@@ -229,32 +222,61 @@ body {
   cursor: pointer;
 }
 
-.headerText {
-  display: inline-block;
-  letter-spacing: 0.5px;
-  font-size: 64px; 
-  color: #27374D;
-  font-weight: 800;
-  margin: 0px;
+.inner-frame {
+  min-width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
 }
+
+.header-text {
+  display:inline-block;
+  letter-spacing: 1.5px;
+  line-height: 1.5em;
+  font-size: 48px; 
+  color: white;
+  font-weight: bold;
+  margin: 0px;
+  min-width: 400px;
+  margin-bottom: 25px;
+  margin-left: 30px;
+  line-height: 1.5em;
+  margin-top: 20px;
+  margin-right: 680px;
+}
+
+
 
 @media screen and (max-width: 768px) {
-  
-  .headerText {
-    font-size: 48px; 
+ 
+  .header-text {
+    font-size: 40px; 
+
+    
   }
+  
+  .discover-text,
+  .feature-text,
+  .mainFeaturesText {
+    font-size: 18px;
+    
+  }
+
+
+
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 540px) {
   
   .headerText {
     font-size: 36px; 
   }
+
+  .login-container {
+    visibility: hidden;
+  }
 }
-
-
-
-
 
 .heroButtonBar {
   display: flex;
@@ -264,22 +286,22 @@ body {
   outline-style: none;
   border-style: none;
   width: 100%;
-  margin-top: 40px;
+  margin-top: 60px;
 }
 
 /*Create Button Responsiveness */
 .create-Button {
-  margin-right: 20px;
   display: inline-block;
   font-size: 18px;
   font-weight: 600;
   background-color: #33658A;
   color: white;
   cursor: pointer;
-  padding-top:6px;
-  padding-bottom:6px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-top:13px;
+  padding-bottom:13px;
+  padding-left: 18px;
+  padding-right: 18px;
+  margin-left: 30px;
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
@@ -297,25 +319,24 @@ body {
 
 /*Login Button Responsiveness */
 .login-Button {
-  color: #27374D;
   font-size: 18px;
   font-weight: 600;
-  border-style: solid;
-  border-color: #27374D;
-  border-width: 1px;
+  background-color: #33658A;
+  color: white;
   display: inline-block;
   cursor: pointer;
-  padding-top:6px;
-  padding-bottom:6px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-top:13px;
+  padding-bottom:13px;
+  padding-left: 18px;
+  padding-right: 18px;
+  margin-left: 30px;
   transition: background-color 0.3s, color 0.3s;
 }
 
 .login-Button:hover {
-  color: white;
-  background-color:#33658A ;
-  border-color:#33658A;
+  color: #33658A;
+  background-color:white ;
+
 }
 
 .login-Button:active {
@@ -356,15 +377,8 @@ body {
   }
 
   .heroWrapper {
-    align-items:flex-start;
+    align-items:center;
     
-    
-  }
-
-  .heroInner {
-    margin: 64px 20px;
-    overflow: hidden;
-    width: 100%;
     
   }
 
@@ -372,19 +386,6 @@ body {
     margin-top: 20px;
     width: 0%;
   }
-
-.slogan {
-    display: flex;
-    
-}
-
-.sloganTextDesc {
-  font-size: 18px; 
-}
-
-
-
-  
 
 
 @media screen and (min-width: 0px) {
@@ -420,11 +421,40 @@ body {
   }
 }
 
-@media (max-width: 400px) {
-  .headerText {
-    width: 80%;
-    font-size: 1.5rem;
+@media (max-width: 480px) {
+  .heroWrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items:center ;
   }
+
+ .inner-frame {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items:flex-start ;
+ }
+
+  .discover-text {
+    width: 300px;
+    font-size: 16px;
+    margin: 20px;
+  }
+
+  .header-text {
+    width: 300px;
+    margin: 20px;
+    font-size: 30px;
+
+  }
+
+  .create-Button,
+  .login-Button {
+    margin: 0;
+    margin-left: 20px;
+    padding: 10px 15;
+
+  }
+  
 }
 
 /* Feature */
@@ -442,6 +472,12 @@ body {
   text-align: center;
 }
 
+
+.mainFeaturesText {
+  font-size:20px;
+  color: #27374D;
+}
+
 @media screen and (max-width: 1024px) {
   .featuresHeading {
     margin-left: 100px;
@@ -456,6 +492,10 @@ body {
     margin-right: 50px;
     font-size: 1.5rem; 
   }
+
+  .mainFeaturesText {
+    font-size: 18px;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -465,14 +505,20 @@ body {
     margin-right: 20px;
     font-size: 1.2rem;
   }
+
+  .mainFeaturesText {
+    font-size: 16px;
+  }
 }
+
 
 .featureTitle {
   display: inline-block;
   font-size: 40px;
   font-weight: 600;
   color: #27374D;  
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  margin-top: 20px;
   
 }
 
@@ -489,9 +535,6 @@ body {
   }
 }
 
-.mainFeaturesText {
-  font-size:20px;
-}
 
 @media screen and (max-width: 480px) {
   .mainFeaturesText {
@@ -526,9 +569,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 3rem; 
-
-  
+  margin-bottom: 1rem; 
   flex-wrap: wrap; 
 }
 
@@ -551,12 +592,12 @@ body {
 }
 
 .featuresList {
-  margin: 0 1rem; 
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  flex-grow: 1; 
   width: auto; 
+  gap: 2em 2em;
 }
 
 @media screen and (max-width: 768px) {
@@ -572,16 +613,24 @@ body {
 
 .featureDiv {
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   background: #f6f7f8;
-  width: 30%;
-  max-width: 350px;
-  flex-grow: 1;
-  flex-basis: 100%;
-  height: 100%;
+  max-width: 340px;
+  min-height: auto;
   border-radius: 0.5rem;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+
 
   
+}
+
+.fecfec {
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+  color: #27374D;
 }
 
 .featureDiv:nth-of-type(2) {
@@ -590,25 +639,54 @@ body {
 
 .feature {
   font-size: 1.5rem;
-  padding: 30px 50px 30px 40px;
+  margin-bottom: 20px;
+  margin-top: 20px;
   font-weight: 500;
+  align-items: center;
+  display: flex;
+  justify-content: center;
   
 }
+
+.featureDescription {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 15px;
+  min-width: 350px;
+  min-height: 130px;
+  text-align: center;
+  color: #27374D;
+}
+
+.feature-text {
+  display: inline-block;
+  align-items: center;
+  font-size: 20px;
+}
+
 
 @media (max-width: 786px){
   .feature {
     display: flex;
     justify-content: center;
+
+  }
+
+  .feature-text {
+    font-size: 18px;
   }
 }
 
 .featureDescription {
-  padding: 0 50px 25px 40px;
+  min-height: 130px;
+
 }
 
 @media (max-width: 786px){
   .featureDescription {
     text-align: center;
+
   }
 }
 
@@ -617,30 +695,18 @@ body {
 .featureImg {
   width: 100%;
   height: 100%;
+  min-width: 340px;
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
-  background-color: #3a557c;
-  background-blend-mode:lighten;
+
 }
 
+@media (max-width: 480px){
+  .feature-text {
+    font-size: 16px;
+  }
+}
 
-.shopBtn {
-  color: white;
-  font-size: 1rem;
-  font-weight: bold;
-  background: #0aad0a;
-  padding: 15px;
-  width: 360px;
-  border-radius: 1rem;
-  outline-style: none;
-  border: none;
-  margin: 50px;
-  cursor: pointer;
-  align-items: center;
-}
-.shopBtn:hover {
-  background: #039b03;
-}
 
 @media (max-width: 1100px) {
   .featuresListWrapper {
@@ -663,10 +729,9 @@ body {
   }
 
   .featureDiv {
-  width: max-content;
-  height: max-content;
   justify-content: center;
   align-items: center;
+
 
     
   }
@@ -677,9 +742,16 @@ body {
  
   }
 
-  .shopBtn {
-    width: 90%;
-    margin: 20px auto; 
+  .featuresListWrapper {
+    display: flex;
+    justify-content: center;
+    
+ 
+  }
+
+  .featureDiv {
+    min-width: 350px;
+    
  
   }
 }
@@ -815,6 +887,8 @@ body {
 }
 
 
+
+
 .footerAboutHeader {
   font-size: 18px;
   font-weight: 600;
@@ -823,3 +897,5 @@ body {
 .connectWithUsText {
   font-size: 16px;
 }
+
+
