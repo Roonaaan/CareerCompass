@@ -11,6 +11,8 @@ import footerlogo from "../assets/footerLogo.png";
 const Contact = () => {
 
     const Logo = logo;
+    
+    const navigate = useNavigate();
     const handleAboutClick = () => {
         navigate("/About");
     };
@@ -94,20 +96,22 @@ const Contact = () => {
                             <h1> Contact Info </h1>
                         </div>
                         <div className="contactInfoDetails">
-                            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda nisi ut sequi consequatur, voluptas totam delectus molestiae voluptatibus architecto tempora dicta consequuntur, commodi eligendi cumque! Blanditiis temporibus officia eius distinctio.</p>
+                            <p> The purpose of this page is to provide users with a way to ask questions, report issues, or
+                        provide feedback to the website owners. It helps to establish trust and build relationships with
+                        users, as well as improve the overall user experience on the website. </p>
                         </div>
                         <div className="contactInfoContact">
                             <div className="contactInfoItem">
                                 <p1>Address:</p1>
-                                <p>lorem ipsum</p>
+                                <p>Congressional Rd Ext, Barangay 171, Caloocan, Metro Manila</p>
                             </div>
                             <div className="contactInfoItem">
                                 <p1>Email Address:</p1>
-                                <p>lorem ipsum</p>
+                                <p>careercompassbscs@gmail.com</p>
                             </div>
                             <div className="contactInfoItem">
                                 <p1>Phone:</p1>
-                                <p>lorem ipsum</p>
+                                <p>+63 909 169 7716</p>
                             </div>
                         </div>
                     </div>
