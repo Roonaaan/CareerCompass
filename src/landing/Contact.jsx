@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // CSS
@@ -11,7 +11,7 @@ import footerlogo from "../assets/footerLogo.png";
 const Contact = () => {
 
     const Logo = logo;
-    
+
     const navigate = useNavigate();
     const handleAboutClick = () => {
         navigate("/About");
@@ -24,6 +24,19 @@ const Contact = () => {
     const handleContactClick = () => {
         navigate("/Contact-Us");
     };
+
+    // Message Limit
+    const [message, setMessage] = (event) = useState('');
+    const charLimit = 250;
+
+    const handleChange = (event) => {
+        const newMessage = event.target.value;
+        setMessage(newMessage);
+
+        if (newMessage.length > charLimit) {
+            setMessage(newMessage.substring(0, charLimit));
+        }
+    }
 
     return (
         <>
@@ -79,12 +92,18 @@ const Contact = () => {
                             <label> Message Here </label>
                             <textarea
                                 rows='5'
+                                value={message}
+                                onChange={handleChange}
                             />
+                            <p id="char-count">
+                                {message.length}/{charLimit}
+                            </p>
                         </div>
                         <div className="contactSubmit">
                             <button
                                 className="contactSubmitButtton"
                                 placeholder=''
+                                disabled={message.length > charLimit}
                             > Send
                             </button>
                         </div>
@@ -97,8 +116,8 @@ const Contact = () => {
                         </div>
                         <div className="contactInfoDetails">
                             <p> The purpose of this page is to provide users with a way to ask questions, report issues, or
-                        provide feedback to the website owners. It helps to establish trust and build relationships with
-                        users, as well as improve the overall user experience on the website. </p>
+                                provide feedback to the website owners. It helps to establish trust and build relationships with
+                                users, as well as improve the overall user experience on the website. </p>
                         </div>
                         <div className="contactInfoContact">
                             <div className="contactInfoItem">
