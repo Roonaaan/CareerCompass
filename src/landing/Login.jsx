@@ -47,10 +47,10 @@ export const Login = () => {
 
     function loginSubmit(){ //PHP to ReactJS Connection
         if(email !== '' && password !== ''){
-            var url = "https://localhost/CareerCompass/backend/login-page/login.php"; //Login.php folder location
+            var url = "http://localhost/CareerCompass/backend/login-page/login.php"; //Login.php folder location
             var headers = {
                 "Accept": "application/json",
-                "Content-type": "application.json"
+                "Content-Type": "application.json"
             };
             var Data = {
                 email: email,
