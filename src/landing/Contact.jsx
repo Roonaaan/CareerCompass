@@ -126,11 +126,11 @@ const Contact = () => {
                             </div>
                             <div className="contactInfoItem">
                                 <p1>Email Address:</p1>
-                                <p>careercompassbscs@gmail.com</p>
+                                <p><u>careercompassbscs@gmail.com</u></p>
                             </div>
                             <div className="contactInfoItem">
                                 <p1>Phone:</p1>
-                                <p>+63 909 169 7716</p>
+                                <p><u>+63 909 169 7716</u></p>
                             </div>
                         </div>
                     </div>

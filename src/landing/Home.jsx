@@ -123,12 +123,11 @@ const Home = () => {
           <div className="footerNavbarInner">
             <div className="footerLogoWrapper">
               <div className="footerNavleft">
-                <img
+                <a href="#top"><img 
                   src={footerlogo}
                   alt="Logo"
                   className="footerLogo"
-                  onClick={handleHomeClick}
-                />
+                /></a>
               </div>
               <div className="footerConnect">
                 <h1 className="connectWithUsText"> Connect with us </h1>
