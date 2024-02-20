@@ -10,6 +10,7 @@ import ContactUs from './landing/Contact';
 // Signed-In user page
 import ForgotPassword from './landing/forgot-password/Forgotpass';
 import ForgotMessage from './landing/forgot-password/Forgotpassmessage';
+import ForgotPasswordChange from './landing/forgot-password/Forgotpasschange';
 
 // Signed-In user page
 import Welcome from './signed_in/Home';
@@ -29,6 +30,7 @@ function App() {
           {/* Forgot Password Page */}
           <Route path ="/Login/Forgot-Password" element={<ForgotPassword />} />
           <Route path ="/Login/Forgot-Password/Email-Sent" element={<ForgotMessage />} />
+          <Route path ="/Login/Forgot-Password/Change-Password" element={<ForgotPasswordChange />} />
 
           {/* Signed-In User Page */}
           <Route path ="/Welcome" element={<Welcome />} />
