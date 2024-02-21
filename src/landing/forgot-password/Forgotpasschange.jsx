@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import React from "react";
 
 // CSS
 import './styles/Forgotpassword.css'
@@ -8,27 +7,6 @@ import './styles/Forgotpassword.css'
 import Logo from '../../assets/logo-dark.png'
 
 export const Forgotpasschange = () => {
-
-    const [password, setPassword] = useState('');
-    const [passwordError, setPasswordError] = useState('');
-
-    const handlePasswordValidation = () => {
-        setPasswordError('');
-
-        if (!password) {
-            setPasswordError('Please input your New Password')
-        } else if (password.length < 8) {
-            setPasswordError('Password must be at least 8 characters long');
-        } else if (!/[A-Z]/.test(password)) {
-            setPasswordError('Password must contain at least one uppercase letter');
-        } else if (!/[a-z]/.test(password)) {
-            setPasswordError('Password must contain at least one lowercase letter');
-        } else if (!/[0-9]/.test(password)) {
-            setPasswordError('Password must contain at least one number');
-        } else if (!/[^\w\s]/.test(password)) {
-            setPasswordError('Password must contain at least one special character');
-        } 
-    }
 
     return (
         <>
@@ -46,6 +24,13 @@ export const Forgotpasschange = () => {
                             type='password'
                             placeholder=''
                         />
+                        <label for='password'> Current Password </label>
+                    </div>
+                    <div className="input">
+                        <input
+                            type='password'
+                            placeholder=''
+                        />
                         <label for='password'> New Password </label>
                     </div>
                     <div className="input">
@@ -55,15 +40,11 @@ export const Forgotpasschange = () => {
                         />
                         <label for='password'> Confirm New Password </label>
                     </div>
-                    {passwordError && <div className="error-message">{passwordError}</div>}
                 </div>
                 <div className='submit-container'>
-                    <button 
-                        className='submit' 
-                        onClick={() =>{
-                            handlePasswordValidation();
-                        }}
-                        > Confirm Password
+                    <button
+                        className='submit'
+                    > Change Password
                     </button>
                 </div>
             </div>

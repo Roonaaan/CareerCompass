@@ -27,6 +27,8 @@ export const Forgotpass = () => {
             setEmailError('Please enter your email address');
         } else if (!/\S+@\S+\.\S+/.test(email)) { // Basic email validation
             setEmailError('Please enter a valid email address');
+        } else {
+            emailSent();
         }
     }
 
@@ -36,6 +38,31 @@ export const Forgotpass = () => {
             handleValidation();
         }
     };
+
+    // Function to send reset email
+    const emailSent = async () => {
+        try {
+            const response = await fetch ('http://localhost/CareerCompass/backend/login-page/forgot-password.php', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application.json',
+                },
+                body: JSON.stringify({email}),
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                navigate('/Login/Forgot-Password/Email-Sent');
+            } else {
+
+            }
+        } catch (error) {
+            console.error('An error occured', error);
+        }
+    };
+    
 
     return (
         <>
