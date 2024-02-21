@@ -45,8 +45,8 @@
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                 $mail->SMTPAuth = true;
                 $mail->Username = 'careercompassbscs@gmail.com';
-                $mail->Password = 'lfee ywnn qqwt khsw';
-                $mail->setFrom('ramos.johnronan.bscs2020@gmail.com', 'Career Compass');
+                $mail->Password = 'mqmx jfox qpky rtkg';
+                $mail->setFrom('ramos.johnronan.bscs2020@gmail.com', 'CareerCompass');
 
                 $mail->addAddress($to);
                 $mail->Subject = $subject;
