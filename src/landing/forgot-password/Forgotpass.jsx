@@ -54,7 +54,7 @@ export const Forgotpass = () => {
             const data = await response.json();
 
             if (data.success) {
-                navigate('/Login/Forgot-Password/Email-Sent');
+                navigate(`/Login/Forgot-Password/Email-Sent?email=${encodeURIComponent(email)}`);
             } else {
 
             }
