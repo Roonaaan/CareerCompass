@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Routes, Route} from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 // Landing, About Us and Login Page
 import Home from './landing/Home';
@@ -22,18 +22,18 @@ function App() {
       <BrowserRouter>
         <Routes>
           {/* Landing, About Us and Login Page */}
-          <Route path ="/" element={<Home />} />
-          <Route path ="/Login" element={<Login />} />
-          <Route path ="/About" element={<About />} />
-          <Route path ="/Contact-Us" element={<ContactUs />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/Login" element={<Login />} />
+          <Route path="/About" element={<About />} />
+          <Route path="/Contact-Us" element={<ContactUs />} />
 
           {/* Forgot Password Page */}
-          <Route path ="/Login/Forgot-Password" element={<ForgotPassword />} />
-          <Route path ="/Login/Forgot-Password/Email-Sent" element={<ForgotMessage />} />
-          <Route path ="/Login/Forgot-Password/Change-Password" element={<ForgotPasswordChange />} />
+          <Route path="/Login/Forgot-Password" element={<ForgotPassword />} />
+          <Route path="/Login/Forgot-Password/Email-Sent" element={<ForgotMessage />} />
+          <Route path="/Login/Forgot-Password/Change-Password" element={<ForgotPasswordChange />} />
 
           {/* Signed-In User Page */}
-          <Route path ="/Welcome" element={<Welcome />} />
+          <Route path="/Welcome" element={<Welcome />} />
         </Routes>
       </BrowserRouter>
     </>

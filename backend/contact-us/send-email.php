@@ -4,7 +4,6 @@ require_once "../connection.php";
 
 $name = $_POST["name"];
 $email = $_POST["email"];
-$subject = $_POST["subject"];
 $message = $_POST["message"];
 
     require '../vendor/autoload.php';
@@ -26,9 +25,9 @@ $message = $_POST["message"];
     $mail->Password = 'mqmx jfox qpky rtkg';
 
     $mail->setFrom($email, $name);
-    $mail->addAddress("bscs.dancellp@gmail.com", "Lucky | CareerCompass");
+    $mail->addAddress("careercompassbscs@gmail.com", "CareerCompass");
 
-    $mail->Subject = $subject;
+    $mail->Subject = "Filled-up Contact Us Form";
     $mail->Body = $message;
 
     $mail->send();
