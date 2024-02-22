@@ -138,7 +138,7 @@ const Contact = () => {
                                     value={message}
                                     onChange={(e) => {
                                         setMessage(e.target.value),
-                                            handleChange
+                                        handleChange(e, message)
                                     }}
                                     required
                                 />
