@@ -43,8 +43,8 @@ const Home = () => {
           </div>
 
           <div className="login-container">
-            <btn className="login-text">Log in</btn>
-            <btn className="Signup-text">Sign up</btn>
+            <btn className="login-text" onClick={handleLoginClick}>Log in</btn>
+            <btn className="Signup-text" onClick={handleLoginClick}>Sign up</btn>
           </div>
           {/* Login and About Header
                     <div className="navRight">
@@ -123,12 +123,11 @@ const Home = () => {
           <div className="footerNavbarInner">
             <div className="footerLogoWrapper">
               <div className="footerNavleft">
-                <img
+                <a href="#top"><img
                   src={footerlogo}
                   alt="Logo"
                   className="footerLogo"
-                  onClick={handleHomeClick}
-                />
+                /></a>
               </div>
               <div className="footerConnect">
                 <h1 className="connectWithUsText"> Connect with us </h1>
