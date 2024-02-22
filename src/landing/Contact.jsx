@@ -51,11 +51,6 @@ const Contact = () => {
                             onClick={handleHomeClick}
                         />
                     </div>
-
-                    <div className="login-container">
-                        <btn className="login-text">Log in</btn>
-                        <btn className="Signup-text">Sign up</btn>
-                    </div>
                     {/* Login and About Header
                     <div className="navRight">
                         <button className="about" onClick={handleAboutClick}>
@@ -71,27 +66,36 @@ const Contact = () => {
             {/* End of Navigation Bar */}
             {/* Contact Us Section*/}
             <div className="contactUsWrapper">
-                <div className="contactForm">
+                <form method="post" action="http://localhost/CareerCompass/backend/contact-us/send-email.php" className="contactForm">
                     <div className="contactInputs">
                         <h1> Contact Form </h1>
                         <div className="contactInput">
                             <label> Name </label>
                             <input
                                 type="name"
+                                name="name"
+                                id="name"
                                 placeholder=""
+                                required
                             />
                         </div>
                         <div className="contactInput">
                             <label> Email Address </label>
                             <input
                                 type="email"
+                                name="email"
+                                id="email"
                                 placeholder=""
+                                required
                             />
                         </div>
                         <div className="contactTextArea">
                             <label> Message Here </label>
                             <textarea
                                 rows='5'
+                                name="message"
+                                id="message"
+                                required
                                 value={message}
                                 onChange={handleChange}
                             />
@@ -104,11 +108,11 @@ const Contact = () => {
                                 className="contactSubmitButtton"
                                 placeholder=''
                                 disabled={message.length > charLimit}
-                            > Send
+                            >Send
                             </button>
                         </div>
                     </div>
-                </div>
+                </form >
                 <div className="contactInfoContainer">
                     <div className="contactInfoForm">
                         <div className="contactInfoHeader">
@@ -126,18 +130,18 @@ const Contact = () => {
                             </div>
                             <div className="contactInfoItem">
                                 <p1>Email Address:</p1>
-                                <p>careercompassbscs@gmail.com</p>
+                                <p><u>careercompassbscs@gmail.com</u></p>
                             </div>
                             <div className="contactInfoItem">
                                 <p1>Phone:</p1>
-                                <p>+63 909 169 7716</p>
+                                <p><u>+63-909-169-7716</u></p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
             {/* End of Contact Us Section*/}
-            <nav className="footerNavbarWrapper">
+            < nav className="footerNavbarWrapper" >
                 <div className="footerNavbarColumn">
                     <div className="footerNavbarInner">
                         <div className="footerLogoWrapper">
@@ -200,7 +204,7 @@ const Contact = () => {
                         </p>
                     </div>
                 </div>
-            </nav>
+            </nav >
             {/* End of Footer */}
         </>
     )

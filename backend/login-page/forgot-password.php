@@ -69,6 +69,4 @@
         echo json_encode(array("success" => false, "message" => "Email Address is required."));
     }
 
-            
-
-?>
+      
