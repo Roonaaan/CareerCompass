@@ -1,17 +1,16 @@
 .contactUsWrapper {
-    height: 525px;
+    height: 500px;
     display: flex;
     flex-direction: row;
-    gap: 50px;
+    gap: 30px;
     justify-content: center;
 }
 
 .contactForm {
-    margin: 10px -100px 0 0;
     display: flex;
     flex-direction: column;
-    padding: 10px;
-    width: 50%;
+    padding: 20px;
+    width: 40%;
 }
 
 .contactInputs {
@@ -61,7 +60,6 @@
 
 
 .contactInfoContainer {
-    margin: 80px 0 0 0;
     width: 50%;
     padding: 20px;
 }
@@ -82,7 +80,6 @@
 }
 
 .contactInfoHeader {
-    text-align: center;
     margin-bottom: 20px;
 }
 

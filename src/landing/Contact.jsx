@@ -12,6 +12,12 @@ const Contact = () => {
 
     const Logo = logo;
 
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
+    const [successMessage, setSuccessMessage] = useState('');
+
     const navigate = useNavigate();
     const handleAboutClick = () => {
         navigate("/About");
@@ -25,10 +31,38 @@ const Contact = () => {
         navigate("/Contact-Us");
     };
 
-    // Message Limit
-    const [message, setMessage] = (event) = useState('');
-    const charLimit = 250;
+    //PHP API Connection
 
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        try {
+            const response = await fetch('http://localhost/CareerCompass/backend/contact-us/send-email.php', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application.json',
+                },
+                body: JSON.stringify({ name, email, message }),
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                setSuccessMessage('Message sent successfully');
+                setName('');
+                setEmail('');
+                setMessage('');
+            } else {
+                setErrorMessage(data.message);
+            }
+        } catch (error) {
+            setErrorMessage('An error occured while sending the message');
+        }
+    };
+
+    // Message Limit
+    const charLimit = 250;
     const handleChange = (event) => {
         const newMessage = event.target.value;
         setMessage(newMessage);
@@ -51,6 +85,11 @@ const Contact = () => {
                             onClick={handleHomeClick}
                         />
                     </div>
+
+                    <div className="login-container">
+                        <btn className="login-text">Log in</btn>
+                        <btn className="Signup-text">Sign up</btn>
+                    </div>
                     {/* Login and About Header
                     <div className="navRight">
                         <button className="about" onClick={handleAboutClick}>
@@ -66,53 +105,58 @@ const Contact = () => {
             {/* End of Navigation Bar */}
             {/* Contact Us Section*/}
             <div className="contactUsWrapper">
-                <form method="post" action="http://localhost/CareerCompass/backend/contact-us/send-email.php" className="contactForm">
+                <div className="contactForm">
                     <div className="contactInputs">
                         <h1> Contact Form </h1>
-                        <div className="contactInput">
-                            <label> Name </label>
-                            <input
-                                type="name"
-                                name="name"
-                                id="name"
-                                placeholder=""
-                                required
-                            />
-                        </div>
-                        <div className="contactInput">
-                            <label> Email Address </label>
-                            <input
-                                type="email"
-                                name="email"
-                                id="email"
-                                placeholder=""
-                                required
-                            />
-                        </div>
-                        <div className="contactTextArea">
-                            <label> Message Here </label>
-                            <textarea
-                                rows='5'
-                                name="message"
-                                id="message"
-                                required
-                                value={message}
-                                onChange={handleChange}
-                            />
-                            <p id="char-count">
-                                {message.length}/{charLimit}
-                            </p>
-                        </div>
-                        <div className="contactSubmit">
-                            <button
-                                className="contactSubmitButtton"
-                                placeholder=''
-                                disabled={message.length > charLimit}
-                            >Send
-                            </button>
-                        </div>
+                        {errorMessage && <div className="error-message">{errorMessage}</div>}
+                        {successMessage && <div className="success-message">{successMessage}</div>}
+                        <form onSubmit={handleSubmit}>
+                            <div className="contactInput">
+                                <label> Name </label>
+                                <input
+                                    type="text"
+                                    placeholder=""
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                    required
+                                />
+                            </div>
+                            <div className="contactInput">
+                                <label> Email Address </label>
+                                <input
+                                    type="email"
+                                    placeholder=""
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    required
+                                />
+                            </div>
+                            <div className="contactTextArea">
+                                <label> Message Here </label>
+                                <textarea
+                                    rows='5'
+                                    value={message}
+                                    onChange={(e) => {
+                                        setMessage(e.target.value),
+                                            handleChange
+                                    }}
+                                    required
+                                />
+                                <p id="char-count">
+                                    {message.length}/{charLimit}
+                                </p>
+                            </div>
+                            <div className="contactSubmit">
+                                <button
+                                    className="contactSubmitButtton"
+                                    placeholder=''
+                                    disabled={message.length > charLimit}
+                                > Send
+                                </button>
+                            </div>
+                        </form>
                     </div>
-                </form >
+                </div>
                 <div className="contactInfoContainer">
                     <div className="contactInfoForm">
                         <div className="contactInfoHeader">
@@ -130,18 +174,18 @@ const Contact = () => {
                             </div>
                             <div className="contactInfoItem">
                                 <p1>Email Address:</p1>
-                                <p><u>careercompassbscs@gmail.com</u></p>
+                                <p>careercompassbscs@gmail.com</p>
                             </div>
                             <div className="contactInfoItem">
                                 <p1>Phone:</p1>
-                                <p><u>+63-909-169-7716</u></p>
+                                <p>+63 909 169 7716</p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div >
+            </div>
             {/* End of Contact Us Section*/}
-            < nav className="footerNavbarWrapper" >
+            <nav className="footerNavbarWrapper">
                 <div className="footerNavbarColumn">
                     <div className="footerNavbarInner">
                         <div className="footerLogoWrapper">
@@ -204,7 +248,7 @@ const Contact = () => {
                         </p>
                     </div>
                 </div>
-            </nav >
+            </nav>
             {/* End of Footer */}
         </>
     )
