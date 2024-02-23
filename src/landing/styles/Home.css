@@ -638,13 +638,14 @@ body {
 }
 
 .feature {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   margin-bottom: 20px;
   margin-top: 20px;
   font-weight: 500;
   align-items: center;
   display: flex;
   justify-content: center;
+  text-align: center;
   
 }
 
