@@ -134,13 +134,13 @@ export const Login = () => {
 
     return (
         <>
-
+            
+            <div className='container'>
             <div className='loginHeader'>
                 <img src={Logo} alt='Logo' className='logo' />
             </div>
-            <div className='container'>
                 <div className='loginHeader'>
-                    <div className='text'> Log In </div>
+                    <div className='text'> WELCOME </div>
                 </div>
                 <div className='loginHeaderText'> Please fill your detail to log in your account. </div>
                 <div className='error-message'>
@@ -207,6 +207,8 @@ export const Login = () => {
                     </div>
                     <div className='forgot-password' onClick={handleForgotPassClick}>Forgot Password? </div>
                 </div>
+
+                
                 <div className='submit-container'>
                     <button 
                         className='submit' 
@@ -215,15 +217,25 @@ export const Login = () => {
                             loginSubmit();
                         }}
                         onKeyDown={handleKeydown}
-                        > Log In
+                        > LOG IN
                     </button>
                 </div>
-            </div>
-            <div className='footer'>
-                <a href=''> Terms of use </a>
+                <div className='no-account'>
+                    <p className='click-to-signup'>
+                        Don't have an account? <a href='#'>Sign up</a>
+                    </p>                   
+                </div>
+
+                <div className='footer'>
+                <a className='termsPolicy' href=''> Terms of use </a>
                 |
-                <a href=''> Privacy Policy </a>
+                <a className='termsPolicy' href=''> Privacy Policy </a>
+            </div>           
             </div>
+
+            
+
+            
         </>
     )
 }
