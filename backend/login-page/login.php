@@ -27,7 +27,7 @@
                     $result = "Incorrect Password";
                 } 
                 else {
-                    $result = "Logged in Successfully";
+                    $result = ""; //Logged in Successfully
                 }
             } 
             else {

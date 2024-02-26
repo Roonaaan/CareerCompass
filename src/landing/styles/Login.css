@@ -2,20 +2,9 @@
     display: flex;
     flex-direction: column;
     margin: auto;
-    margin-top: 60px;
+    margin-top: 10px;
     width: 600px;
-
-
-    
-    
-}
-
-
-@media only screen and (max-width: 600px) {
-    .container {
-        width: 90%; 
-        padding: 0 0 0 20px;
-    }
+    padding-bottom: 30px;
 }
 
 .loginHeader{
@@ -23,7 +12,7 @@
     align-items: center;
     flex-direction: column;
     margin: auto;
-    padding-top: 10px;
+    padding-top: 20px;
 }
 
 
@@ -37,9 +26,7 @@
 .logo{
     display: flex;
     justify-content: center;
-    width: 50px;
-    margin-bottom: 10px;
-    margin-top: 10px
+    width: 60px;
 }
 
 .header{
@@ -52,49 +39,35 @@
 }
 
 .text{
-    color: #27374D;
+    color: #2F4858;
     font-size: 30px;
     font-weight: 700;
 }
 
 .inputs{
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
 }
 
 .input {
     display: flex;
     align-items: center;
     margin: auto;
-    width: 400px;
-    height: 50px;
+    width: 410px;
+    height: 70px;
+    background: transparent;
     border-style: solid;
     border-color: #27374D;
     border-radius: 10px;
     border-width: 1px;
     position: relative;
-    font-size: 16px;
 }
-
-.input:active {
-    border: #33658A;
-}
-
-
-
-@media only screen and (ma  x-width: 450px) {
-    .input {
-        width: 100%; 
-       
-    }
-}
-
 
 .input input{
-    height: 100%;
-    width: 100%;
-    align-items: center;
+    height: 50px;
+    width: 360px;
     background: none;
     border: none;
     outline: none;
@@ -135,50 +108,30 @@ label{
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    gap: 2.5em;
-    margin-top: 10px;
 }
-
-@media only screen and (max-width: 360px) {
-    .password {
-        flex-direction: column; 
-        align-items: center; 
-        justify-content: center; 
-}
-}
-
 
 .remember-me{
+    margin-top: 20px;
     color: #000;
-    font-size: 14px;
-}
-
-@media only screen and (max-width: 450px) {
-    .remember-me {
-      font-size: 16px;
-       
-    }
+    font-size: 18px;
 }
 
 .forgot-password{
-
+    margin-top: 20px;
     color: #000;
-    font-size: 14px;
+    font-size: 18px;
     cursor: pointer;
-}
-
-@media only screen and (max-width: 450px) {
-    .forgot-password {
-      font-size: 16px;
-       
-    }
 }
 
 .error-message{
     padding-left: 100px;
     padding-top: 1px;
     color: red;
-    font-size: 16px;
+}
+
+.error-message p {
+    display: flex;
+    justify-content: start;
 }
 
 .password-icon {
@@ -186,21 +139,6 @@ label{
     padding: 20px;
     font-size: 25px;
     display: flex;
-}
-
-
-@media only screen and (max-width: 450px) {
-    .password-icon {
-        padding: 10px; 
-        font-size: 20px; 
-    }
-}
-
-@media only screen and (max-width: 360px) {
-    .password-icon {
-       
-        font-size: 20px;
-    }
 }
 
 .show-password-button{
@@ -220,53 +158,117 @@ label{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 400px;
-    height: 50px;
+    width: 220px;
+    height: 59px;
     color: white;
     background: #33658A;
-    border-radius: 10px;
+    border-radius: 50px;
     border: 0;
     outline: 0;
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 19px;
+    font-weight: 700;
     cursor: pointer;
-    
 }
 
-.no-account {
+.no-account{
     display: flex;
     justify-content: center;
-    align-items: center;
-}
-
-.click-to-signup {
-    font-size: 14px;
 }
 
 .footer{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
-   
+    padding: 12px 0 24px;
 }
 
 .footer a{
     margin: 0 10px;
 }
 
-.submit:hover {
-  background-color: #4d87b3;
-  color: #white;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  }
-  
-  .submit:active {
-    opacity: 80%;
 
-  }
+/* Media Queries */
+@media (max-width: 991px) {
+    .container {
+        width: 40%;
+    }
 
-  .termsPolicy {
-    color: #27374D;
-    font-size: 14px;
-  }
+    .input {
+        width: 100%;
+    }
+
+    .input input {
+        width: calc(100% - 44px); 
+    }
+
+    .password {
+        justify-content: space-between;
+    }
+
+    .submit {
+        width: 180px;
+    }
+
+    .error-message {
+        padding-left: 0;
+    }
+}
+
+@media (max-width: 779px) {
+    .container {
+        width: 45%;
+    }
+
+    .input {
+        width: 100%;
+    }
+
+    .password{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .error-message {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 766px) {
+    .container {
+        width: 55%;
+    }
+
+    .input {
+        width: 100%;
+    }
+
+    .password{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .error-message {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 55%;
+    }
+}
+
+@media (max-width: 460px) {
+    .password{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .no-account{
+        font-size: 15px;
+    }
+
+    .footer a{
+        font-size: 15px
+    }
+}
