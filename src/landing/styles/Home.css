@@ -306,9 +306,7 @@ body {
 }
 
 .create-Button:hover {
-  background-color: white;
-  color: #33658A;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+
 
 }
 
@@ -638,13 +636,14 @@ body {
 }
 
 .feature {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   margin-bottom: 20px;
   margin-top: 20px;
   font-weight: 500;
   align-items: center;
   display: flex;
   justify-content: center;
+  text-align: center;
   
 }
 

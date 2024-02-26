@@ -2,9 +2,12 @@
     display: flex;
     flex-direction: column;
     margin: auto;
-    margin-top: 10px;
+    margin-top: 60px;
     width: 600px;
-    padding-bottom: 30px;
+
+
+    
+    
 }
 
 
@@ -20,7 +23,7 @@
     align-items: center;
     flex-direction: column;
     margin: auto;
-    padding-top: 20px;
+    padding-top: 10px;
 }
 
 
@@ -34,7 +37,9 @@
 .logo{
     display: flex;
     justify-content: center;
-    width: 60px;
+    width: 50px;
+    margin-bottom: 10px;
+    margin-top: 10px
 }
 
 .header{
@@ -47,34 +52,38 @@
 }
 
 .text{
-    color: #33658A;
+    color: #27374D;
     font-size: 30px;
     font-weight: 700;
 }
 
 .inputs{
-    margin-top: 50px;
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 15px;
 }
 
 .input {
     display: flex;
     align-items: center;
     margin: auto;
-    width: 410px;
-    height: 70px;
-    background: transparent;
+    width: 400px;
+    height: 50px;
     border-style: solid;
     border-color: #27374D;
     border-radius: 10px;
     border-width: 1px;
     position: relative;
+    font-size: 16px;
+}
+
+.input:active {
+    border: #33658A;
 }
 
 
-@media only screen and (max-width: 450px) {
+
+@media only screen and (ma  x-width: 450px) {
     .input {
         width: 100%; 
        
@@ -83,8 +92,9 @@
 
 
 .input input{
-    height: 50px;
-    width: 360px;
+    height: 100%;
+    width: 100%;
+    align-items: center;
     background: none;
     border: none;
     outline: none;
@@ -125,6 +135,8 @@ label{
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
+    gap: 2.5em;
+    margin-top: 10px;
 }
 
 @media only screen and (max-width: 360px) {
@@ -137,9 +149,8 @@ label{
 
 
 .remember-me{
-    margin-top: 20px;
     color: #000;
-    font-size: 18px;
+    font-size: 14px;
 }
 
 @media only screen and (max-width: 450px) {
@@ -150,9 +161,9 @@ label{
 }
 
 .forgot-password{
-    margin-top: 20px;
+
     color: #000;
-    font-size: 18px;
+    font-size: 14px;
     cursor: pointer;
 }
 
@@ -167,6 +178,7 @@ label{
     padding-left: 100px;
     padding-top: 1px;
     color: red;
+    font-size: 16px;
 }
 
 .password-icon {
@@ -208,25 +220,53 @@ label{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 220px;
-    height: 59px;
+    width: 400px;
+    height: 50px;
     color: white;
     background: #33658A;
-    border-radius: 50px;
+    border-radius: 10px;
     border: 0;
     outline: 0;
-    font-size: 19px;
-    font-weight: 700;
+    font-size: 18px;
+    font-weight: bold;
     cursor: pointer;
+    
+}
+
+.no-account {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.click-to-signup {
+    font-size: 14px;
 }
 
 .footer{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 12px 0 24px;
+    margin-bottom: 20px;
+   
 }
 
 .footer a{
     margin: 0 10px;
 }
+
+.submit:hover {
+  background-color: #4d87b3;
+  color: #white;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .submit:active {
+    opacity: 80%;
+
+  }
+
+  .termsPolicy {
+    color: #27374D;
+    font-size: 14px;
+  }

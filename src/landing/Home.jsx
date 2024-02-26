@@ -43,8 +43,8 @@ const Home = () => {
           </div>
 
           <div className="login-container">
-            <btn className="login-text">Log in</btn>
-            <btn className="Signup-text">Sign up</btn>
+            <btn className="login-text" onClick={handleLoginClick}>Log in</btn>
+            <btn className="Signup-text" onClick={handleLoginClick}>Sign up</btn>
           </div>
           {/* Login and About Header
                     <div className="navRight">

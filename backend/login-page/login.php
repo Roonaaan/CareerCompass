@@ -42,5 +42,3 @@
         $response[] = array("result" => $result);
         echo json_encode($response);
     }
-
-?>
