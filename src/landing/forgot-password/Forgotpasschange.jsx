@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 // CSS
 import './styles/Forgotpassword.css'
@@ -7,6 +7,42 @@ import './styles/Forgotpassword.css'
 import Logo from '../../assets/logo-dark.png'
 
 export const Forgotpasschange = () => {
+
+    const [newPassword, setNewPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [passwordError, setPasswordError] = useState('');
+    const [confirmPasswordError, setConfirmPasswordError] = useState('');
+
+    const handleChangePassword = (e) => {
+        setNewPassword(e.target.value);
+    }
+
+    const handleChangeConfirmPassword = (e) => {
+        setConfirmPassword(e.target.value);
+    }
+
+    const handleSubmit = () => {
+        if (newPassword.length < 8) {
+            setPasswordError('Password must be at least 8 characters long');
+        } else if (!/[A-Z]/.test(newPassword)) {
+            setPasswordError('Password must contain at least one uppercase letter');
+        } else if (!/[a-z]/.test(newPassword)) {
+            setPasswordError('Password must contain at least one lowercase letter');
+        } else if (!/[0-9]/.test(newPassword)) {
+            setPasswordError('Password must contain at least one number');
+        } else if (!/[^\w\s]/.test(newPassword)) {
+            setPasswordError('Password must contain at least one special character');
+        } else if (newPassword !== confirmPassword) {
+            setPasswordError('Passwords do not match')
+        } else {
+            setPasswordError('');
+        }
+
+        if (newPassword.length >= 8 && /[A-Z]/.test(newPassword) && /[a-z]/.test(newPassword) && /[0-9]/.test(newPassword) && /[^\w\s]/.test(newPassword) && newPassword === confirmPassword) {
+
+        }
+    }
+
 
     return (
         <>
@@ -24,26 +60,33 @@ export const Forgotpasschange = () => {
                             type='password'
                             placeholder=''
                         />
-                        <label for='password'> Current Password </label>
+                        <label htmlFor='password'> Current Password </label>
                     </div>
                     <div className="input">
                         <input
-                            type='password'
+                            type='text'
                             placeholder=''
+                            value={newPassword}
+                            onChange={handleChangePassword}
                         />
-                        <label for='password'> New Password </label>
+                        <label htmlFor='password'> New Password </label>
                     </div>
                     <div className="input">
                         <input
-                            type='password'
+                            type='text'
                             placeholder=''
+                            value={confirmPassword}
+                            onChange={handleChangeConfirmPassword}
                         />
-                        <label for='password'> Confirm New Password </label>
+                        <label htmlFor='password'> Confirm New Password </label>
                     </div>
                 </div>
-                <div className='submit-container'>
+                {passwordError && <div className="changePassErrorMsg">{passwordError}</div>}
+                {confirmPasswordError && <div className="changePassErrorMsg">{confirmPasswordError}</div>}
+                <div className='changePassSubmit'>
                     <button
                         className='submit'
+                        onClick={handleSubmit}
                     > Change Password
                     </button>
                 </div>

@@ -221,9 +221,7 @@ export const Login = () => {
                     </button>
                 </div>
                 <div className='no-account'>
-                    <p className='click-to-signup'>
-                        Don't have an account? <a href='#'>Sign up</a>
-                    </p>                   
+                    <p>Don't have an account? <a href='#'>Sign up</a></p>                   
                 </div>
 
                 <div className='footer'>
