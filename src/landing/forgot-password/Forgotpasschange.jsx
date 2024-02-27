@@ -64,7 +64,7 @@ export const Forgotpasschange = () => {
                     </div>
                     <div className="input">
                         <input
-                            type='text'
+                            type='password'
                             placeholder=''
                             value={newPassword}
                             onChange={handleChangePassword}
@@ -73,7 +73,7 @@ export const Forgotpasschange = () => {
                     </div>
                     <div className="input">
                         <input
-                            type='text'
+                            type='password'
                             placeholder=''
                             value={confirmPassword}
                             onChange={handleChangeConfirmPassword}
