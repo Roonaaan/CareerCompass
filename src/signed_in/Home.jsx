@@ -1,10 +1,43 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import "./styles/styles.css"
 
+// Images
 import logo from "../assets/final-topright-logo.png";
+import defaultImg from "../assets/signed-in/defaultImg.png"
 
 const Home = () => {
+
+  const [userName, setUserName] = useState('');
+
+  // React to PHP Connection
+  useEffect(() => {
+      const fetchUserName = async () => {
+        try {
+          const userEmail = sessionStorage.getItem('user'); // Retrieve user email from sessionStorage
+          if (userEmail) {
+            const response = await fetch(`http://localhost/CareerCompass/backend/signed-in/home.php?email=${userEmail}`);
+            const data = await response.json();
+  
+            if (data.success) {
+              setUserName(data.userName);
+            } else {
+              console.log('Failed to fetch user name');
+            }
+          }
+        } catch (error) {
+          console.error('An error occurred', error);
+        }
+      };
+  
+      fetchUserName();
+    }, []);
+
+    // Logout User (disabled)
+    /* const handleLogout = () => {
+      still working on this one △do not touch
+    }*/
+
   return (
     <>
     <div className='parent'>
@@ -15,8 +48,8 @@ const Home = () => {
         </div>
 
         <div className='navProfile'>
-          <input className='userImage' type="image"/>
-          <p className='username'>Welcome, User</p>
+          <img src={defaultImg} alt='profile' className='profileImg'/>
+          <p className='username'>Welcome, {userName}</p>
         </div>
       </div>
     </header> 
@@ -37,4 +70,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Home;

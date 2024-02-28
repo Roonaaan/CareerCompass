@@ -45,10 +45,10 @@
   gap: 10px;
 }
 
-.userImage {
+.profileImg {
   aspect-ratio: 1/1;
   height: 30px;
-  border-radius: 50%%;
+  border-radius: 50%;
 }
 
 .username {

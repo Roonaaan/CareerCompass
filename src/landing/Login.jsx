@@ -1,84 +1,15 @@
-import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
-
-// CSS
-import './styles/Login.css'
-
-// Images and Logo
-import Logo from '../assets/logo-dark.png'
-import { FaLock, FaLockOpen } from 'react-icons/fa'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './styles/Login.css';
+import Logo from '../assets/logo-dark.png';
+import { FaLock, FaLockOpen } from 'react-icons/fa';
 
 export const Login = () => {
-
-    // Email and Password Validation
-    const naviget = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
-    const [error, setError] = useState('');
-    const [msg, setMsg] = useState('');
-
-    useEffect(() => {
-        setTimeout(function(){
-            setMsg('');
-        }, 5000);
-    }, [msg]);
-
-    const handleInputChange = (e, type) => {
-        switch (type) {
-            case 'email':
-                setEmailError('');
-                setEmail(e.target.value);
-                if (e.target.value === '') {
-                    setEmailError('Email Address has left blank');
-                }
-                break;
-            case 'password':
-                setPasswordError('');
-                setPassword(e.target.value);
-                if (e.target.value === '') {
-                    setPasswordError('Password has left blank');
-                }
-                break;
-            default:
-        }
-    }
-
-    function loginSubmit(){ //PHP to ReactJS Connection
-        if(email !== '' && password !== ''){
-            var url = "http://localhost/CareerCompass/backend/login-page/login.php"; //Login.php folder location
-            var headers = {
-                "Accept": "application/json",
-                "Content-Type": "application.json"
-            };
-            var Data = {
-                email: email,
-                password: password,
-            };
-            fetch(url, {
-                method: "POST",
-                headers: headers,
-                body: JSON.stringify(Data)
-            }).then((response) => response.json())
-            .then((response) => {
-                if(response[0].result === "Incorrect Email Address" || response[0].result === "Incorrect Password") {
-                    setError(response[0].result);
-                } 
-                else {
-                    setMsg(response[0].result);
-                    setTimeout(function(){
-                        naviget('/Welcome');
-                    }, 5000);
-                }                
-            }).catch((err) => {
-                setError(err);
-                console.log(err);
-            })
-        } else {
-            setError(''); {/*All field are required*/}
-        }
-    }
+    const [errorMsg, setErrorMsg] = useState('');
 
     const handleValidation = () => {
         setEmailError('');
@@ -93,31 +24,17 @@ export const Login = () => {
         if (!password) {
             setPasswordError('Please input your password');
         }
-
-        {/* Password Validation
-        
-            else if (password.length < 8) {
-                setPasswordError('Password must be at least 8 characters long');
-            } else if (!/[A-Z]/.test(password)) {
-                setPasswordError('Password must contain at least one uppercase letter');
-            } else if (!/[a-z]/.test(password)) {
-                setPasswordError('Password must contain at least one lowercase letter');
-            } else if (!/[0-9]/.test(password)) {
-                setPasswordError('Password must contain at least one number');
-            } else if (!/[^\w\s]/.test(password)) {
-                setPasswordError('Password must contain at least one special character');
-            }     
-        */}
     };
 
-    // Show Password
     const [showPassword, setShowPassword] = useState(false);
     const [iconType, setIconType] = useState(FaLock); //serves as the Initial Icon
-
-    // Remember Me
     const [isRememberMeChecked, setIsRememberMeChecked] = useState(false);
+    const navigate = useNavigate();
 
-    // Enter Event Key (press enter)
+    const handleForgotPassClick = () => {
+        navigate('/Login/Forgot-Password');
+    };
+
     const handleKeydown = (event) => {
         if(event.key === 'Enter'){
             handleValidation();
@@ -125,47 +42,56 @@ export const Login = () => {
         }
     };
 
-    // Forgot Password
-    const navigate = useNavigate();
-    const handleForgotPassClick = () => {
-        navigate('/Login/Forgot-Password')
-    }
-    
+    const loginSubmit = async () => {
+        try {
+            await new Promise(resolve => setTimeout(resolve, 1000));
+
+            const response = await fetch('http://localhost/CareerCompass/backend/login-page/login.php', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({email, password}),
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                sessionStorage.setItem('user', email);
+                navigate('/Welcome');
+            } else {
+                console.log('Login failed');
+                setErrorMsg('Incorrect Email or Password');
+            }
+        } catch (error) {
+            console.error('An error occurred', error);
+        }
+    };
 
     return (
         <>
-            
-            <div className='container'>
+            <div className="container">
             <div className='loginHeader'>
-                <img src={Logo} alt='Logo' className='logo' />
-            </div>
+                    <img src={Logo} alt='Logo' className='logo' />
+                </div>
                 <div className='loginHeader'>
-                    <div className='text'> WELCOME </div>
+                    <div className='text'> Welcome </div>
                 </div>
                 <div className='loginHeaderText'> Please fill your detail to log in your account. </div>
-                <div className='error-message'>
-                    <p>
-                        {
-                            error !== '' ?
-                            <span>{error}</span> :
-                            <span>{msg}</span>
-                        }
-                    </p>
-                </div>
                 <div className='inputs'>
                     {/* Email Address*/}
                     <div className='input'>
                         <input
                             type='email'
                             placeholder=''
-                            value={email}
                             onChange={(e) => {
-                                setEmail(e.target.value),
-                                handleInputChange(e, 'email')
+                                setEmail(e.target.value);
+                                setEmailError('');
                             }}
                             onKeyDown={handleKeydown}
                         />
-                        <label for='email'> Email Address </label>
+                        <label htmlFor='email'> Email Address </label>
                     </div>
                     {emailError && <div className='error-message'>{emailError} </div>}
                     {/* End of Email Address*/}
@@ -174,14 +100,13 @@ export const Login = () => {
                         <input
                             type={showPassword ? 'text' : 'password'}
                             placeholder=''
-                            value={password}
                             onChange={(e) => {
-                                setPassword(e.target.value),
-                                handleInputChange(e, 'password')
+                                setPassword(e.target.value);
+                                setPasswordError('');
                             }}
                             onKeyDown={handleKeydown}
                         />
-                        <label for='password'> Password </label>
+                        <label htmlFor='password'> Password </label>
                         <button
                             className='show-password-button'
                             onClick={() => {
@@ -207,35 +132,29 @@ export const Login = () => {
                     </div>
                     <div className='forgot-password' onClick={handleForgotPassClick}>Forgot Password? </div>
                 </div>
-
-                
+                {errorMsg && <div className="loginErrorMsg">{errorMsg}</div>}
                 <div className='submit-container'>
-                    <button 
-                        className='submit' 
+                    <button
+                        className='submit'
                         onClick={() =>{
                             handleValidation();
                             loginSubmit();
                         }}
                         onKeyDown={handleKeydown}
-                        > LOG IN
+                    >Log In
                     </button>
                 </div>
                 <div className='no-account'>
-                    <p>Don't have an account? <a href='#'>Sign up</a></p>                   
+                    <p>Don't have an account? <a href='#'>Sign up</a></p>
                 </div>
-
                 <div className='footer'>
-                <a className='termsPolicy' href=''> Terms of use </a>
-                |
-                <a className='termsPolicy' href=''> Privacy Policy </a>
-            </div>           
+                    <a href=''> Terms of use </a>
+                    |
+                    <a href=''> Privacy Policy </a>
+                </div>
             </div>
-
-            
-
-            
         </>
-    )
-}
+    );
+};
 
 export default Login;
