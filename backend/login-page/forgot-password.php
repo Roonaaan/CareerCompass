@@ -27,7 +27,8 @@
 
         $token = bin2hex(random_bytes(32));
 
-        $expiration_time = strtotime('+15 minutes');
+        date_default_timezone_set('Asia/Manila');
+        $expiration_time = date('Y-m-d H:i:s', strtotime('+15 minutes'));
 
         $sql = "INSERT INTO tblforgotpass (EMAIL, RESET_TOKEN, RESET_TOKEN_EXPIRY) VALUES ('$email', '$token', '$expiration_time')";
         if ($conn->query($sql) === TRUE) {
@@ -68,5 +69,3 @@
     } else {
         echo json_encode(array("success" => false, "message" => "Email Address is required."));
     }
-
-      

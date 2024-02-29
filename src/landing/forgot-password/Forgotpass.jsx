@@ -82,7 +82,7 @@ export const Forgotpass = () => {
                             onChange={(e) => setEmail(e.target.value)}
                             onKeyDown={handleKeydown}
                         />
-                        <label for='email'> Email Address </label>
+                        <label htmlFor='email'> Email Address </label>
                     </div>
                     {emailError && <div className='forgotErrorMsg'>{emailError} </div>}
                 </div>

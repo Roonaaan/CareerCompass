@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 // CSS
 import './styles/Forgotpassword.css'
@@ -7,11 +8,14 @@ import './styles/Forgotpassword.css'
 import Logo from '../../assets/logo-dark.png'
 
 export const Forgotpasschange = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const token = queryParams.get("token");
 
     const [newPassword, setNewPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [passwordError, setPasswordError] = useState('');
-    const [confirmPasswordError, setConfirmPasswordError] = useState('');
 
     const handleChangePassword = (e) => {
         setNewPassword(e.target.value);
@@ -21,7 +25,7 @@ export const Forgotpasschange = () => {
         setConfirmPassword(e.target.value);
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         if (newPassword.length < 8) {
             setPasswordError('Password must be at least 8 characters long');
         } else if (!/[A-Z]/.test(newPassword)) {
@@ -33,13 +37,32 @@ export const Forgotpasschange = () => {
         } else if (!/[^\w\s]/.test(newPassword)) {
             setPasswordError('Password must contain at least one special character');
         } else if (newPassword !== confirmPassword) {
-            setPasswordError('Passwords do not match')
-        } else {
-            setPasswordError('');
+            setPasswordError('Passwords do not match');
+            return;
         }
 
-        if (newPassword.length >= 8 && /[A-Z]/.test(newPassword) && /[a-z]/.test(newPassword) && /[0-9]/.test(newPassword) && /[^\w\s]/.test(newPassword) && newPassword === confirmPassword) {
+        try {
+            const response = await fetch('http://localhost/CareerCompass/backend/login-page/reset-password.php', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    token: token,
+                    newPassword: newPassword
+                })
+            });
 
+            const data = await response.json();
+
+            if (data.success) {
+                navigate('/Login');
+            } else {
+                console.error(data.message);
+            }
+        } catch (error) {
+            console.error('An error occurred', error);
         }
     }
 
@@ -81,8 +104,7 @@ export const Forgotpasschange = () => {
                         <label htmlFor='password'> Confirm New Password </label>
                     </div>
                 </div>
-                {passwordError && <div className="changePassErrorMsg">{passwordError}</div>}
-                {confirmPasswordError && <div className="changePassErrorMsg">{confirmPasswordError}</div>}
+                {passwordError && <div className="changePassErrorMsg">{passwordError}</div>}             
                 <div className='changePassSubmit'>
                     <button
                         className='submit'

@@ -21,7 +21,8 @@
 
         $token = bin2hex(random_bytes(32));
 
-        $expiration_time = strtotime('+15 minutes');
+        date_default_timezone_set('Asia/Manila');
+        $expiration_time = date('Y-m-d H:i:s', strtotime('+15 minutes'));
 
         $sql = "UPDATE tblforgotpass SET RESET_TOKEN = '$token', RESET_TOKEN_EXPIRY = '$expiration_time' WHERE EMAIL = '$email'";
         if ($conn->query($sql) === TRUE) {
