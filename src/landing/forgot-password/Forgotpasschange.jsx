@@ -13,9 +13,14 @@ export const Forgotpasschange = () => {
     const queryParams = new URLSearchParams(location.search);
     const token = queryParams.get("token");
 
+    const [currentPassword, setCurrentPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [passwordError, setPasswordError] = useState('');
+
+    const handleChangeCurrentPassword = (e) => {
+        setCurrentPassword(e.target.value);
+    }
 
     const handleChangePassword = (e) => {
         setNewPassword(e.target.value);
@@ -26,6 +31,12 @@ export const Forgotpasschange = () => {
     }
 
     const handleSubmit = async () => {
+
+        if (currentPassword === '') {
+            setPasswordError('Please enter your current password')
+            return;
+        }
+
         if (newPassword.length < 8) {
             setPasswordError('Password must be at least 8 characters long');
         } else if (!/[A-Z]/.test(newPassword)) {
@@ -50,6 +61,7 @@ export const Forgotpasschange = () => {
                 },
                 body: JSON.stringify({
                     token: token,
+                    currentPassword: currentPassword,
                     newPassword: newPassword
                 })
             });
@@ -57,7 +69,7 @@ export const Forgotpasschange = () => {
             const data = await response.json();
 
             if (data.success) {
-                navigate('/Login');
+                navigate('/');
             } else {
                 console.error(data.message);
             }
@@ -82,6 +94,8 @@ export const Forgotpasschange = () => {
                         <input
                             type='password'
                             placeholder=''
+                            value={currentPassword}
+                            onChange={handleChangeCurrentPassword}
                         />
                         <label htmlFor='password'> Current Password </label>
                     </div>
