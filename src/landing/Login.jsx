@@ -42,6 +42,12 @@ export const Login = () => {
         }
     };
 
+    const handleInputChange = () => {
+        setEmailError('');
+        setPasswordError('');
+        setErrorMsg('');
+    };
+
     const loginSubmit = async () => {
         try {
             await new Promise(resolve => setTimeout(resolve, 1000));
@@ -59,7 +65,10 @@ export const Login = () => {
 
             if (data.success) {
                 sessionStorage.setItem('user', email);
-                navigate('/Welcome');
+                setErrorMsg(<span style={{ color: 'green' }}> Welcome </span>);
+                setTimeout(() => {
+                    navigate('/Welcome');
+                }, 1000);
             } else {
                 console.log('Login failed');
                 setErrorMsg('Incorrect Email or Password');
@@ -87,7 +96,7 @@ export const Login = () => {
                             placeholder=''
                             onChange={(e) => {
                                 setEmail(e.target.value);
-                                setEmailError('');
+                                handleInputChange();
                             }}
                             onKeyDown={handleKeydown}
                         />
@@ -102,7 +111,7 @@ export const Login = () => {
                             placeholder=''
                             onChange={(e) => {
                                 setPassword(e.target.value);
-                                setPasswordError('');
+                                handleInputChange();
                             }}
                             onKeyDown={handleKeydown}
                         />

@@ -20,35 +20,23 @@ export const Forgotpasschange = () => {
 
     const handleChangeCurrentPassword = (e) => {
         setCurrentPassword(e.target.value);
+        setPasswordError('');
     }
 
     const handleChangePassword = (e) => {
         setNewPassword(e.target.value);
+        setPasswordError('');
     }
 
     const handleChangeConfirmPassword = (e) => {
         setConfirmPassword(e.target.value);
+        setPasswordError('');
     }
 
     const handleSubmit = async () => {
 
         if (currentPassword === '') {
             setPasswordError('Please enter your current password')
-            return;
-        }
-
-        if (newPassword.length < 8) {
-            setPasswordError('Password must be at least 8 characters long');
-        } else if (!/[A-Z]/.test(newPassword)) {
-            setPasswordError('Password must contain at least one uppercase letter');
-        } else if (!/[a-z]/.test(newPassword)) {
-            setPasswordError('Password must contain at least one lowercase letter');
-        } else if (!/[0-9]/.test(newPassword)) {
-            setPasswordError('Password must contain at least one number');
-        } else if (!/[^\w\s]/.test(newPassword)) {
-            setPasswordError('Password must contain at least one special character');
-        } else if (newPassword !== confirmPassword) {
-            setPasswordError('Passwords do not match');
             return;
         }
 
@@ -68,8 +56,31 @@ export const Forgotpasschange = () => {
 
             const data = await response.json();
 
+            if (!data.success) {
+                setPasswordError('Incorrect Current Password');
+                return;
+            }
+
+            if (newPassword.length < 8) {
+                setPasswordError('Password must be at least 8 characters long');
+            } else if (!/[A-Z]/.test(newPassword)) {
+                setPasswordError('Password must contain at least one uppercase letter');
+            } else if (!/[a-z]/.test(newPassword)) {
+                setPasswordError('Password must contain at least one lowercase letter');
+            } else if (!/[0-9]/.test(newPassword)) {
+                setPasswordError('Password must contain at least one number');
+            } else if (!/[^\w\s]/.test(newPassword)) {
+                setPasswordError('Password must contain at least one special character');
+            } else if (newPassword !== confirmPassword) {
+                setPasswordError('Passwords do not match');
+                return;
+            }
+
             if (data.success) {
-                navigate('/');
+                setPasswordError(<span style={{ color: 'green' }}> Password Successfully Changed </span>);
+                setTimeout(() => {
+                    navigate('/');
+                }, 1000);
             } else {
                 console.error(data.message);
             }
@@ -78,6 +89,12 @@ export const Forgotpasschange = () => {
         }
     }
 
+    // Enter Event Key (Press enter)
+    const handleKeydown = (event) => {
+        if(event.key === 'Enter'){
+            handleSubmit();
+        }
+    };
 
     return (
         <>
@@ -96,6 +113,7 @@ export const Forgotpasschange = () => {
                             placeholder=''
                             value={currentPassword}
                             onChange={handleChangeCurrentPassword}
+                            onKeyDown={handleKeydown}
                         />
                         <label htmlFor='password'> Current Password </label>
                     </div>
@@ -105,6 +123,7 @@ export const Forgotpasschange = () => {
                             placeholder=''
                             value={newPassword}
                             onChange={handleChangePassword}
+                            onKeyDown={handleKeydown}
                         />
                         <label htmlFor='password'> New Password </label>
                     </div>
@@ -114,6 +133,7 @@ export const Forgotpasschange = () => {
                             placeholder=''
                             value={confirmPassword}
                             onChange={handleChangeConfirmPassword}
+                            onKeyDown={handleKeydown}
                         />
                         <label htmlFor='password'> Confirm New Password </label>
                     </div>

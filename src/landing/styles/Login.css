@@ -147,6 +147,14 @@ label{
     background-color: transparent;
 }
 
+.loginErrorMsg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    color: red;
+}
+
 .submit-container{
     display: flex;
     gap: 30px;
