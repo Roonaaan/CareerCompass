@@ -9,6 +9,7 @@ import defaultImg from "../assets/signed-in/defaultImg.jpg"
 const Home = () => {
 
   const [userName, setUserName] = useState(''); 
+  const [showDropdown, setShowDropdown] = useState(false);
   const navigate = useNavigate();
 
   // React to PHP Connection
@@ -40,6 +41,25 @@ const Home = () => {
       navigate('/');
     }
 
+    const DropdownModal = ({ logoutHandler }) => {
+      return (
+        <div className="dropdown-modal">
+          <div className="profile-info">
+            <img src={defaultImg} alt='profile' className='profileImg'/>
+            <p className='username'>{userName}</p>
+          </div>
+          <ul>
+            <li><button >My Profile</button></li>
+            <li><button onClick={logoutHandler}>Log Out</button></li>
+          </ul>
+        </div>
+      );
+    };
+
+    const toggleDropdown = () => {
+      setShowDropdown(!showDropdown);
+    }
+
   return (
     <>
     <div className='parent'>
@@ -50,8 +70,12 @@ const Home = () => {
           </div>
 
           <div className='navProfile'>
-            <img src={defaultImg} alt='profile' className='profileImg'/>
-            <p className='username'>Welcome, {userName}</p>
+            <img 
+              src={defaultImg} 
+              alt='profile' 
+              className='profileImg'
+              onClick={toggleDropdown}
+              />
           </div>
         </div>
       </header> 
@@ -66,6 +90,7 @@ const Home = () => {
           <button className='createButton'> CREATE ROADMAP </button>
         </div>
       </section>
+      {showDropdown && <DropdownModal logoutHandler={handleLogout} />}
     </div>
 
     </>

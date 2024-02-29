@@ -120,8 +120,73 @@
   border: solid 1px #27374D;
   background-color: white;
   color: #27374D;
+}
 
-  
+
+/* Dropdown Modal */ 
+
+.dropdown-modal {
+  position: absolute;
+  top: 60px; /* Adjust mo nalang to par depende sa size */
+  right: 20px; /* Adjust mo nalang to par depende sa size */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown-modal .profile-info {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.dropdown-modal .profile-info img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.dropdown-modal .profile-info .username {
+  margin: 0;
+  font-size: 16px;
+}
+
+.dropdown-modal ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-modal li {
+  padding: 10px;
+}
+
+.dropdown-modal li button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+}
+
+.dropdown-modal li button:hover {
+  color: #007bff;
 }
 
 
