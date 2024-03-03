@@ -5,8 +5,8 @@ import { useNavigate } from "react-router-dom";
 import './styles/Contact.css';
 
 // Images
-import logo from '../assets/final-topright-logo.png';
-import footerlogo from "../assets/footerLogo.png";
+import logo from '../assets/homepage/final-topright-logo.png';
+import footerlogo from "../assets/homepage/footerLogo.png";
 
 const Contact = () => {
 

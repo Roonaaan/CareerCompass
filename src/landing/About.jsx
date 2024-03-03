@@ -1,20 +1,18 @@
-
 import React from "react";
 import { useNavigate } from "react-router-dom";
 //CSS
 import "./styles/About.css";
 //images
-import logo from "../assets/final-topright-logo.png";
-import footerlogo from "../assets/footerLogo.png";
-import profile1 from "../assets/ppRonan.jpg";
-import profile2 from "../assets/ppBulawan.jpg";
-import profile3 from "../assets/ppPajerga.jpg";
-import profile4 from "../assets/ppVillaluz.jpg";
-import profile5 from "../assets/ppDeJesus.png";
-import profile6 from "../assets/pplucky.jpg";
-import profile7 from "../assets/ppMongaya.jpg";
-import profile8 from "../assets/ppMabuti.jpg";
-import profile9 from "../assets/ppGenove.jpg";
+import logo from "../assets/homepage/final-topright-logo.png";
+import profile1 from "../assets/aboutus/ppRonan.jpg";
+import profile2 from "../assets/aboutus/ppBulawan.jpg";
+import profile3 from "../assets/aboutus/ppPajerga.jpg";
+import profile4 from "../assets/aboutus/ppVillaluz.jpg";
+import profile5 from "../assets/aboutus/ppDeJesus.png";
+import profile6 from "../assets/aboutus/pplucky.jpg";
+import profile7 from "../assets/aboutus/ppMongaya.jpg";
+import profile8 from "../assets/aboutus/ppMabuti.jpg";
+import profile9 from "../assets/aboutus/ppGenove.jpg";
 
 
 

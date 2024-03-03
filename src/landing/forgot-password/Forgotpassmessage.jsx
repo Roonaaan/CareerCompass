@@ -9,7 +9,7 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import './styles/Forgotpassword.css' 
 
 // Logo
-import Logo from '../../assets/logo-dark.png'
+import Logo from '../../assets/login/logo-dark.png'
 
 const Forgotpassmessage = () => {
   

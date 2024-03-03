@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './styles/Login.css';
-import Logo from '../assets/logo-dark.png';
+import Logo from '../assets/login/logo-dark.png';
 import { FaLock, FaLockOpen } from 'react-icons/fa';
 
 export const Login = () => {

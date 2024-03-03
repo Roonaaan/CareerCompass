@@ -6,8 +6,8 @@ import { useNavigate } from "react-router-dom";
 import "./styles/Home.css";
 
 //link Images from Assets
-import logo from "../assets/final-topright-logo.png";
-import footerlogo from "../assets/footerLogo.png";
+import logo from "../assets/homepage/final-topright-logo.png";
+import footerlogo from "../assets/homepage/footerLogo.png";
 
 const Home = () => {
   const Logo = logo;

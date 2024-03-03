@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import "./styles/styles.css"
 
 // Images
-import logo from "../assets/final-topright-logo.png";
+import logo from "../assets/homepage/final-topright-logo.png";
 import defaultImg from "../assets/signed-in/defaultImg.jpg"
 
 const Home = () => {

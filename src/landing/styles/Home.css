@@ -181,7 +181,7 @@ body {
 /*Hero Section */
 .heroWrapper {
   min-height: 500px; 
-  background-image: url(/src/assets/final-hero.jpg);
+  background-image: url(/src/assets/homepage/final-hero.jpg);
   background-size:cover;
   display: flex;
   flex-wrap: wrap;
