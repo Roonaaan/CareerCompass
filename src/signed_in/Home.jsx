@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
-import "./styles/styles.css"
+import "./styles/Home.css"
 
 // Images
 import logo from "../assets/homepage/final-topright-logo.png";
@@ -35,6 +35,10 @@ const Home = () => {
       fetchUserName();
     }, []);
 
+    const handleProfileClick = () => {
+      navigate('/My-Profile/Employee-Profile');
+    }
+
     // Logout User (disabled)
     const handleLogout = () => {
       sessionStorage.removeItem('user');
@@ -49,7 +53,7 @@ const Home = () => {
             <p className='username'>{userName}</p>
           </div>
           <ul>
-            <li><button >My Profile</button></li>
+            <li><button onClick={handleProfileClick}>My Profile</button></li>
             <li><button onClick={logoutHandler}>Log Out</button></li>
           </ul>
         </div>

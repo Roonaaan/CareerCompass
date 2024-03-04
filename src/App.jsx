@@ -14,6 +14,7 @@ import ForgotPasswordChange from './landing/forgot-password/Forgotpasschange';
 
 // Signed-In user page
 import Welcome from './signed_in/Home';
+import EmpProfile from './signed_in/Profile/Empprofile'
 
 function App() {
 
@@ -34,7 +35,7 @@ function App() {
 
           {/* Signed-In User Page */}
           <Route path="/Welcome" element={<Welcome />} />
-          
+          <Route path="/My-Profile/Employee-Profile" element={<EmpProfile />} />        
         </Routes>
       </BrowserRouter>
     </>
