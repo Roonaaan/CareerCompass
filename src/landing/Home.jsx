@@ -11,8 +11,8 @@ import footerlogo from "../assets/homepage/footerLogo.png";
 
 const Home = () => {
   const Logo = logo;
-
   const navigate = useNavigate();
+  
   const handleLoginClick = () => {
     navigate("/Login");
   };
@@ -41,21 +41,6 @@ const Home = () => {
               onClick={handleHomeClick}
             />
           </div>
-
-          <div className="login-container">
-            <btn className="login-text" onClick={handleLoginClick}>Log in</btn>
-            <btn className="Signup-text" onClick={handleLoginClick}>Sign up</btn>
-          </div>
-          {/* Login and About Header
-                    <div className="navRight">
-                        <button className="about" onClick={handleAboutClick}>
-                            About Us
-                        </button>
-                        <button className="login" onClick={handleLoginClick}>
-                            Log In
-                        </button>
-                    </div>
-                    */}
         </div>
       </nav>
       {/* End of Navigation Bar */}
@@ -64,18 +49,13 @@ const Home = () => {
       <div className="heroWrapper">
         <div className="heroInner inner-frame">
           <p className="header-text">CREATE YOUR OWN ROADMAP</p>
-
           <p className="discover-text">
             Discover your own career path! Input your skills, experience, and
             our system crafts a personalize roadmap just for you.
           </p>
-
           <div className="heroButtonBar">
             <btn className="create-Button" onClick={handleLoginClick}>
               CREATE ROADMAP
-            </btn>
-            <btn className="login-Button" onClick={handleLoginClick}>
-              LOG IN
             </btn>
           </div>
         </div>
@@ -162,10 +142,6 @@ const Home = () => {
               >
                 {" "}
                 About Us{" "}
-              </a>
-              <a href="" className="footerAboutLink">
-                {" "}
-                Mission and Vision{" "}
               </a>
               <a
                 href="/Contact-Us"

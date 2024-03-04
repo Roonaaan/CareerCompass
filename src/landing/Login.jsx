@@ -153,9 +153,6 @@ export const Login = () => {
                     >Log In
                     </button>
                 </div>
-                <div className='no-account'>
-                    <p>Don't have an account? <a href='#'>Sign up</a></p>
-                </div>
                 <div className='footer'>
                     <a href=''> Terms of use </a>
                     |
