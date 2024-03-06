@@ -13,15 +13,9 @@ export const Forgotpasschange = () => {
     const queryParams = new URLSearchParams(location.search);
     const token = queryParams.get("token");
 
-    const [currentPassword, setCurrentPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [passwordError, setPasswordError] = useState('');
-
-    const handleChangeCurrentPassword = (e) => {
-        setCurrentPassword(e.target.value);
-        setPasswordError('');
-    }
 
     const handleChangePassword = (e) => {
         setNewPassword(e.target.value);
@@ -34,12 +28,6 @@ export const Forgotpasschange = () => {
     }
 
     const handleSubmit = async () => {
-
-        if (currentPassword === '') {
-            setPasswordError('Please enter your current password')
-            return;
-        }
-
         try {
             const response = await fetch('http://localhost/CareerCompass/backend/login-page/reset-password.php', {
                 method: 'POST',
@@ -49,7 +37,6 @@ export const Forgotpasschange = () => {
                 },
                 body: JSON.stringify({
                     token: token,
-                    currentPassword: currentPassword,
                     newPassword: newPassword
                 })
             });
@@ -107,16 +94,6 @@ export const Forgotpasschange = () => {
                 </div>
                 <div className="forgotPassHeaderText"> Enter your new password below </div>
                 <div className="inputs">
-                    <div className="input">
-                        <input
-                            type='password'
-                            placeholder=''
-                            value={currentPassword}
-                            onChange={handleChangeCurrentPassword}
-                            onKeyDown={handleKeydown}
-                        />
-                        <label htmlFor='password'> Current Password </label>
-                    </div>
                     <div className="input">
                         <input
                             type='password'

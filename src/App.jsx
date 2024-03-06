@@ -7,8 +7,6 @@ import About from './landing/About';
 import ContactUs from './landing/Contact';
 
 // Signed-In user page
-import ForgotPassword from './landing/forgot-password/Forgotpass';
-import ForgotMessage from './landing/forgot-password/Forgotpassmessage';
 import ForgotPasswordChange from './landing/forgot-password/Forgotpasschange';
 
 // Signed-In user page
@@ -28,18 +26,12 @@ function App() {
           <Route path="/Contact-Us" element={<ContactUs />} />
 
           {/* Forgot Password Page */}
-          <Route path="/Login/Forgot-Password" element={<ForgotPassword />} />
-          <Route path="/Login/Forgot-Password/Email-Sent" element={<ForgotMessage />} />
           <Route path="/Login/Forgot-Password/Change-Password" element={<ForgotPasswordChange />} />
 
           {/* Signed-In User Page */}
           <Route path="/Welcome" element={<Welcome />} />
-<<<<<<< HEAD
           <Route path="/My-Profile/Employee-Profile" element={<EmpProfile />} />
-=======
-          <Route path="/My-Profile/Employee-Profile" element={<EmpProfile />} /> 
           <Route path="/Recommend" element={<Recommend />} />       
->>>>>>> 31e00b6ae5ed8bc9f2dca9415d76fb2da67eb5e6
         </Routes>
       </BrowserRouter>
     </>
