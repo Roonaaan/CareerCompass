@@ -34,12 +34,8 @@ function App() {
 
           {/* Signed-In User Page */}
           <Route path="/Welcome" element={<Welcome />} />
-<<<<<<< HEAD
           <Route path="/My-Profile/Employee-Profile" element={<EmpProfile />} />
-=======
-          <Route path="/My-Profile/Employee-Profile" element={<EmpProfile />} /> 
           <Route path="/Recommend" element={<Recommend />} />       
->>>>>>> 31e00b6ae5ed8bc9f2dca9415d76fb2da67eb5e6
         </Routes>
       </BrowserRouter>
     </>
