@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import "./styles/Profile.css"
 
+
 // Images
 import logo from "../../assets/homepage/final-topright-logo.png";
 import defaultImg from "../../assets/signed-in/defaultImg.jpg"
@@ -35,145 +36,75 @@ const Profile = () => {
         setShowDropdown(!showDropdown);
       }
 
-    return(
-        <>
+    return (
+      <>
         <div className="profileContainer">
-            <header className='navBar'>
-                <div className='navBarInner'>
-                    <div className='navLogoContainer'>
-                        <img src={logo} alt="logo" className="navLogo"/>
-                    </div>
-                    <div className='navProfile'>
-                        <img 
-                            src={defaultImg} 
-                            alt='profile' 
-                            className='profileImg'
-                            onClick={toggleDropdown}
-                        />
-                    </div>
-                </div>
-            </header> 
-            <div className="profileNavigation">
-                <div className="profileNavigationInner">
-                    <input 
-                        type="radio"
-                        id='profileInformation' 
-                        name="navigationOption" 
-                        onClick={'#'}
-                        checked
-                    />
-                    <label htmlFor="profileInformation"> Profile Information </label>
-                    <input 
-                        type="radio"
-                        id='workHistory' 
-                        name="navigationOption" 
-                        onClick={'#'}
-                    />
-                    <label htmlFor="workHistory"> Work History </label>
-                    <input 
-                        type="radio"
-                        id='educational' 
-                        name="navigationOption" 
-                        onClick={'#'}
-                    />
-                    <label htmlFor="educational"> Educational Background </label>
-                    <input 
-                        type="radio"
-                        id='skills' 
-                        name="navigationOption" 
-                        onClick={'#'}
-                    />
-                    <label htmlFor="skills"> Skills </label>
-                </div>
+          <header className="navBar">
+            <div className="navBarInner">
+              <div className="navLogoContainer">
+                <img src={logo} alt="logo" className="navLogo" />
+              </div>
+              <div className="navProfile">
+                <img
+                  src={defaultImg}
+                  alt="profile"
+                  className="profileImg"
+                  onClick={toggleDropdown}
+                />
+              </div>
             </div>
-            <div className="profileDisplay">
-                <div className="profileTitle">
-                    <h1> Employee Profile </h1>
+          </header>
+
+           
+        
+          <div className="userProfile">
+            <p className="userProfileText">Profile</p>
+          </div>
+
+          <div className='userProfileParent'>
+            <div className='displayPictureInfo'>
+                <div className='userProfilePicture'>
+                    <img className='userImage' src={defaultImg} alt="profile"/>
                 </div>
-                <div className="profileDisplayContainer">
-                    <div className="profileImage">
-                        <img src={defaultImg} alt="profile"/>
-                    </div>
-                    <div className="profileDetailContainer">
-                        <div className="profileName">
-                            <p> Employee Name </p>
-                            <div className="profileEmpName">
-                                <p> First Name </p>
-                                <p> First Name Here </p>
-                            </div>
-                            <div className="profileEmpName">
-                                <p> Last Name </p>
-                                <p> Last Name Here </p>
-                            </div>
-                        </div>
-                        <div className="profileAge">
-                            <div className="profileEmpAge">
-                                <p> Age </p>
-                                <p> Age Here </p>
-                            </div>
-                            <div className="profileEmpAge">
-                                <p> Birthday </p>
-                                <p> Birthday Here </p>
-                            </div>
-                        </div>
-                        <div className="profileJobPosition">
-                            <p> Position </p>
-                            <p> Position Here </p>
-                        </div>
-                        <div className="profileAddress">
-                            <p> Address </p>
-                            <div className="profileEmpAddress">
-                                <p> Home Address </p>
-                                <p> Home Address Here </p>
-                            </div>
-                            <div className="profileEmpAddress">
-                                <p> District </p>
-                                <p> District Here </p>
-                            </div>
-                            <div className="profileEmpAddress">
-                                <p> City </p>
-                                <p> City Here </p>
-                            </div>
-                            <div className="profileEmpAddress">
-                                <p> Province </p>
-                                <p> Province Here </p>
-                            </div>
-                            <div className="profileEmpAddress">
-                                <p> Postal Code </p>
-                                <p> Postal Code Here </p>
-                            </div>
-                        </div>
-                        <div className="profileContact">
-                            <div className="profileEmpContact">
-                                <p> Email Address </p>
-                                <p> Email Address Here </p>
-                            </div>
-                            <div className="profileEmpContact">
-                                <p> Phone Number </p>
-                                <p> Phone Number Here </p>
-                            </div>
-                        </div>
-                        <div className="profileBackground">
-                            <div className="profileEmpBackground">
-                                <p> Gender </p>
-                                <p> Gender Here </p>
-                            </div>
-                            <div className="profileEmpBackground">
-                                <p> Civil Status </p>
-                                <p> Civil Status Here </p>
-                            </div>
-                            <div className="profileEmpBackground">
-                                <p> Nationality </p>
-                                <p> Nationality Here </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+            <div className='userNameRoleAddress'>
+                <p className='userName Text'>Christoper Mirafuente Bulawan</p>
+                <p className='userRole Text'>Software Engineer</p>
+                <p className='userAddress Text'>bulawan.christoper.bscs2020@gmail.com</p>
+                <p className='Text'>09123456789</p>
+                
             </div>
-            {showDropdown && <DropdownModal logoutHandler={handleLogout} />}
+          </div>
+
+          {showDropdown && <DropdownModal logoutHandler={handleLogout} />}
+          </div>
+
+          <div className="personalInformationHeader">
+            <p className="personalInformationText">Personal Information</p>
+          </div>
+
+          <div className='userProfileParent'>
+
+            <div className='personalInformationParent'>
+            <div className='userNameRoleAddress'>
+                <p className='userName Text'>Age</p>
+                <p className='userRole Text'>21</p>   
+            </div>
+
+            <div className='userNameRoleAddress'>
+                <p className='userName Text'>Gender</p>
+                <p className='userRole Text'>Male</p>
+                
+            </div>
+
+
+            
+          </div>
+          {showDropdown && <DropdownModal logoutHandler={handleLogout} />}
+          </div>
         </div>
-        </>
-    )
+      </>
+    );
 }
 
 export default Profile;

@@ -1,0 +1,143 @@
+/*Navigation Bar*/
+.navBar {
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  width: auto;
+  min-height: 70px;
+  gap: 40em;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.navBarInner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 32px;
+  margin-right: 32px;
+}
+
+.navLogoContainer {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.navLogo {
+  width: 180px;
+  cursor: pointer;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.navProfile {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  gap: 10px;
+}
+
+.profileImg {
+  aspect-ratio: 1/1;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.username {
+  color: #27374D;
+  font-size: 16px;
+}
+
+/* First Section - Header Text */
+.userProfile {
+  display: flex;
+  justify-content: flex-start;
+  width: auto;
+  min-height: 50px;
+  margin-top: 30px;
+}
+
+.userProfileText {
+  font-size: 30px;
+  margin-left: 24px;
+  font-weight: bold;
+}
+
+/* Second Section - User Profile Info */
+.userProfileParent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  min-height: 100px;
+}
+
+.displayPictureInfo {
+  display: flex;
+  width:97%;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 90px;
+  gap: 1em;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+}
+
+.userProfilePicture {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+}
+
+.userImage {
+  width: 80px;
+  height: 80px;
+  aspect-ratio: 1/1;
+}
+
+.userNameRoleAddress {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  justify-content: center;
+  width: auto;
+}
+
+
+.Text {
+  font-size: 18px;
+}
+
+.userName {
+  font-weight: 600;
+}
+
+/* 3rd Section - Personal Information header */
+.personalInformationHeader {
+  display: flex;
+  justify-content: flex-start;
+  width: auto;
+  min-height: 50px;
+  margin-top: 50px;
+}
+
+.personalInformationText {
+  font-size: 30px;
+  margin-left: 24px;
+  font-weight: bold;
+}
+
+.personalInformationParent {
+  display: flex;
+  width:97%;
+  justify-content: center;
+  align-items:baseline;
+  min-height: 400px;
+  gap: 30em;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+}
