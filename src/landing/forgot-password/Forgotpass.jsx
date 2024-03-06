@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import Forgotpassmessage from "./Forgotpassmessage";
 
 // CSS
 import './styles/Forgotpassword.css'
@@ -10,12 +10,12 @@ import Logo from '../../assets/login/logo-dark.png'
 
 export const Forgotpass = ({ onClose }) => {
 
-    // Navigation
-    const navigate = useNavigate();
-
     // Email Validation
     const [email, setEmail] = useState('');
     const [emailError, setEmailError] = useState('');
+
+    // Modals
+    const [showModal, setShowModal] = useState(false);
 
     const handleValidation = () => {
         setEmailError('');
@@ -27,6 +27,11 @@ export const Forgotpass = ({ onClose }) => {
         } else {
             emailSent();
         }
+    }
+
+    // Open Modal
+    const messageSent = () => {
+        setShowModal(true);
     }
 
     // Enter Event Key (Press enter)
@@ -43,16 +48,15 @@ export const Forgotpass = ({ onClose }) => {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application.json',
+                    'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({email}),
+                body: JSON.stringify({ email }),
             });
 
             const data = await response.json();
 
             if (data.success) {
-                onClose();
-                navigate(`/Login/Forgot-Password/Email-Sent?email=${encodeURIComponent(email)}`);
+                messageSent(`${encodeURIComponent(email)}`);
             } else {
 
             }
@@ -61,7 +65,6 @@ export const Forgotpass = ({ onClose }) => {
         }
     };
     
-
     return (
         <>
             <div className="forgot-password-modal">
@@ -103,6 +106,7 @@ export const Forgotpass = ({ onClose }) => {
                 </div>
             </div>
         </div>
+        {showModal && <Forgotpassmessage onClose={() => setShowModal(false)} email={email} />}
         </>
     )
 }
