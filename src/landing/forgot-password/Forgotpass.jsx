@@ -8,13 +8,10 @@ import './styles/Forgotpassword.css'
 import Logo from '../../assets/login/logo-dark.png'
 
 
-export const Forgotpass = () => {
+export const Forgotpass = ({ onClose }) => {
 
     // Navigation
     const navigate = useNavigate();
-    const handleLoginClick = () => {
-        navigate('/Login');
-    };
 
     // Email Validation
     const [email, setEmail] = useState('');
@@ -54,6 +51,7 @@ export const Forgotpass = () => {
             const data = await response.json();
 
             if (data.success) {
+                onClose();
                 navigate(`/Login/Forgot-Password/Email-Sent?email=${encodeURIComponent(email)}`);
             } else {
 
@@ -66,10 +64,12 @@ export const Forgotpass = () => {
 
     return (
         <>
-            <div className="imageHeader">
-                <img src={Logo} alt='Logo' className='imageHeaderLogo' />
-            </div>
-            <div className="headerContainer">
+            <div className="forgot-password-modal">
+            <div className="forgot-password-content">
+                <span className="forgot-close" onClick={onClose}>&times;</span>
+                <div className="imageHeader">
+                    <img src={Logo} alt='Logo' className='imageHeaderLogo' />
+                </div>
                 <div className="forgotPassHeader">
                     <div className="forgotPassHeaderTitle"> Reset your Password </div>
                 </div>
@@ -94,17 +94,17 @@ export const Forgotpass = () => {
                     </button>
                 </div>
                 <div className="return">
-                    <button className="return-submit" onClick={handleLoginClick}> Click here to return to Login </button>
+                    <button className="return-submit" onClick={onClose}> Click here to return to Login </button>
+                </div>
+                <div className='footer-forgotPass'>
+                    <a href=''> Terms of use </a>
+                    |
+                    <a href=''> Privacy Policy </a>
                 </div>
             </div>
-            <div className='footer'>
-                <a href=''> Terms of use </a>
-                |
-                <a href=''> Privacy Policy </a>
-            </div>
+        </div>
         </>
     )
-
 }
 
 export default Forgotpass;

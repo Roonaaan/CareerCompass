@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 // Landing, About Us and Login Page
 import Home from './landing/Home';
-import Login from './landing/Login';
 import About from './landing/About';
 import ContactUs from './landing/Contact';
 
@@ -24,7 +23,6 @@ function App() {
         <Routes>
           {/* Landing, About Us and Login Page */}
           <Route path="/" element={<Home />} />
-          <Route path="/Login" element={<Login />} />
           <Route path="/About" element={<About />} />
           <Route path="/Contact-Us" element={<ContactUs />} />
 
@@ -35,7 +33,7 @@ function App() {
 
           {/* Signed-In User Page */}
           <Route path="/Welcome" element={<Welcome />} />
-          <Route path="/My-Profile/Employee-Profile" element={<EmpProfile />} />        
+          <Route path="/My-Profile/Employee-Profile" element={<EmpProfile />} />
         </Routes>
       </BrowserRouter>
     </>

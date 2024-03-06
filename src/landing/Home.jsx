@@ -1,6 +1,7 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { features } from "./constants/features";
 import { useNavigate } from "react-router-dom";
+import LoginModal from "./Login";
 
 //link Home CSS
 import "./styles/Home.css";
@@ -12,9 +13,10 @@ import footerlogo from "../assets/homepage/footerLogo.png";
 const Home = () => {
   const Logo = logo;
   const navigate = useNavigate();
+  const [showModal, setShowModal] = useState(false);
   
   const handleLoginClick = () => {
-    navigate("/Login");
+    setShowModal(true);
   };
   const handleAboutClick = () => {
     navigate("/About");
@@ -98,7 +100,7 @@ const Home = () => {
       </div>
       {/* End of Features */}
       {/* Footer */}
-      <nav className="footerNavbarWrapper">
+      <div className="footerNavbarWrapper">
         <div className="footerNavbarColumn">
           <div className="footerNavbarInner">
             <div className="footerLogoWrapper">
@@ -160,8 +162,9 @@ const Home = () => {
             </p>
           </div>
         </div>
-      </nav>
+      </div>
       {/* End of Footer */}
+      {showModal && <LoginModal onClose={() => setShowModal(false)} />}
     </>
   );
 };
