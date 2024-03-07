@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 02, 2024 at 02:33 PM
+-- Generation Time: Mar 07, 2024 at 06:46 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -70,6 +70,18 @@ INSERT INTO `tblcontactus` (`ID`, `NAME`, `EMAIL`, `MESSAGE`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbldepartments`
+--
+
+CREATE TABLE `tbldepartments` (
+  `DEPT_ID` int(54) NOT NULL,
+  `DEPARTMENT` varchar(255) NOT NULL,
+  `DESCRIPTION` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tblforgotpass`
 --
 
@@ -78,6 +90,20 @@ CREATE TABLE `tblforgotpass` (
   `EMAIL` varchar(255) NOT NULL,
   `RESET_TOKEN` varchar(255) NOT NULL,
   `RESET_TOKEN_EXPIRY` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblposition`
+--
+
+CREATE TABLE `tblposition` (
+  `ID` int(54) NOT NULL,
+  `DEPT_ID` int(54) NOT NULL,
+  `DEPARTMENT` varchar(500) NOT NULL,
+  `POSITION` varchar(255) NOT NULL,
+  `DESCRIPTION` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -121,9 +147,21 @@ ALTER TABLE `tblcontactus`
   ADD PRIMARY KEY (`ID`);
 
 --
+-- Indexes for table `tbldepartments`
+--
+ALTER TABLE `tbldepartments`
+  ADD PRIMARY KEY (`DEPT_ID`);
+
+--
 -- Indexes for table `tblforgotpass`
 --
 ALTER TABLE `tblforgotpass`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `tblposition`
+--
+ALTER TABLE `tblposition`
   ADD PRIMARY KEY (`ID`);
 
 --
@@ -149,10 +187,22 @@ ALTER TABLE `tblcontactus`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `tbldepartments`
+--
+ALTER TABLE `tbldepartments`
+  MODIFY `DEPT_ID` int(54) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `tblforgotpass`
 --
 ALTER TABLE `tblforgotpass`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+
+--
+-- AUTO_INCREMENT for table `tblposition`
+--
+ALTER TABLE `tblposition`
+  MODIFY `ID` int(54) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tblprofile`
