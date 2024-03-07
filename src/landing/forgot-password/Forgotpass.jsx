@@ -1,24 +1,21 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import Forgotpassmessage from "./Forgotpassmessage";
 
 // CSS
 import './styles/Forgotpassword.css'
 
 // Logo
-import Logo from '../../assets/logo-dark.png'
+import Logo from '../../assets/login/logo-dark.png'
 
 
-export const Forgotpass = () => {
-
-    // Navigation
-    const navigate = useNavigate();
-    const handleLoginClick = () => {
-        navigate('/Login');
-    };
+export const Forgotpass = ({ onClose }) => {
 
     // Email Validation
     const [email, setEmail] = useState('');
     const [emailError, setEmailError] = useState('');
+
+    // Modals
+    const [showModal, setShowModal] = useState(false);
 
     const handleValidation = () => {
         setEmailError('');
@@ -30,6 +27,11 @@ export const Forgotpass = () => {
         } else {
             emailSent();
         }
+    }
+
+    // Open Modal
+    const messageSent = () => {
+        setShowModal(true);
     }
 
     // Enter Event Key (Press enter)
@@ -46,15 +48,15 @@ export const Forgotpass = () => {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application.json',
+                    'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({email}),
+                body: JSON.stringify({ email }),
             });
 
             const data = await response.json();
 
             if (data.success) {
-                navigate(`/Login/Forgot-Password/Email-Sent?email=${encodeURIComponent(email)}`);
+                messageSent(`${encodeURIComponent(email)}`);
             } else {
 
             }
@@ -63,13 +65,14 @@ export const Forgotpass = () => {
         }
     };
     
-
     return (
         <>
-            <div className="imageHeader">
-                <img src={Logo} alt='Logo' className='imageHeaderLogo' />
-            </div>
-            <div className="headerContainer">
+            <div className="forgot-password-modal">
+            <div className="forgot-password-content">
+                <span className="forgot-close" onClick={onClose}>&times;</span>
+                <div className="imageHeader">
+                    <img src={Logo} alt='Logo' className='imageHeaderLogo' />
+                </div>
                 <div className="forgotPassHeader">
                     <div className="forgotPassHeaderTitle"> Reset your Password </div>
                 </div>
@@ -82,7 +85,7 @@ export const Forgotpass = () => {
                             onChange={(e) => setEmail(e.target.value)}
                             onKeyDown={handleKeydown}
                         />
-                        <label for='email'> Email Address </label>
+                        <label htmlFor='email'> Email Address </label>
                     </div>
                     {emailError && <div className='forgotErrorMsg'>{emailError} </div>}
                 </div>
@@ -94,17 +97,18 @@ export const Forgotpass = () => {
                     </button>
                 </div>
                 <div className="return">
-                    <button className="return-submit" onClick={handleLoginClick}> Click here to return to Login </button>
+                    <button className="return-submit" onClick={onClose}> Click here to return to Login </button>
+                </div>
+                <div className='footer-forgotPass'>
+                    <a href=''> Terms of use </a>
+                    |
+                    <a href=''> Privacy Policy </a>
                 </div>
             </div>
-            <div className='footer'>
-                <a href=''> Terms of use </a>
-                |
-                <a href=''> Privacy Policy </a>
-            </div>
+        </div>
+        {showModal && <Forgotpassmessage onClose={() => setShowModal(false)} email={email} />}
         </>
     )
-
 }
 
 export default Forgotpass;

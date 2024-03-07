@@ -1,44 +1,32 @@
 <?php
 
-    require_once "../connection.php";
-
-    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Origin: http://localhost:5173");
     header("Access-Control-Allow-Methods: GET, POST");
     header("Access-Control-Allow-Headers: Content-Type");
 
-    if(mysqli_connect_error()) {
-        echo mysqli_connect_error();
-        exit();
-    } else {
-        $eData = file_get_contents("php://input");
-        $dData = json_decode($eData, true);
+    include "../connection.php";
 
-        $user = $dData['email'];
-        $pass = $dData['password'];
-        $result = "";
+    $data = json_decode(file_get_contents("php://input"));
 
-        if($user !== "" and $pass != ""){
-            $sql = "SELECT * FROM tblaccount WHERE ACCOUNT_USERNAME='$user';";
-            $res = mysqli_query($conn, $sql);
+    if(isset($data->email) && isset($data->password)) {
+        $email = mysqli_real_escape_string($conn, $data->email);
+        $password = mysqli_real_escape_string($conn, $data->password);
 
-            if(mysqli_num_rows($res) != 0) {
-                $row = mysqli_fetch_array($res);
-                if($pass != $row['ACCOUNT_PASSWORD']) {
-                    $result = "Incorrect Password";
-                } 
-                else {
-                    $result = ""; //Logged in Successfully
-                }
-            } 
-            else {
-                $result = "Incorrect Email Address";
-            }
-        } 
-        else {
-            $result = "";
+        $query = "SELECT * FROM tblaccount WHERE ACCOUNT_EMAIL='$email' AND ACCOUNT_PASSWORD='$password'";
+        $result = mysqli_query($conn, $query);
+
+        if (mysqli_num_rows($result) == 1) {
+            $response = array('success' => true, 'message' => 'Login Successful');
+        } else {
+            $response = array('success' => false, 'message' => 'Invalid email or password');
         }
-
-        $conn -> close();
-        $response[] = array("result" => $result);
-        echo json_encode($response);
+    } else {
+        $response = array('success' => false, 'message' => 'Invalid Request');
     }
+
+    header('Content-Type: application/json');
+    echo json_encode($response);
+
+    mysqli_close($conn);
+
+?>

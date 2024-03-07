@@ -1,0 +1,59 @@
+.recommendPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    font-family: "Poppins", sabs-serif;
+}
+.recommendHeading {
+    border-inline: 5px;
+    font-size: 45px;
+    font-family: "Poppins", sabs-serif;
+    font-weight: bold;
+}
+.recommendedList {
+    border: 2px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding: 5px;
+    border-radius: 10px;
+    width: fit-content;
+    height: 500px;
+}
+.recommendList {
+    padding: 30px;
+    width: 300px;
+    height: 500px;
+    padding: 10px;
+    align-items: center;
+}
+.recommendImage {
+    height: 400px;
+    width: fit-content;
+    align-items: center;
+}
+.recommendListname {
+    align-items: center;
+    text-align: center;
+    font-size: 24px;
+    padding: 10px;
+}
+.recommendButton {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #33658A;
+    color: white;
+    cursor: pointer;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-left: 30px;
+    border-radius: 10px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
