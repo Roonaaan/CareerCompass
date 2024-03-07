@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 07, 2024 at 06:46 AM
+-- Generation Time: Mar 07, 2024 at 07:28 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -78,6 +78,17 @@ CREATE TABLE `tbldepartments` (
   `DEPARTMENT` varchar(255) NOT NULL,
   `DESCRIPTION` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbldepartments`
+--
+
+INSERT INTO `tbldepartments` (`DEPT_ID`, `DEPARTMENT`, `DESCRIPTION`) VALUES
+(1, 'IT', 'The IT department is in charge of network operations, software, hardware, cybersecurity, infrastructure, and support for technology, making sure that everything runs smoothly and securely.'),
+(2, 'Human resources', 'The Human Resources department oversees hiring, employee relations, training, pay, policy compliance, creating a healthy work environment, and making sure that regulation is followed.'),
+(3, 'Sales', 'Business Development'),
+(6, 'Marketing', 'Coordinating Marketing Activities'),
+(7, 'Finance', 'Managing Finances');
 
 -- --------------------------------------------------------
 
@@ -190,7 +201,7 @@ ALTER TABLE `tblcontactus`
 -- AUTO_INCREMENT for table `tbldepartments`
 --
 ALTER TABLE `tbldepartments`
-  MODIFY `DEPT_ID` int(54) NOT NULL AUTO_INCREMENT;
+  MODIFY `DEPT_ID` int(54) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tblforgotpass`
