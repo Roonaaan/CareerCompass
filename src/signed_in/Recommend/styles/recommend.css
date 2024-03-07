@@ -1,59 +1,90 @@
-.recommendPage {
+/* Recommend Job Role CSS */
+.recommendJobContainer {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.recommendJobContainerInner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    font-family: "Poppins", sabs-serif;
+    gap: 5px;
 }
-.recommendHeading {
-    border-inline: 5px;
-    font-size: 45px;
-    font-family: "Poppins", sabs-serif;
-    font-weight: bold;
+
+.recommendJobContainer h1 {
+    color: #2F4858;
+    font-weight: 700;
+    font-size: 50px;
 }
-.recommendedList {
-    border: 2px solid black;
+
+.recommendJobContainerSubtitle,
+.recommendJobContainerSubtitle p {
+    color: grey;
+    margin-top: 5px;
+}
+
+.recommendJobContainerSelection {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 50px;
-    padding: 5px;
-    border-radius: 10px;
-    width: fit-content;
-    height: 500px;
+    flex-direction: row;
+    gap: 15px;
+    margin-top: 70px;
 }
-.recommendList {
-    padding: 30px;
-    width: 300px;
-    height: 500px;
-    padding: 10px;
-    align-items: center;
+
+.recommendJobContainerPanel {
+    display: flex;
+    width: 350px;
+    height: 350px;
+    border: 2px solid black;
+    position: relative;
+    overflow: hidden;
 }
-.recommendImage {
-    height: 400px;
-    width: fit-content;
-    align-items: center;
+
+.recommendJobContainerPanel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
-.recommendListname {
-    align-items: center;
-    text-align: center;
-    font-size: 24px;
-    padding: 10px;
-}
-.recommendButton {
-    display: inline-block;
-    font-size: 18px;
-    font-weight: 600;
-    background-color: #33658A;
+
+.image-description {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(47, 72, 88, 0.8); /* Color, Opacity Here */
     color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.recommendJobContainerPanel:hover .image-description {
+    transform: translateY(0);
+}
+
+.recommendJobContainerButton {
+    display: flex;
+    margin-top: 30px;
+}
+
+.recommendJobContainerProceed {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 59px;
+    color: white;
+    background: #33658A;
+    border-radius: 5px;
+    border: 0;
+    outline: 0;
+    font-size: 19px;
+    font-weight: 700;
     cursor: pointer;
-    padding-top: 13px;
-    padding-bottom: 13px;
-    padding-left: 30px;
-    padding-right: 30px;
-    margin-left: 30px;
-    border-radius: 10px;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }

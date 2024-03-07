@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import "./styles/Profile.css"
 
-
 // Images
 import logo from "../../assets/homepage/final-topright-logo.png";
 import defaultImg from "../../assets/signed-in/defaultImg.jpg"
@@ -10,7 +9,7 @@ const Profile = () => {
 
     const [showDropdown, setShowDropdown] = useState(false);
 
-    // Logout User (disabled)
+    // Logout User
     const handleLogout = () => {
         sessionStorage.removeItem('user');
         navigate('/');
