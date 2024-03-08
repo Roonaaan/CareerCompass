@@ -14,6 +14,7 @@ export const Login = ({ onClose }) => {
     const [password, setPassword] = useState('');
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
+    const [successMsg, setSuccessMsg] = useState('');
     const [errorMsg, setErrorMsg] = useState('');
 
     // Modals
@@ -77,7 +78,7 @@ export const Login = ({ onClose }) => {
 
             if (data.success) {
                 sessionStorage.setItem('user', email);
-                setErrorMsg(<span style={{ color: 'green' }}> Welcome </span>);
+                setSuccessMsg(<span style={{ color: 'green' }}> Welcome </span>);
                 setTimeout(() => {
                     navigate('/Welcome');
                 }, 1000);
@@ -103,7 +104,7 @@ export const Login = ({ onClose }) => {
                         <div className='text'> Welcome </div>
                     </div>
                     <div className='loginHeaderText'> Please fill your detail to log in your account. </div>
-                    <div className='inputs'>
+                    <div className={`inputs ${emailError || passwordError || errorMsg ? 'shakeError' : ''}`}>
                         {/* Email Address*/}
                         <div className='input'>
                             <input
@@ -117,7 +118,7 @@ export const Login = ({ onClose }) => {
                             />
                             <label htmlFor='email'> Email Address </label>
                         </div>
-                        {emailError && <div className='error-message'>{emailError} </div>}
+                        {/* {emailError && <div className='error-message'>{emailError} </div>} */}
                         {/* End of Email Address*/}
                         {/* Password */}
                         <div className='input'>
@@ -141,7 +142,7 @@ export const Login = ({ onClose }) => {
                                 <span className='password-icon'>{iconType}</span>
                             </button>
                         </div>
-                        {passwordError && <div className="error-message">{passwordError}</div>}
+                        {/* {passwordError && <div className="error-message">{passwordError}</div>} */}
                         {/* End of Password */}
                     </div>
                     <div className='password'>
@@ -157,6 +158,7 @@ export const Login = ({ onClose }) => {
                         <div className='forgot-password' onClick={handleForgotPassClick}>Forgot Password? </div>
                     </div>
                     {errorMsg && <div className="loginErrorMsg">{errorMsg}</div>}
+                    {successMsg && <div className="loginErrorMsg">{successMsg}</div>}
                     <div className='submit-container'>
                         <button
                             className='submit'

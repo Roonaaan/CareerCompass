@@ -55,7 +55,7 @@
     margin-top: 10px;
     width: 400px;
     padding-bottom: 30px;
-    
+
 }
 
 .loginHeader {
@@ -100,6 +100,28 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    position: relative;
+}
+
+.inputs.shakeError {
+    animation: shake 0.5s ease-in-out;
+}
+
+.shakeError .input {
+    animation: shake 0.5s ease-in-out;
+    border-color: red;
+}
+
+.shakeError .input label {
+    color: red !important; 
+}
+
+@keyframes shake {
+    0% {transform: translateX(0);}
+    25% {transform: translateX(-5px);}
+    50% {transform: translateX(5px);}
+    75% {transform: translateX(-3px);}
+    100% {transform: translateX(0);}
 }
 
 .input {
@@ -109,11 +131,9 @@
     width: 410px;
     height: 70px;
     background: transparent;
-    border-style: solid;
-    border-color: #27374D;
     border-radius: 10px;
-    border-width: 1px;
     position: relative;
+    border: 1px solid #27374D;
 }
 
 .input input {
@@ -141,6 +161,7 @@
     transition: translate 250ms,
         background-color 250ms,
         border-color 250ms;
+        
 }
 
 .input:focus-within label,
@@ -208,7 +229,7 @@
 .submit-container {
     display: flex;
     gap: 30px;
-    margin: 50px auto;
+    margin: 30px auto;
     align-items: center;
 }
 
@@ -242,7 +263,6 @@
 .footer a {
     margin: 0 10px;
 }
-
 
 /* Media Queries */
 @media (max-width: 991px) {
