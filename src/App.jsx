@@ -12,7 +12,7 @@ import ForgotPasswordChange from './landing/forgot-password/Forgotpasschange';
 // Signed-In user page
 import Welcome from './signed_in/Home';
 import EmpProfile from './signed_in/Profile/Empprofile'
-import Recommend from './signed_in//Recommend/recommend'
+import Recommend from './signed_in//Recommend/Recommend'
 
 function App() {
 
@@ -30,7 +30,7 @@ function App() {
 
           {/* Signed-In User Page */}
           <Route path="/Welcome" element={<Welcome />} />
-          <Route path="/My-Profile/Employee-Profile" element={<EmpProfile />} />
+          <Route path="/My-Profile" element={<EmpProfile />} />
           <Route path="/Recommend" element={<Recommend />} />       
         </Routes>
       </BrowserRouter>

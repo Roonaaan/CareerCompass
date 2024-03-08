@@ -37,20 +37,20 @@
 
 .recommendJobContainerPanel {
     display: flex;
+    align-items: center;
+    justify-content: center;
     width: 350px;
     height: 350px;
-    border: 2px solid black;
+    border: 2px solid #27374D;
     position: relative;
     overflow: hidden;
+    cursor: pointer;
+    color: white;
+    font-size: 40px;
+    font-weight: 500;
 }
 
-.recommendJobContainerPanel img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.image-description {
+.job-description {
     position: absolute;
     top: 0;
     left: 0;
@@ -64,7 +64,29 @@
     transition: transform 0.3s ease-in-out;
 }
 
-.recommendJobContainerPanel:hover .image-description {
+.recommendJobContainerPanel p {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    color: inherit;
+    font-size: 24px;
+    transition: 0.3s ease-in-out;
+}
+
+.recommendJobContainerPanel p.job-title {
+    color: black;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.recommendJobContainerPanel:hover .job-description {
     transform: translateY(0);
 }
 

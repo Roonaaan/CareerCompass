@@ -36,10 +36,10 @@ const Home = () => {
     }, []);
 
     const handleProfileClick = () => {
-      navigate('/My-Profile/Employee-Profile');
+      navigate('/My-Profile');
     }
 
-    // Logout User (disabled)
+    // Logout User
     const handleLogout = () => {
       sessionStorage.removeItem('user');
       navigate('/');
@@ -53,8 +53,8 @@ const Home = () => {
             <p className='username'>{userName}</p>
           </div>
           <ul>
-            <li><button onClick={handleProfileClick}>My Profile</button></li>
-            <li><button onClick={logoutHandler}>Log Out</button></li>
+            <li><button onClick={handleProfileClick}> My Profile </button></li>
+            <li><button onClick={logoutHandler}> Log Out </button></li>
           </ul>
         </div>
       );
@@ -64,6 +64,9 @@ const Home = () => {
       setShowDropdown(!showDropdown);
     }
 
+    const handleRoadmapClick = () => {
+      navigate('/Recommend');
+    }
   return (
     <>
     <div className='parent'>
@@ -91,7 +94,11 @@ const Home = () => {
         </div>
 
         <div className='buttonContainer'>
-          <button className='createButton'> CREATE ROADMAP </button>
+          <button 
+            className='createButton'
+            onClick={handleRoadmapClick}
+            > CREATE ROADMAP 
+          </button>
         </div>
       </section>
       {showDropdown && <DropdownModal logoutHandler={handleLogout} />}

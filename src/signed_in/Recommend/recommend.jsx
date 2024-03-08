@@ -1,37 +1,64 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './styles/recommend.css';
 
 // Images
 import logo from "../../assets/homepage/final-topright-logo.png";
-import Img1 from "../../assets/aboutus/ppBulawan.jpg";
-import Img2 from "../../assets/aboutus/ppDeJesus.png";
-import Img3 from "../../assets/aboutus/ppPajerga.jpg";
 import defaultImg from "../../assets/signed-in/defaultImg.jpg";
 
 const Recommend = () => {
+    const [userName, setUserName] = useState('');
     const [showDropdown, setShowDropdown] = useState(false);
     const [showDescriptions, setShowDescriptions] = useState({
-        img1: false,
-        img2: false,
-        img3: false,
+        job1: false,
+        job2: false,
+        job3: false,
     });
+    const navigate = useNavigate();
 
+    // React to PHP Connection
+    useEffect(() => {
+        const fetchUserName = async () => {
+            try {
+                const userEmail = sessionStorage.getItem('user'); // Retrieve user email from sessionStorage
+                if (userEmail) {
+                    const response = await fetch(`http://localhost/CareerCompass/backend/signed-in/home.php?email=${userEmail}`);
+                    const data = await response.json();
+
+                    if (data.success) {
+                        setUserName(data.userName);
+                    } else {
+                        console.log('Failed to fetch user name');
+                    }
+                }
+            } catch (error) {
+                console.error('An error occurred', error);
+            }
+        };
+
+        fetchUserName();
+    }, []);
+
+    const handleProfileClick = () => {
+        navigate('/My-Profile');
+    }
+
+    // Logout User
     const handleLogout = () => {
         sessionStorage.removeItem('user');
         navigate('/');
-    };
+    }
 
     const DropdownModal = ({ logoutHandler }) => {
         return (
             <div className="dropdown-modal">
                 <div className="profile-info">
-                    <img src={defaultImg} alt='profile' className='profileImg'/>
-                    <p className='username'>sample</p>
+                    <img src={defaultImg} alt='profile' className='profileImg' />
+                    <p className='username'>{userName}</p>
                 </div>
                 <ul>
-                    <li><button> Return Home</button></li>
-                    <li><button>My Roadmap</button></li>
-                    <li><button onClick={logoutHandler}>Log Out</button></li>
+                    <li><button onClick={handleProfileClick}> My Profile </button></li>
+                    <li><button onClick={logoutHandler}> Log Out </button></li>
                 </ul>
             </div>
         );
@@ -39,12 +66,12 @@ const Recommend = () => {
 
     const toggleDropdown = () => {
         setShowDropdown(!showDropdown);
-    };
+    }
 
-    const toggleDescription = (imgKey) => {
+    const toggleDescription = (jobKey) => {
         setShowDescriptions({
             ...showDescriptions,
-            [imgKey]: !showDescriptions[imgKey],
+            [jobKey]: !showDescriptions[jobKey],
         });
     };
 
@@ -76,26 +103,23 @@ const Recommend = () => {
                             <p> Top 3 recommended job roles for you based on your profile </p>
                         </div>
                         <div className="recommendJobContainerSelection">
-                            <div className="recommendJobContainerPanel" onClick={() => toggleDescription('img1')}>
-                                <img 
-                                    src={Img1} 
-                                    alt="Image 1"
-                                />
-                                {showDescriptions.img1 && <p className="image-description">Description for Image 1</p>}
+                            <div 
+                                className="recommendJobContainerPanel" 
+                                onClick={() => toggleDescription('job1')}>
+                                <p className='job-title'> Job 1 </p>
+                                {showDescriptions.job1 && <p className="job-description">Description for Job 1</p>}
                             </div>
-                            <div className="recommendJobContainerPanel" onClick={() => toggleDescription('img2')}>
-                                <img 
-                                    src={Img2} 
-                                    alt="Image 2" 
-                                />
-                                {showDescriptions.img2 && <p className="image-description">Description for Image 2</p>}
+                            <div 
+                                className="recommendJobContainerPanel" 
+                                onClick={() => toggleDescription('job2')}>
+                                <p className='job-title'> Job 2 </p>
+                                {showDescriptions.job2 && <p className="job-description">Description for Job 2</p>}
                             </div>
-                            <div className="recommendJobContainerPanel" onClick={() => toggleDescription('img3')}>
-                                <img 
-                                    src={Img3} 
-                                    alt="Image 3" 
-                                />
-                                {showDescriptions.img3 && <p className="image-description">Description for Image 3</p>}
+                            <div 
+                                className="recommendJobContainerPanel" 
+                                onClick={() => toggleDescription('job3')}>
+                                <p className='job-title'> Job 3 </p>
+                                {showDescriptions.job3 && <p className="job-description">Description for Job 3</p>}
                             </div>
                         </div>
                         <div className="recommendJobContainerButton">
