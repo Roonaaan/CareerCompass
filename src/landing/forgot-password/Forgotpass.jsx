@@ -41,6 +41,10 @@ export const Forgotpass = ({ onClose }) => {
         }
     };
 
+    const handleInputChange = () => {
+        setEmailError('');
+    }
+
     // Function to send reset email
     const emailSent = async () => {
         try {
@@ -77,17 +81,20 @@ export const Forgotpass = ({ onClose }) => {
                     <div className="forgotPassHeaderTitle"> Reset your Password </div>
                 </div>
                 <div className="forgotPassHeaderText"> Enter your email address and we will send you instructions to reset your password </div>
-                <div className="inputs">
+                <div className={`inputs ${emailError ? 'shakeError' : ''}`}>
                     <div className="input">
                         <input
                             type='email'
                             placeholder=''
-                            onChange={(e) => setEmail(e.target.value)}
+                            onChange={(e) => {
+                                setEmail(e.target.value);
+                                handleInputChange();
+                            }}
                             onKeyDown={handleKeydown}
                         />
                         <label htmlFor='email'> Email Address </label>
                     </div>
-                    {emailError && <div className='forgotErrorMsg'>{emailError} </div>}
+                    {/* {emailError && <div className='forgotErrorMsg'>{emailError} </div>} */}
                 </div>
                 <div className="forgotSubmit-container">
                     <button
