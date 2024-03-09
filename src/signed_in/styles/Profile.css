@@ -1,0 +1,106 @@
+.navBar {
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  width: auto;
+  min-height: 70px;
+  gap: 40em;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.profileInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* Employee Profile */
+.profileEmpContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  width: 300px;
+  height: 630px;
+  margin-left: 20px;
+}
+
+.profileEmpImage,
+.profileEmpImage img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  margin-top: 20px;
+}
+
+.profileEmpNameDetails {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profileEmpNameDetails h1 {
+  font-size: 23px;
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+.profileEmpNameDetails p {
+  font-size: 15px;
+}
+
+.underline {
+  border: 1px solid #ccc;
+  width: 100%;
+  margin: 10px;
+}
+
+.profileEmpDetailContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Employee Background */
+.profileEmpBackgroundContainer {
+  display: flex;
+  border: 1px solid #ccc;
+  width: 1180px;
+  height: 630px;
+  flex-direction: column;
+  gap: 10px;
+  margin-right: 20px;
+}
+
+.profileEmpBackgroundContainer label {
+  font-size: 30px;
+  font-weight: 500;
+  margin: 10px 0 0 15px;
+}
+
+.profileEmpBackgroundPersonalInfo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 10px;
+  width: 1150px;
+  gap: 15px;
+  margin-left: 15px;
+}
+
+.profileEmpBackgroundAddress {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 10px;
+  width: 1150px;
+  gap: 15px;
+  margin-left: 15px;
+}

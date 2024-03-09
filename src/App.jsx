@@ -11,7 +11,7 @@ import ForgotPasswordChange from './landing/forgot-password/Forgotpasschange';
 
 // Signed-In user page
 import Welcome from './signed_in/Home';
-import EmpProfile from './signed_in/Profile/Empprofile'
+import EmpProfile from './signed_in/Profile'
 import Recommend from './signed_in/Recommend/Recommend'
 import SelectDept from './signed_in/Recommend/Selected'
 
