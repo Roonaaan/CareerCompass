@@ -5,6 +5,8 @@ import "./styles/Profile.css"
 // Images
 import logo from "../assets/homepage/final-topright-logo.png";
 import defaultImg from "../assets/signed-in/defaultImg.jpg"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
 
 const Profile = () => {
 
@@ -97,57 +99,97 @@ const Profile = () => {
                   <p> Job Title </p> {/* JOB_POSITIN */}
                 </div>
                 <div className="profileEmpNameDetails">
-                  <p> Employee Number </p> {/* EMP_ID */}
+                  <p1> Employee Number:  </p1> {/* EMP_ID */}
                 </div>
               </div>
               <div className="underline" />
               <div className="profileEmpDetailContainer">
                 <div className="profileEmpDetail">
-                  <p> Email Addres </p> {/* EMAIL */}
+                  <p><FontAwesomeIcon icon={faEnvelope} /> Email Address </p> {/* EMAIL */}
                 </div>
                 <div className="profileEmpDetail">
-                  <p> Phone Number </p> {/* PHONE_NUMBER */}
+                  <p><FontAwesomeIcon icon={faPhone} /> Phone Number </p> {/* PHONE_NUMBER */}
                 </div>
               </div>
             </div>
             {/* Employee Background */}
             <div className="profileEmpBackgroundContainer">
-              <label htmlFor="personalInfo"> Personal Information </label>
-              <div className="profileEmpBackgroundPersonalInfo">
-                <div className="profileEmpPersonalInfo">
-                  <p> Age </p> {/* AGE */}
-                </div>
-                <div className="profileEmpPersonalInfo">
-                  <p> Birthday </p> {/* BIRTHDAY */}
-                </div>
-                <div className="profileEmpPersonalInfo">
-                  <p> Gender </p> {/* GENDER */}
-                </div>
-                <div className="profileEmpPersonalInfo">
-                  <p> Nationality </p> {/* NATIONALITY */}
-                </div>
-                <div className="profileEmpPersonalInfo">
-                  <p> Civil Status </p> {/* CIVIL_STATUS */}
+              <div className="profileEmpBackgroundPersonalInfoContainer">
+                <label htmlFor="personalInfo"> Personal Information </label>
+                <div className="profileEmpBackgroundPersonalInfo">
+                  <div className="profileEmpPersonalInfo">
+                    <p> Age: </p> {/* AGE */}
+                    <p1> Age Here </p1>
+                  </div>
+                  <div className="profileEmpPersonalInfo">
+                    <p> Birthday: </p> {/* BIRTHDAY */}
+                    <p1> Birthday Here </p1>
+                  </div>
+                  <div className="profileEmpPersonalInfo">
+                    <p> Gender: </p> {/* GENDER */}
+                    <p1> Gender Here </p1>
+                  </div>
+                  <div className="profileEmpPersonalInfo">
+                    <p> Nationality: </p> {/* NATIONALITY */}
+                    <p1> Nationality Here </p1>
+                  </div>
+                  <div className="profileEmpPersonalInfo">
+                    <p> Civil Status: </p> {/* CIVIL_STATUS */}
+                    <p1> Civil Status Here </p1>
+                  </div>
                 </div>
               </div>
               {/* Employee Address */}
-              <label htmlFor="Address"> Address </label>
-              <div className="profileEmpBackgroundAddress">
-                <div className="profileEmpAddress">
-                  <p> Home Address </p> {/* HOME_ADDRESS */}
-                </div>
-                <div className="profileEmpAddress">
-                  <p> District </p> {/* DISTRICT */}
-                </div>
-                <div className="profileEmpAddress">
-                  <p> City </p> {/* CITY */}
-                </div>
-                <div className="profileEmpAddress">
-                  <p> Province </p> {/* PROVINCE */}
-                </div>
-                <div className="profileEmpAddress">
-                  <p> Postal Code </p> {/* POSTAL_CODE */}
-                </div>
+              <div className="profileEmpBackgroundAddressContainer">
+                <label htmlFor="Address"> Address </label>
+                <div className="profileEmpBackgroundAddress">
+                  <div className="profileEmpAddress">
+                    <p> Home Address: </p> {/* HOME_ADDRESS */}
+                    <p1> Home Address Here </p1>
+                  </div>
+                  <div className="profileEmpAddress">
+                    <p> District: </p> {/* DISTRICT */}
+                    <p1> District Here </p1>
+                  </div>
+                  <div className="profileEmpAddress">
+                    <p> City: </p> {/* CITY */}
+                    <p1> City Here </p1>
+                  </div>
+                  <div className="profileEmpAddress">
+                    <p> Province: </p> {/* PROVINCE */}
+                    <p1> Province Here </p1>
+                  </div>
+                  <div className="profileEmpAddress">
+                    <p> Postal Code: </p> {/* POSTAL_CODE */}
+                    <p1> Postal Code Here </p1>
+                  </div>
+                </div>             
+              </div>
+              {/* Employment History */}
+              <div className="profileEmpBackgroundEmploymentHistoryContainer">
+                <label htmlFor="empHistory"> Employment History </label>
+                <div className="profileEmpBackgroundEmploymentHistory">
+                  <div className="profileEmpHistory">
+                    <p> Company: </p> {/* COMPANY */}
+                    <p1> Company Here </p1>
+                  </div>
+                  <div className="profileEmpHistory">
+                    <p> Job Title: </p> {/* JOB_TITLE */}
+                    <p1> Job Title Here </p1>
+                  </div>
+                  <div className="profileEmpHistory">
+                    <p> Address: </p> {/* COMPANY_ADDRESS */}
+                    <p1> Company Address Here </p1>
+                  </div>
+                  <div className="profileEmpHistory">
+                    <p> Start Date: </p> {/* START_DATE */}
+                    <p1> Start Date Here </p1>
+                  </div>
+                  <div className="profileEmpHistory">
+                    <p> End Date: </p> {/* END_DATE */}
+                    <p1> End Date Here </p1>
+                  </div>
+                </div>             
               </div>
             </div>
           </div>
