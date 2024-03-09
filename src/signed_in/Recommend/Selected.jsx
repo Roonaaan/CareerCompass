@@ -107,7 +107,7 @@ const Recommend = () => {
                                 className="selectedJobContainerPanel" 
                                 onClick={() => toggleDescription('job1')}>
                                 <p className='job-title'> Department 1 </p>
-                                {showDescriptions.job1 && <p className="job-description-selected">Description 1</p>}
+                                {showDescriptions.job1 && <p className="job-description-selected">Description 1</p>}                
                             </div>
                             <div 
                                 className="selectedJobContainerPanel" 
@@ -121,8 +121,6 @@ const Recommend = () => {
                                 <p className='job-title'> Department 3 </p>
                                 {showDescriptions.job3 && <p className="job-description-selected">Description 3</p>}
                             </div>
-                        </div>
-                        <div className="selectedJobContainerSelection">
                             <div 
                                 className="selectedJobContainerPanel" 
                                 onClick={() => toggleDescription('job1')}>

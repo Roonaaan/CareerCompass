@@ -75,6 +75,10 @@ const Recommend = () => {
         });
     };
 
+    const handleSelectClick = () => {
+        navigate('/Select-Department');
+    }
+
     return (
         <>
             <div className="recommendContainer">
@@ -125,6 +129,7 @@ const Recommend = () => {
                         <div className="recommendJobContainerButton">
                             <button className='recommendJobContainerProceed'> PROCEED </button>
                         </div>
+                        <span onClick={handleSelectClick}> Want to choose your own job position, click here </span>
                     </div>
                 </div>
                 {showDropdown && <DropdownModal logoutHandler={handleLogout} />}
