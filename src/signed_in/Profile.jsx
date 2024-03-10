@@ -191,6 +191,25 @@ const Profile = () => {
                   </div>
                 </div>             
               </div>
+
+              <div className="profileEmpBackgroundEmploymentHistoryContainer">
+                <label htmlFor="empHistory"> Educational Background </label>
+                <div className="profileEmpBackgroundEmploymentHistory">
+                  <div className="profileEmpHistory">
+                    <p> Grade/Level </p> {/* COMPANY */}
+                    <p1> Grade/Level Here </p1>
+                  </div>
+                  <div className="profileEmpHistory">
+                    <p> School: </p> {/* JOB_TITLE */}
+                    <p1> School Here </p1>
+                  </div>
+                  <div className="profileEmpHistory">
+                    <p> Academic Year: </p> {/* COMPANY_ADDRESS */}
+                    <p1> Year Here </p1>
+                  </div>
+                  
+                </div>             
+              </div>
             </div>
           </div>
           {showDropdown && <DropdownModal logoutHandler={handleLogout} />}
