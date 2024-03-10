@@ -8,15 +8,19 @@ include "../connection.php";
 if (isset($_GET['email'])) {
     $userEmail = mysqli_real_escape_string($conn, $_GET['email']);
 
-    $query = "SELECT FIRSTNAME FROM tblaccount WHERE ACCOUNT_EMAIL = '$userEmail'";
+    $query = "SELECT p.IMAGE, a.FIRSTNAME FROM tblprofile p INNER JOIN tblaccount a ON p.EMAIL = a.ACCOUNT_EMAIL WHERE a.ACCOUNT_EMAIL = '$userEmail'";
     $result = mysqli_query($conn, $query);
 
     if ($result) {
         if (mysqli_num_rows($result) > 0) {
             $row = mysqli_fetch_assoc($result);
+            $userImage = $row['IMAGE'];
             $userName = $row['FIRSTNAME'];
 
-            $response = array('success' => true, 'userName' => $userName);
+            if ($userImage) {
+                $userImage = base64_encode($userImage);
+            }
+            $response = array('success' => true, 'userName' => $userName, 'userImage' => $userImage);
         } else {
             $response = array('success' => false, 'message' => 'User not found');
         }
