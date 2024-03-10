@@ -7,6 +7,7 @@ import logo from "../../assets/homepage/final-topright-logo.png";
 import defaultImg from "../../assets/signed-in/defaultImg.jpg";
 
 const Recommend = () => {
+    const [userImage, setUserImage] = useState('');
     const [userName, setUserName] = useState('');
     const [showDropdown, setShowDropdown] = useState(false);
     const [showDescriptions, setShowDescriptions] = useState({
@@ -27,6 +28,13 @@ const Recommend = () => {
 
                     if (data.success) {
                         setUserName(data.userName);
+                        setUserImage(data.userImage);
+
+                        if (data.userImage) {
+                            setUserImage(`data:image/jpeg;base64,${data.userImage}`); // Assuming JPEG format, adjust content type if needed
+                        } else {
+                            setUserImage(defaultImg);
+                        }
                     } else {
                         console.log('Failed to fetch user name');
                     }
@@ -53,7 +61,11 @@ const Recommend = () => {
         return (
             <div className="dropdown-modal">
                 <div className="profile-info">
-                    <img src={defaultImg} alt='profile' className='profileImg' />
+                    <img 
+                        src={userImage || defaultImg} 
+                        alt='profile' 
+                        className='profileImg' 
+                    />
                     <p className='username'>{userName}</p>
                 </div>
                 <ul>
@@ -85,7 +97,7 @@ const Recommend = () => {
                         </div>
                         <div className="navProfile">
                             <img
-                                src={defaultImg}
+                                src={userImage || defaultImg}
                                 alt="profile"
                                 className="profileImg"
                                 onClick={toggleDropdown}
@@ -103,44 +115,44 @@ const Recommend = () => {
                             <p> Select a role you want to achive. </p>
                         </div>
                         <div className="selectedJobContainerSelection">
-                            <div 
-                                className="selectedJobContainerPanel" 
+                            <div
+                                className="selectedJobContainerPanel"
                                 onClick={() => toggleDescription('job1')}>
                                 <p className='job-title'> Department 1 </p>
-                                {showDescriptions.job1 && <p className="job-description-selected">Description 1</p>}                
+                                {showDescriptions.job1 && <p className="job-description-selected">Description 1</p>}
                             </div>
-                            <div 
-                                className="selectedJobContainerPanel" 
+                            <div
+                                className="selectedJobContainerPanel"
                                 onClick={() => toggleDescription('job2')}>
                                 <p className='job-title'> Department 2 </p>
                                 {showDescriptions.job2 && <p className="job-description-selected">Description 2</p>}
                             </div>
-                            <div 
-                                className="selectedJobContainerPanel" 
+                            <div
+                                className="selectedJobContainerPanel"
                                 onClick={() => toggleDescription('job3')}>
                                 <p className='job-title'> Department 3 </p>
                                 {showDescriptions.job3 && <p className="job-description-selected">Description 3</p>}
                             </div>
-                            <div 
-                                className="selectedJobContainerPanel" 
+                            <div
+                                className="selectedJobContainerPanel"
                                 onClick={() => toggleDescription('job1')}>
                                 <p className='job-title'> Department 4 </p>
                                 {showDescriptions.job1 && <p className="job-description-selected">Description 4</p>}
                             </div>
-                            <div 
-                                className="selectedJobContainerPanel" 
+                            <div
+                                className="selectedJobContainerPanel"
                                 onClick={() => toggleDescription('job2')}>
                                 <p className='job-title'> Department 5 </p>
                                 {showDescriptions.job2 && <p className="job-description-selected">Description 5</p>}
                             </div>
-                            <div 
-                                className="selectedJobContainerPanel" 
+                            <div
+                                className="selectedJobContainerPanel"
                                 onClick={() => toggleDescription('job3')}>
                                 <p className='job-title'> Department 6 </p>
                                 {showDescriptions.job3 && <p className="job-description-selected">Description 6</p>}
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
                 {showDropdown && <DropdownModal logoutHandler={handleLogout} />}
