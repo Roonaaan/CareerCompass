@@ -15,6 +15,7 @@ const Recommend = () => {
         job2: false,
         job3: false,
     });
+    const [recommendedJobs, setRecommendedJobs] = useState([]);
     const navigate = useNavigate();
 
     // React to PHP Connection
@@ -47,6 +48,21 @@ const Recommend = () => {
         fetchUserName();
     }, []);
 
+    // React to Python Connection
+    useEffect(() => {
+        const fetchRecommendations = async () => {
+            try {
+                const response = await fetch('http://localhost:5000/recommend');
+                const data = await response.json();
+                setRecommendedJobs(data);
+            } catch (error) {
+                console.error('Error fetching recommendations:', error);
+            }
+        };
+
+        fetchRecommendations();
+    }, []);
+
     const handleProfileClick = () => {
         navigate('/My-Profile');
     }
@@ -61,10 +77,10 @@ const Recommend = () => {
         return (
             <div className="dropdown-modal">
                 <div className="profile-info">
-                    <img 
-                        src={userImage || defaultImg} 
-                        alt='profile' 
-                        className='profileImg' 
+                    <img
+                        src={userImage || defaultImg}
+                        alt='profile'
+                        className='profileImg'
                     />
                     <p className='username'>{userName}</p>
                 </div>
@@ -119,24 +135,15 @@ const Recommend = () => {
                             <p> Top 3 recommended job roles for you based on your profile </p>
                         </div>
                         <div className="recommendJobContainerSelection">
-                            <div
-                                className="recommendJobContainerPanel"
-                                onClick={() => toggleDescription('job1')}>
-                                <p className='job-title'> Job 1 </p>
-                                {showDescriptions.job1 && <p className="job-description">Description for Job 1</p>}
-                            </div>
-                            <div
-                                className="recommendJobContainerPanel"
-                                onClick={() => toggleDescription('job2')}>
-                                <p className='job-title'> Job 2 </p>
-                                {showDescriptions.job2 && <p className="job-description">Description for Job 2</p>}
-                            </div>
-                            <div
-                                className="recommendJobContainerPanel"
-                                onClick={() => toggleDescription('job3')}>
-                                <p className='job-title'> Job 3 </p>
-                                {showDescriptions.job3 && <p className="job-description">Description for Job 3</p>}
-                            </div>
+                            {recommendedJobs.map((job, index) => (
+                                <div
+                                    key={index}
+                                    className="recommendJobContainerPanel"
+                                    onClick={() => toggleDescription(`job${index + 1}`)}>
+                                    <p className='job-title'>{job.title}</p>
+                                    {showDescriptions[`job${index + 1}`] && <p className="job-description">{job.description}</p>}
+                                </div>
+                            ))}
                         </div>
                         <div className="recommendJobContainerButton">
                             <button className='recommendJobContainerProceed'> PROCEED </button>
