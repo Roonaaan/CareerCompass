@@ -1,120 +1,115 @@
-import os
-os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
-
-import tensorflow as tf
 import numpy as np
-import mysql.connector
+import pandas as pd
 from flask import Flask, jsonify
 from flask_cors import CORS
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+import mysql.connector
 
-app = Flask(__name__)
-CORS(app)
-
-# Connect to MySQL Database
-mydb = mysql.connector.connect(
+# Connect to your MySQL database
+db_connection = mysql.connector.connect(
     host="localhost",
     user="root",
     password="",
     database="ccdb"
 )
 
-# Load User Profile and Work History Data
-def load_user_data():
-    cursor = mydb.cursor()
-    cursor.execute("SELECT EMPLOYEE_ID, JOB_POSITION FROM tblprofile")
-    profile_data = cursor.fetchall()
+# tblroles define
+sql_query_roles = "SELECT POSITION, JOB_LEVEL, DESCRIPTION FROM tblroles"
 
-    cursor.execute("SELECT EMPLOYEE_ID, JOB_TITLE, START_DATE, END_DATE FROM tblworkhistory")
-    work_history_data = cursor.fetchall()
+# tblprofile define (changable employee id for now )
+sql_query_profile = "SELECT JOB_POSITION, JOB_LEVEL FROM tblprofile WHERE EMPLOYEE_ID = 1" 
 
-    cursor.close()
-    return profile_data, work_history_data
+# tblworkhistory define (changeable employee id for now)
+sql_query_work_history = "SELECT JOB_TITLE, START_DATE, END_DATE FROM tblworkhistory WHERE EMPLOYEE_ID = 1" 
 
-# Load Job Roles and Descriptions
-def load_job_data():
-    cursor = mydb.cursor()
-    cursor.execute("SELECT POSITION, DESCRIPTION FROM tblroles")
-    job_data = cursor.fetchall()
-    cursor.close()
-    return job_data
+# fetch data from database to panda dataframe (suggested roles)
+df_roles = pd.read_sql(sql_query_roles, con=db_connection)
 
-# Preprocess Data and Build Model
-def preprocess_data(profile_data, work_history_data, job_data):
-    # Preprocess profile data
-    user_positions = {emp_id: job_position for emp_id, job_position in profile_data}
+# fill empty values with empty strings
+df_roles = df_roles.fillna('')
 
-    # Preprocess work history data
-    work_history = {emp_id: [(job_title, start_date, end_date) for emp_id_, job_title, start_date, end_date in work_history_data if emp_id_ == emp_id] for emp_id in user_positions.keys()}
+# mix text column into one statement
+df_roles['combined_text'] = df_roles['POSITION'] + ' ' + df_roles['JOB_LEVEL'] + ' ' + df_roles['DESCRIPTION']
 
-    # Preprocess job data
-    job_positions = [position for position, _ in job_data]
-    job_descriptions = {position: description for position, description in job_data}
+# Create a TF-IDF vectorizer to convert text into numerical vectors for roles
+tfidf_vectorizer_roles = TfidfVectorizer(stop_words='english')
+tfidf_matrix_roles = tfidf_vectorizer_roles.fit_transform(df_roles['combined_text'])
 
-    return user_positions, work_history, job_positions, job_descriptions
+# fetch data from datase to panda dataframe (user profile)
+df_profile = pd.read_sql(sql_query_profile, con=db_connection)
 
-# Recommend Jobs
-def recommend_jobs(user_positions, work_history, job_positions, job_descriptions, user_id):
-    user_position = user_positions.get(user_id)
+# extract user job profile and job level
+user_position = df_profile.at[0, 'JOB_POSITION']
+user_level = df_profile.at[0, 'JOB_LEVEL']
 
-    if not user_position:
-        print(f"No user position found for user ID: {user_id}")
-        return [], []
+# fetch data from database to panda dataframe (user work history)
+df_work_history = pd.read_sql(sql_query_work_history, con=db_connection)
 
-    recommended_jobs = []
-    recommended_job_descriptions = []
+# calculate tenurity to years
+def calculate_tenure(start_date, end_date):
+    return (end_date - start_date).days / 365.25 # whole year
 
-    # Fetch user's work history
-    user_work_history = work_history.get(user_id, [])
+# Compute cosine similarity between job descriptions for user roles
+cosine_sim_roles = cosine_similarity(tfidf_matrix_roles, tfidf_matrix_roles)
 
-    # Add user's current position to the work history for comprehensive analysis
-    if user_position not in user_work_history:
-        user_work_history.append(user_position)
+# Function to recommend top N similar jobs based on job title, level, and description
+def recommend_jobs_with_description(user_position, user_level, user_work_history, top_n=3):
+    # Find the index of the user's current job position in the DataFrame
+    user_job_index = df_roles[df_roles['POSITION'] == user_position].index
+    if len(user_job_index) == 0:
+        print("User's current job position not found.")
+        return []
 
-    # Iterate through job positions and prioritize recommendations based on user's profile and work history
-    for job_position in job_positions:
-        # Check if the job position is relevant to the user's profile or work history
-        if user_position.lower() in job_position.lower() or any(job_title_tuple[0].lower() in job_position.lower() for job_title_tuple in user_work_history):
-            if job_position not in recommended_jobs:
-                recommended_jobs.append(job_position)
-                recommended_job_descriptions.append(job_descriptions.get(job_position))
+    user_job_index = user_job_index[0]
 
-        # Break the loop if we have exactly 3 recommendations
-        if len(recommended_jobs) == 3:
+    # Compute tenurity for each previous job title
+    job_tenures = {}
+    for index, row in user_work_history.iterrows():
+        job_title = row['JOB_TITLE']
+        tenure = calculate_tenure(row['START_DATE'], row['END_DATE'])
+        if tenure >= 4:
+            job_tenures[job_title] = tenure
+
+    # Check eligibility for higher job levels
+    eligible_for_higher_level = False
+    for tenure in job_tenures.values():
+        if tenure >= 4:
+            eligible_for_higher_level = True
             break
 
-    # If we have less than 3 recommendations, fill in with other relevant positions from the job positions
-    if len(recommended_jobs) < 3:
-        for job_position in job_positions:
-            if job_position not in recommended_jobs:
-                recommended_jobs.append(job_position)
-                recommended_job_descriptions.append(job_descriptions.get(job_position))
+    # Compute cosine similarity between user job and all other jobs
+    user_sim_scores = list(enumerate(cosine_sim_roles[user_job_index]))
 
-            # Break the loop if we have exactly 3 recommendations
-            if len(recommended_jobs) == 3:
-                break
+    # Sort jobs based on similarity scores
+    user_sim_scores = sorted(user_sim_scores, key=lambda x: x[1], reverse=True)
 
-    return recommended_jobs, recommended_job_descriptions
+    # Filter jobs based on user level
+    filtered_sim_scores = [job for job in user_sim_scores if df_roles.iloc[job[0]]['JOB_LEVEL'] == user_level]
 
-# Flask endpoint for recommendations
-@app.route('/recommend')
+    # Get top N similar job indices (excluding the user's job itself)
+    top_similar_jobs = filtered_sim_scores[1:top_n + 1]
+
+    # Capture the recommended jobs along with their descriptions
+    recommended_jobs = [(df_roles.iloc[job[0]]['POSITION'], df_roles.iloc[job[0]]['DESCRIPTION']) for job in top_similar_jobs]
+
+    # If eligible for a higher job, capture at least 1
+    if eligible_for_higher_level:
+        higher_level_job = df_roles[df_roles['JOB_LEVEL'] > user_level].iloc[0]
+        recommended_jobs.append((higher_level_job['POSITION'], higher_level_job['DESCRIPTION']))
+
+    return recommended_jobs
+
+# Flask app setup
+app = Flask(__name__)
+CORS(app)
+
+# Route for fetching recommendations
+@app.route('/recommend', methods=['GET'])
 def get_recommendations():
-    # Load data from the database
-    profile_data, work_history_data = load_user_data()
-    job_data = load_job_data()
+    recommended_jobs_with_desc = recommend_jobs_with_description(user_position, user_level, df_work_history)
+    recommendations_json = [{'title': job, 'description': desc} for job, desc in recommended_jobs_with_desc]
+    return jsonify(recommendations_json)
 
-    # Preprocess data
-    user_positions, work_history, job_positions, job_descriptions = preprocess_data(profile_data, work_history_data, job_data)
-
-    # Example user ID
-    user_id = 1
-
-    # Recommend jobs for the user
-    recommended_jobs, recommended_job_descriptions = recommend_jobs(user_positions, work_history, job_positions, job_descriptions, user_id)
-
-    # Prepare response
-    response = [{'title': job, 'description': description} for job, description in zip(recommended_jobs, recommended_job_descriptions)]
-
-    return jsonify(response)
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(debug=True)
