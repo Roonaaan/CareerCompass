@@ -52,31 +52,14 @@ const Recommend = () => {
     useEffect(() => {
         const fetchRecommendations = async () => {
             try {
-                const userEmail = sessionStorage.getItem('userEmail'); // Retrieve user email from sessionStorage
-                const userEmployeeId = sessionStorage.getItem('userEmployeeId'); // Retrieve user employee ID from sessionStorage
-    
-                if (userEmail && userEmployeeId) {
-                    const response = await fetch('http://localhost:5000/recommend', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({
-                            email: userEmail,
-                            employeeId: userEmployeeId,
-                        }),
-                    });
-    
-                    const data = await response.json();
-                    setRecommendedJobs(data);
-                } else {
-                    console.log('User email or employee ID not found');
-                }
+                const response = await fetch('http://localhost:5000/recommend');
+                const data = await response.json();
+                setRecommendedJobs(data);
             } catch (error) {
                 console.error('Error fetching recommendations:', error);
             }
         };
-    
+
         fetchRecommendations();
     }, []);
 
