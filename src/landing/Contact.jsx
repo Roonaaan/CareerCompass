@@ -6,7 +6,7 @@ import './styles/Contact.css';
 
 // Images
 import logo from '../assets/homepage/final-topright-logo.png';
-import footerlogo from "../assets/homepage/footerLogo.png";
+import footerlogo from "../assets/homepage/footerlogo.png";
 
 const Contact = () => {
 
