@@ -4,15 +4,13 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-import mysql.connector
+from sqlalchemy import create_engine
 
-# Connect to your MySQL database
-db_connection = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="",
-    database="ccdb"
-)
+# Define your connection string
+connection_string = "mysql+mysqlconnector://root:@localhost/ccdb"
+
+# Create a SQLAlchemy engine
+db_engine = create_engine(connection_string)
 
 # tblroles define
 sql_query_roles = "SELECT POSITION, JOB_LEVEL, DESCRIPTION FROM tblroles"
@@ -24,7 +22,7 @@ sql_query_profile = "SELECT JOB_POSITION, JOB_LEVEL FROM tblprofile WHERE EMPLOY
 sql_query_work_history = "SELECT JOB_TITLE, START_DATE, END_DATE FROM tblworkhistory WHERE EMPLOYEE_ID = 1" 
 
 # fetch data from database to panda dataframe (suggested roles)
-df_roles = pd.read_sql(sql_query_roles, con=db_connection)
+df_roles = pd.read_sql(sql_query_roles, con=db_engine)
 
 # fill empty values with empty strings
 df_roles = df_roles.fillna('')
@@ -37,14 +35,14 @@ tfidf_vectorizer_roles = TfidfVectorizer(stop_words='english')
 tfidf_matrix_roles = tfidf_vectorizer_roles.fit_transform(df_roles['combined_text'])
 
 # fetch data from datase to panda dataframe (user profile)
-df_profile = pd.read_sql(sql_query_profile, con=db_connection)
+df_profile = pd.read_sql(sql_query_profile, con=db_engine)
 
 # extract user job profile and job level
 user_position = df_profile.at[0, 'JOB_POSITION']
 user_level = df_profile.at[0, 'JOB_LEVEL']
 
 # fetch data from database to panda dataframe (user work history)
-df_work_history = pd.read_sql(sql_query_work_history, con=db_connection)
+df_work_history = pd.read_sql(sql_query_work_history, con=db_engine)
 
 # calculate tenurity to years
 def calculate_tenure(start_date, end_date):
