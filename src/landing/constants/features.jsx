@@ -1,6 +1,6 @@
-import feature_1 from '../../assets/assess-skills.jpg'
-import feature_2 from '../../assets/roadmap.jpg'
-import feature_3 from '../../assets/track-dev.jpg'
+import feature_1 from '../../assets/homepage/assess-skills.jpg'
+import feature_2 from '../../assets/homepage/roadmap.jpg'
+import feature_3 from '../../assets/homepage/track-dev.jpg'
 
 
 

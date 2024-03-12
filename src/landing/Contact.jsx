@@ -5,12 +5,18 @@ import { useNavigate } from "react-router-dom";
 import './styles/Contact.css';
 
 // Images
-import logo from '../assets/final-topright-logo.png';
-import footerlogo from "../assets/footerLogo.png";
+import logo from '../assets/homepage/final-topright-logo.png';
+import footerlogo from "../assets/homepage/footerlogo.png";
 
 const Contact = () => {
 
     const Logo = logo;
+
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
+    const [successMessage, setSuccessMessage] = useState('');
 
     const navigate = useNavigate();
     const handleAboutClick = () => {
@@ -25,10 +31,38 @@ const Contact = () => {
         navigate("/Contact-Us");
     };
 
-    // Message Limit
-    const [message, setMessage] = (event) = useState('');
-    const charLimit = 250;
+    //PHP API Connection
 
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        try {
+            const response = await fetch('http://localhost/CareerCompass/backend/contact-us/send-email.php', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application.json',
+                },
+                body: JSON.stringify({ name, email, message }),
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                setSuccessMessage('Message sent successfully');
+                setName('');
+                setEmail('');
+                setMessage('');
+            } else {
+                setErrorMessage(data.message);
+            }
+        } catch (error) {
+            setErrorMessage('An error occured while sending the message');
+        }
+    };
+
+    // Message Limit
+    const charLimit = 250;
     const handleChange = (event) => {
         const newMessage = event.target.value;
         setMessage(newMessage);
@@ -74,39 +108,53 @@ const Contact = () => {
                 <div className="contactForm">
                     <div className="contactInputs">
                         <h1> Contact Form </h1>
-                        <div className="contactInput">
-                            <label> Name </label>
-                            <input
-                                type="name"
-                                placeholder=""
-                            />
-                        </div>
-                        <div className="contactInput">
-                            <label> Email Address </label>
-                            <input
-                                type="email"
-                                placeholder=""
-                            />
-                        </div>
-                        <div className="contactTextArea">
-                            <label> Message Here </label>
-                            <textarea
-                                rows='5'
-                                value={message}
-                                onChange={handleChange}
-                            />
-                            <p id="char-count">
-                                {message.length}/{charLimit}
-                            </p>
-                        </div>
-                        <div className="contactSubmit">
-                            <button
-                                className="contactSubmitButtton"
-                                placeholder=''
-                                disabled={message.length > charLimit}
-                            > Send
-                            </button>
-                        </div>
+                        {errorMessage && <div className="error-message">{errorMessage}</div>}
+                        {successMessage && <div className="success-message">{successMessage}</div>}
+                        <form onSubmit={handleSubmit}>
+                            <div className="contactInput">
+                                <label> Name </label>
+                                <input
+                                    type="text"
+                                    placeholder=""
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                    required
+                                />
+                            </div>
+                            <div className="contactInput">
+                                <label> Email Address </label>
+                                <input
+                                    type="email"
+                                    placeholder=""
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    required
+                                />
+                            </div>
+                            <div className="contactTextArea">
+                                <label> Message Here </label>
+                                <textarea
+                                    rows='5'
+                                    value={message}
+                                    onChange={(e) => {
+                                        setMessage(e.target.value),
+                                        handleChange(e, message)
+                                    }}
+                                    required
+                                />
+                                <p id="char-count">
+                                    {message.length}/{charLimit}
+                                </p>
+                            </div>
+                            <div className="contactSubmit">
+                                <button
+                                    className="contactSubmitButtton"
+                                    placeholder=''
+                                    disabled={message.length > charLimit}
+                                > Send
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <div className="contactInfoContainer">
@@ -126,11 +174,11 @@ const Contact = () => {
                             </div>
                             <div className="contactInfoItem">
                                 <p1>Email Address:</p1>
-                                <p>careercompassbscs@gmail.com</p>
+                                <p><u>careercompassbscs@gmail.com</u></p>
                             </div>
                             <div className="contactInfoItem">
                                 <p1>Phone:</p1>
-                                <p>+63 909 169 7716</p>
+                                <p><u>+63 909 169 7716</u></p>
                             </div>
                         </div>
                     </div>
