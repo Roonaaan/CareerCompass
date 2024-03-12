@@ -8,7 +8,7 @@ import "./styles/Home.css";
 
 //link Images from Assets
 import logo from "../assets/homepage/final-topright-logo.png";
-import footerlogo from "../assets/homepage/footerLogo.png";
+import footerlogo from "../assets/homepage/footerlogo.png";
 
 const Home = () => {
   const Logo = logo;
