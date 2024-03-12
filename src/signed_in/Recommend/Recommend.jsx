@@ -52,16 +52,20 @@ const Recommend = () => {
     useEffect(() => {
         const fetchRecommendations = async () => {
             try {
-                const response = await fetch('http://localhost:5000/recommend');
+                const userEmail = sessionStorage.getItem('user');
+                const response = await fetch(`http://localhost:5000/recommend?email=${userEmail}`);
                 const data = await response.json();
+                console.log('Fetched recommendations:', data); // Log the fetched data
                 setRecommendedJobs(data);
             } catch (error) {
                 console.error('Error fetching recommendations:', error);
             }
         };
-
+    
         fetchRecommendations();
     }, []);
+    
+    console.log('Recommended jobs:', recommendedJobs);
 
     const handleProfileClick = () => {
         navigate('/My-Profile');
