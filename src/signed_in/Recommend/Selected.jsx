@@ -10,12 +10,26 @@ const Recommend = () => {
     const [userImage, setUserImage] = useState('');
     const [userName, setUserName] = useState('');
     const [showDropdown, setShowDropdown] = useState(false);
+    const [departments, setDepartments] = useState([]);
     const [showDescriptions, setShowDescriptions] = useState({
         job1: false,
         job2: false,
         job3: false,
     });
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const fetchDepartments = async () => {
+            try {
+                const response = await fetch('http://localhost/CareerCompass/backend/algorithm/selected.php');
+                const data = await response.json();
+                setDepartments(data);
+            } catch (error) {
+                console.error('Error fetching departments: ', error);
+            }
+        };
+        fetchDepartments();
+    }, []);
 
     // React to PHP Connection
     useEffect(() => {
