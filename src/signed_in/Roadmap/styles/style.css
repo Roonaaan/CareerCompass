@@ -116,9 +116,49 @@
 }
 
 /* MIddle Section CSS */
+.middleSection {
+  display: flex;
+  
+}
+
 .leftSide {
   display: flex;
   justify-content: flex-start;
-  width: auto;
+  width: 40%;
+}
 
+
+
+/* Right Side*/
+.rightSide {
+  width: 60%;
+  padding: 10px;
+}
+
+.rightsideTitle {
+  font-weight: bold;
+  text-align: center;
+  font-size: 21px;
+}
+
+.taskTitle {
+  height: 35px;
+  font-weight: bold;
+  border: solid 2px;
+  border-radius: 5px;
+  align-items: center;
+  padding-left: 10px;
+  padding-top: 5px;
+}
+
+.taskDiv {
+  border: solid 2px;
+  border-radius: 5px;
+  margin: 20px;
+  height: 150px;
+}
+
+.taskDescription {
+  margin-top: 10px;
+  padding-left: 10px;
 }
