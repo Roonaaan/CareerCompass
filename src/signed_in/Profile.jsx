@@ -9,11 +9,49 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
 
 const Profile = () => {
-
-  const [userImage, setUserImage] = useState('');
+  
   const [userName, setUserName] = useState('');
   const [showDropdown, setShowDropdown] = useState(false);
   const navigate = useNavigate();
+
+  // User Profile
+  const [userImage, setUserImage] = useState('');
+  const [userFullName, setFullName] = useState(''); 
+  const [jobTitle, setJobTitle] = useState('');
+  const [empNumber, setEmpNumber] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  
+  // React to PHP Connection (Profile)
+  useEffect(() => {
+    const fetchUserProfile = async () => {
+      try{
+        const userEmail = sessionStorage.getItem('user');
+        if (userEmail) {
+          const response = await fetch(`http://localhost/CareerCompass/backend/signed-in/profile.php?email=${userEmail}`);
+          const data = await response.json();
+
+          if (data.success) {
+            const { userImage, userFullName, jobTitle, empNumber, email, phone } = data.profile;
+            setUserImage(`data:image/jpeg;base64,${data.userImage}`);
+            setFullName(userFullName);
+            setJobTitle(jobTitle);
+            setEmpNumber(empNumber);
+            setEmail(email);
+            setPhone(phone);
+          } else {
+            console.log('Failed to fetch user profile:', data.message);
+          }
+        }
+      } catch (error) {
+        console.error('An error occured', error);
+      }
+    }
+
+    fetchUserProfile();
+  }, []);
+  
+  
 
   // React to PHP Connection
   useEffect(() => {
@@ -105,22 +143,22 @@ const Profile = () => {
             </div>
             <div className="profileEmpNameContainer">
               <div className="profileEmpNameDetails">
-                <h1> Employee Name </h1> {/* FIRST AND LAST NAME */}
+                <h1> {userFullName} </h1> {/* FIRST AND LAST NAME */}
               </div>
               <div className="profileEmpNameDetails">
-                <p> Job Title </p> {/* JOB_POSITIN */}
+                <p> {jobTitle} </p> {/* JOB_POSITIN */}
               </div>
               <div className="profileEmpNameDetails">
-                <p1> Employee Number:  </p1> {/* EMP_ID */}
+                <p1> {empNumber}  </p1> {/* EMP_ID */}
               </div>
             </div>
             <div className="underline" />
             <div className="profileEmpDetailContainer">
               <div className="profileEmpDetail">
-                <p><FontAwesomeIcon icon={faEnvelope} /> Email Address </p> {/* EMAIL */}
+                <p><FontAwesomeIcon icon={faEnvelope} /> {email} </p> {/* EMAIL */}
               </div>
               <div className="profileEmpDetail">
-                <p><FontAwesomeIcon icon={faPhone} /> Phone Number </p> {/* PHONE_NUMBER */}
+                <p><FontAwesomeIcon icon={faPhone} /> {phone} </p> {/* PHONE_NUMBER */}
               </div>
             </div>
           </div>
