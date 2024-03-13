@@ -20,22 +20,6 @@ db_engine = create_engine(connection_string)
 # tblroles define
 sql_query_roles = "SELECT POSITION, JOB_LEVEL, DESCRIPTION, SKILLS, DEGREE_COURSE FROM tblroles"
 
-# Fetch user email from session storage
-user_email = "example@example.com"
-
-# tblprofile define (fetching based on email)
-sql_query_profile = f"SELECT EMPLOYEE_ID, JOB_POSITION, JOB_LEVEL, SKILLS FROM tblprofile WHERE EMAIL = '{user_email}'"
-
-# Fetch user employee ID from profile query result
-df_profile = pd.read_sql(sql_query_profile, con=db_engine)
-user_employee_id = df_profile.at[0, 'EMPLOYEE_ID']
-
-# tblworkhistory define (fetching based on employee ID)
-sql_query_work_history = f"SELECT JOB_TITLE, START_DATE, END_DATE, SKILLS FROM tblworkhistory WHERE EMPLOYEE_ID = {user_employee_id}"
-
-# tbleducbackground define (fetching based on employee ID)
-sql_query_education_background = f"SELECT DEGREE_COURSE FROM tbleducbackground WHERE EMPLOYEE_ID = {user_employee_id}"
-
 # fetch data from database to panda dataframe (suggested roles)
 df_roles = pd.read_sql(sql_query_roles, con=db_engine)
 
@@ -48,21 +32,6 @@ df_roles['combined_text'] = df_roles['POSITION'] + ' ' + df_roles['JOB_LEVEL'] +
 # Create a TF-IDF vectorizer to convert text into numerical vectors for roles
 tfidf_vectorizer_roles = TfidfVectorizer(stop_words='english')
 tfidf_matrix_roles = tfidf_vectorizer_roles.fit_transform(df_roles['combined_text'])
-
-# fetch data from database to panda dataframe (user profile)
-df_profile = pd.read_sql(sql_query_profile, con=db_engine)
-
-# extract user job profile, job level, and employee ID
-user_employee_id = df_profile.at[0, 'EMPLOYEE_ID']
-user_position = df_profile.at[0, 'JOB_POSITION']
-user_level = df_profile.at[0, 'JOB_LEVEL']
-user_skills = df_profile.at[0, 'SKILLS']
-
-# fetch data from database to panda dataframe (user work history)
-df_work_history = pd.read_sql(sql_query_work_history, con=db_engine)
-
-# fetch data from database to panda dataframe (user education background)
-df_education_background = pd.read_sql(sql_query_education_background, con=db_engine)
 
 # calculate tenure to years
 def calculate_tenure(start_date, end_date):
@@ -124,9 +93,28 @@ def recommend_jobs():
     try:
         # Get user email from the request parameters
         user_email = request.args.get('email')
+        
+        # Fetch user profile based on email
+        sql_query_profile = f"SELECT EMPLOYEE_ID, JOB_POSITION, JOB_LEVEL, SKILLS FROM tblprofile WHERE EMAIL = '{user_email}'"
+        df_profile = pd.read_sql(sql_query_profile, con=db_engine)
+
+        # extract user job profile, job level, and employee ID
+        user_employee_id = df_profile.at[0, 'EMPLOYEE_ID']
+        user_position = df_profile.at[0, 'JOB_POSITION']
+        user_level = df_profile.at[0, 'JOB_LEVEL']
+        user_skills = df_profile.at[0, 'SKILLS']
+
+        # fetch data from database to panda dataframe (user work history)
+        sql_query_work_history = f"SELECT JOB_TITLE, START_DATE, END_DATE, SKILLS FROM tblworkhistory WHERE EMPLOYEE_ID = {user_employee_id}"
+        df_work_history = pd.read_sql(sql_query_work_history, con=db_engine)
+
+        # fetch data from database to panda dataframe (user education background)
+        sql_query_education_background = f"SELECT DEGREE_COURSE FROM tbleducbackground WHERE EMPLOYEE_ID = {user_employee_id}"
+        df_education_background = pd.read_sql(sql_query_education_background, con=db_engine)
+        
         # Call the function to get recommendations based on priority
         recommended_jobs = recommend_jobs_with_priority(user_position, user_level, df_work_history,
-                                                user_skills, df_education_background.at[0, 'DEGREE_COURSE'])
+                                                        user_skills, df_education_background.at[0, 'DEGREE_COURSE'])
 
         # Convert recommendations to JSON and return
         return jsonify(recommended_jobs)
