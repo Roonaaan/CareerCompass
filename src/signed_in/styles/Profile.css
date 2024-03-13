@@ -37,6 +37,11 @@
   margin-top: 20px;
 }
 
+.profileEmpImage img {
+  border: 1px solid #ccc;
+  border-radius: 50%;
+}
+
 .profileEmpNameDetails {
   display: flex;
   align-items: center;
