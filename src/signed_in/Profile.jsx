@@ -137,6 +137,11 @@ const Profile = () => {
     navigate('/');
   }
 
+  // Return to Home Page
+  const handleHomeClick = () => {
+    navigate('/Welcome')
+  }
+
   const DropdownModal = ({ logoutHandler }) => {
     return (
       <div className="dropdown-modal">
@@ -166,7 +171,7 @@ const Profile = () => {
         <header className="navBar">
           <div className="navBarInner">
             <div className="navLogoContainer">
-              <img src={logo} alt="logo" className="navLogo" />
+              <img src={logo} alt="logo" className="navLogo" onClick={handleHomeClick}/>
             </div>
             <div className="navProfile">
               <img
