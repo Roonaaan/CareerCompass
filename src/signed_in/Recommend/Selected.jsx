@@ -22,11 +22,14 @@ const SelectDept = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch('http://localhost/CareerCompass/backend/algorithm/selected.php')
-            .then(response => response.json())
-            .then(data => setDepartments(data))
-            .catch(error => console.error('Error fetching departments:', error));
+        const fetchData = async () => {
+            const response = await fetch('http://localhost/CareerCompass/backend/algorithm/selected.php'); // Replace with your PHP endpoint URL
+            const data = await response.json(); // Parse JSON response
+            setDepartments(data);
+        };
+        fetchData();
     }, []);
+
 
     // React to PHP Connection
     useEffect(() => {
@@ -131,44 +134,13 @@ const SelectDept = () => {
                             <p> Select a role you want to achive. </p>
                         </div>
                         <div className="selectedJobContainerSelection">
-                            <div
-                                className="selectedJobContainerPanel"
-                                onClick={() => toggleDescription('job1')}>
-                                <p className='job-title'> {departments.length > 0 && departments[0]} </p>
-                                {showDescriptions.job1 && <p className="job-description-selected">Description 1</p>}
-                            </div>
-                            <div
-                                className="selectedJobContainerPanel"
-                                onClick={() => toggleDescription('job2')}>
-                                <p className='job-title'> {departments.length > 1 && departments[1]} </p>
-                                {showDescriptions.job2 && <p className="job-description-selected">Description 2</p>}
-                            </div>
-                            <div
-                                className="selectedJobContainerPanel"
-                                onClick={() => toggleDescription('job3')}>
-                                <p className='job-title'> {departments.length > 2 && departments[2]} </p>
-                                {showDescriptions.job3 && <p className="job-description-selected">Description 3</p>}
-                            </div>
-                            <div
-                                className="selectedJobContainerPanel"
-                                onClick={() => toggleDescription('job4')}>
-                                <p className='job-title'> {departments.length > 3 && departments[3]} </p>
-                                {showDescriptions.job4 && <p className="job-description-selected">Description 4</p>}
-                            </div>
-                            <div
-                                className="selectedJobContainerPanel"
-                                onClick={() => toggleDescription('job5')}>
-                                <p className='job-title'> {departments.length > 4 && departments[4]} </p>
-                                {showDescriptions.job5 && <p className="job-description-selected">Description 5</p>}
-                            </div>
-                            <div
-                                className="selectedJobContainerPanel"
-                                onClick={() => toggleDescription('job6')}>
-                                <p className='job-title'> {departments.length > 5 && departments[5]} </p>
-                                {showDescriptions.job6 && <p className="job-description-selected">Description 6</p>}
-                            </div>
+                            {departments.map((department) => (
+                                <div key={department.id} className="selectedJobContainerPanel" onClick={() => toggleDescription('job1')}>
+                                    <p className='job-title'> {department.department} </p>
+                                    <p className="job-description-selected">{department.description}</p>
+                                </div>
+                            ))}
                         </div>
-
                     </div>
                 </div>
                 {showDropdown && <DropdownModal logoutHandler={handleLogout} />}
