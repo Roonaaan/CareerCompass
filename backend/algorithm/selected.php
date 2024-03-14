@@ -18,23 +18,24 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
   }
   
-  $sql = "SELECT DEPARTMENT, DESCRIPTION FROM tbldepartment";
-  $result = $conn->query($sql);
-  
-  $departments = array();
-  
-  if ($result->num_rows > 0) {
-    // Fetch data from the database
-    while($row = $result->fetch_assoc()) {
-      $departments[] = $row["DEPARTMENT"];
+  // SQL query to fetch departments
+$sql = "SELECT department, description FROM tbldepartment";
+$result = $conn->query($sql);
+
+// Prepare response data
+$departments = [];
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $departments[] = $row;
     }
-  }
-  
-  $conn->close();
-  
-  // Send JSON response
-  header('Content-Type: application/json');
-  echo json_encode($departments);
+}
+
+// Close connection
+$conn->close();
+
+// Encode data as JSON
+header('Content-Type: application/json');
+echo json_encode($departments);
 
 
 ?>
