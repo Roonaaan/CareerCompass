@@ -21,11 +21,11 @@ const SelectDept = () => {
 
     useEffect(() => {
         fetch('http://localhost/CareerCompass/backend/algorithm/selected.php')
-          .then(response => response.json())
-          .then(data => setDepartments(data))
-          .then(data => setDescriptions(data))
-          .catch(error => console.error('Error fetching departments:', error));
-      }, []);
+            .then(response => response.json())
+            .then(data => setDepartments(data))
+            .then(data => setDescriptions(data))
+            .catch(error => console.error('Error fetching departments:', error));
+    }, []);
 
     // React to PHP Connection
     useEffect(() => {
@@ -67,14 +67,19 @@ const SelectDept = () => {
         navigate('/');
     }
 
+    // Return to Home Page
+    const handleHomeClick = () => {
+        navigate('/Welcome')
+    }
+
     const DropdownModal = ({ logoutHandler }) => {
         return (
             <div className="dropdown-modal">
                 <div className="profile-info">
-                    <img 
-                        src={userImage || defaultImg} 
-                        alt='profile' 
-                        className='profileImg' 
+                    <img
+                        src={userImage || defaultImg}
+                        alt='profile'
+                        className='profileImg'
                     />
                     <p className='username'>{userName}</p>
                 </div>
@@ -103,7 +108,7 @@ const SelectDept = () => {
                 <header className="navBar">
                     <div className="navBarInner">
                         <div className="navLogoContainer">
-                            <img src={logo} alt="logo" className="navLogo" />
+                            <img src={logo} alt="logo" className="navLogo" onClick={handleHomeClick}/>
                         </div>
                         <div className="navProfile">
                             <img
@@ -169,16 +174,16 @@ const SelectDept = () => {
             </div>
         </>
     );
-      return (
+    return (
         <div>
-          <h1>Departments</h1>
-          <ul>
-            {departments.map((department, index) => (
-              <li key={index}>{department}</li>
-            ))}
-          </ul>
+            <h1>Departments</h1>
+            <ul>
+                {departments.map((department, index) => (
+                    <li key={index}>{department}</li>
+                ))}
+            </ul>
         </div>
-      );
+    );
 
 }
 export default SelectDept;
