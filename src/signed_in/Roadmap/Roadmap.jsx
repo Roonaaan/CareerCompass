@@ -102,7 +102,7 @@ const Roadmap = () => {
       </header>
 
       <section className="progressFrame">
-      <div className="leftSide">
+        <div className="leftSide">
           <ul className="progressBarList  ">
             <li className="progressBarItem currentItem ">
               <span className="phaseCount ">1</span>
@@ -130,10 +130,8 @@ const Roadmap = () => {
 
       {/* Middle Section */}
       <div className="middleSection">
-        
-
         <section className="rightSide">
-          <div className="rightsideTitle"> TASK LIST </div>
+          <div className="rightsideTitle"> INTRODUCTION </div>
           <div className="taskDiv">
             <div className="taskTitle"> Task Title </div>
             <div className="taskDescription">
@@ -141,6 +139,9 @@ const Roadmap = () => {
               Task Description: Lorem ipsum dolor sit amet, consectetur
               adipiscing elit, sed do eiusmod tempor incididunt ut labore et
               dolore magna aliqua.{" "}
+            </div>
+            <div className="button-section">
+              <button className="done-button"> Done </button>
             </div>
           </div>
           <div className="taskDiv">
@@ -151,6 +152,9 @@ const Roadmap = () => {
               adipiscing elit, sed do eiusmod tempor incididunt ut labore et
               dolore magna aliqua.{" "}
             </div>
+            <div className="button-section">
+              <button className="done-button"> Done </button>
+            </div>
           </div>
           <div className="taskDiv">
             <div className="taskTitle"> Task Title </div>
@@ -159,9 +163,16 @@ const Roadmap = () => {
               Task Description: Lorem ipsum dolor sit amet, consectetur
               adipiscing elit, sed do eiusmod tempor incididunt ut labore et
               dolore magna aliqua.{" "}
+            </div>
+            <div className="button-section">
+              <button className="done-button"> Done </button>
             </div>
           </div>
         </section>
+
+        <div className="button-section-footer">
+          <button className="done-button-footer"> NEXT PHASE </button>
+        </div>
       </div>
     </div>
   );
