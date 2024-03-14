@@ -61,10 +61,10 @@ const Recommend = () => {
                 console.error('Error fetching recommendations:', error);
             }
         };
-    
+
         fetchRecommendations();
     }, []);
-    
+
     console.log('Recommended jobs:', recommendedJobs);
 
     const handleProfileClick = () => {
@@ -75,6 +75,11 @@ const Recommend = () => {
     const handleLogout = () => {
         sessionStorage.removeItem('user');
         navigate('/');
+    }
+
+    // Return to Home Page
+    const handleHomeClick = () => {
+        navigate('/Welcome')
     }
 
     const DropdownModal = ({ logoutHandler }) => {
@@ -117,7 +122,7 @@ const Recommend = () => {
                 <header className="navBar">
                     <div className="navBarInner">
                         <div className="navLogoContainer">
-                            <img src={logo} alt="logo" className="navLogo" />
+                            <img src={logo} alt="logo" className="navLogo" onClick={handleHomeClick}/>
                         </div>
                         <div className="navProfile">
                             <img

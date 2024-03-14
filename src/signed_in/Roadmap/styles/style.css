@@ -115,13 +115,21 @@
   color: #007bff;
 }
 
+<<<<<<< HEAD
 /* Middle Section CSS */
 .middleSection {
   display: flex;
+=======
+/* MIddle Section CSS */
+.middleSection {
+  display: flex;
+  
+>>>>>>> refs/remotes/origin/main
 }
 
 .leftSide {
   display: flex;
+<<<<<<< HEAD
   justify-content: center;
   align-items: center;
   width: 60%;
@@ -234,3 +242,44 @@
 .currentItem .phaseCount{
   color: #27374D;
 }
+=======
+  justify-content: flex-start;
+  width: 40%;
+}
+
+
+
+/* Right Side*/
+.rightSide {
+  width: 60%;
+  padding: 10px;
+}
+
+.rightsideTitle {
+  font-weight: bold;
+  text-align: center;
+  font-size: 21px;
+}
+
+.taskTitle {
+  height: 35px;
+  font-weight: bold;
+  border: solid 2px;
+  border-radius: 5px;
+  align-items: center;
+  padding-left: 10px;
+  padding-top: 5px;
+}
+
+.taskDiv {
+  border: solid 2px;
+  border-radius: 5px;
+  margin: 20px;
+  height: 150px;
+}
+
+.taskDescription {
+  margin-top: 10px;
+  padding-left: 10px;
+}
+>>>>>>> refs/remotes/origin/main

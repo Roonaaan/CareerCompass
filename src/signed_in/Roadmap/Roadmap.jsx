@@ -128,7 +128,21 @@ const Roadmap = () => {
           <div className="progressDescription"></div>
         </section>
 
-        <section className="rightSide"></section>
+        <section className="rightSide">
+          <div className="rightsideTitle"> TASK LIST </div>
+          <div className="taskDiv"> 
+            <div className="taskTitle"> Task Title </div>
+            <div className="taskDescription"> Task Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </div>
+          </div>
+          <div className="taskDiv"> 
+            <div className="taskTitle"> Task Title </div>
+            <div className="taskDescription"> Task Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </div>
+          </div>
+          <div className="taskDiv"> 
+            <div className="taskTitle"> Task Title </div>
+            <div className="taskDescription"> Task Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </div>
+          </div>
+        </section>
       </div>
     </div>
   );
