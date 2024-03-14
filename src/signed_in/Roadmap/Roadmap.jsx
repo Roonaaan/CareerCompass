@@ -101,21 +101,20 @@ const Roadmap = () => {
         </div>
       </header>
 
-      {/* Middle Section */}
-      <div className="middleSection">
-        <section className="leftSide">
-          <ul className="progressBarList">
-            <li className="progressBarItem">
-              <span className="phaseCount">1</span>
+      <section className="progressFrame">
+        <div className="leftSide">
+          <ul className="progressBarList  ">
+            <li className="progressBarItem currentItem ">
+              <span className="phaseCount ">1</span>
               <span className="phaseProgressLabel">Phase 1</span>
             </li>
 
-            <li className="progressBarItem">
+            <li className="progressBarItem  ">
               <span className="phaseCount">2</span>
               <span className="phaseProgressLabel">Phase 2</span>
             </li>
 
-            <li className="progressBarItem">
+            <li className="progressBarItem  ">
               <span className="phaseCount">3</span>
               <span className="phaseProgressLabel">Phase 3</span>
             </li>
@@ -126,23 +125,54 @@ const Roadmap = () => {
             </li>
           </ul>
           <div className="progressDescription"></div>
+        </div>
+      </section>
+
+      {/* Middle Section */}
+      <div className="middleSection">
+        <section className="rightSide">
+          <div className="rightsideTitle"> INTRODUCTION </div>
+          <div className="taskDiv">
+            <div className="taskTitle"> Task Title </div>
+            <div className="taskDescription">
+              {" "}
+              Task Description: Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua.{" "}
+            </div>
+            <div className="button-section">
+              <button className="done-button"> Done </button>
+            </div>
+          </div>
+          <div className="taskDiv">
+            <div className="taskTitle"> Task Title </div>
+            <div className="taskDescription">
+              {" "}
+              Task Description: Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua.{" "}
+            </div>
+            <div className="button-section">
+              <button className="done-button"> Done </button>
+            </div>
+          </div>
+          <div className="taskDiv">
+            <div className="taskTitle"> Task Title </div>
+            <div className="taskDescription">
+              {" "}
+              Task Description: Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua.{" "}
+            </div>
+            <div className="button-section">
+              <button className="done-button"> Done </button>
+            </div>
+          </div>
         </section>
 
-        <section className="rightSide">
-          <div className="rightsideTitle"> TASK LIST </div>
-          <div className="taskDiv"> 
-            <div className="taskTitle"> Task Title </div>
-            <div className="taskDescription"> Task Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </div>
-          </div>
-          <div className="taskDiv"> 
-            <div className="taskTitle"> Task Title </div>
-            <div className="taskDescription"> Task Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </div>
-          </div>
-          <div className="taskDiv"> 
-            <div className="taskTitle"> Task Title </div>
-            <div className="taskDescription"> Task Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </div>
-          </div>
-        </section>
+        <div className="button-section-footer">
+          <button className="done-button-footer"> NEXT PHASE </button>
+        </div>
       </div>
     </div>
   );
