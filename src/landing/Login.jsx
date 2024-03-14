@@ -65,7 +65,7 @@ export const Login = ({ onClose }) => {
         try {
             await new Promise(resolve => setTimeout(resolve, 1000));
 
-            const response = await fetch('https://careercompass.vercel.app/backend/login-page/login.php', {
+            const response = await fetch('http://localhost/CareerCompass/backend/login-page/login.php', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
