@@ -48,7 +48,7 @@ export const Login = ({ onClose }) => {
 
     //Enter Event Key
     const handleKeydown = (event) => {
-        if (event.key === 'Enter') {
+        if(event.key === 'Enter'){
             handleValidation();
             loginSubmit();
         }
@@ -65,14 +65,13 @@ export const Login = ({ onClose }) => {
         try {
             await new Promise(resolve => setTimeout(resolve, 1000));
 
-            const response = await fetch('https://ccmps.000webhostapp.com/backend/login-page/login.php', {
+            const response = await fetch('http://localhost/CareerCompass/backend/login-page/login.php', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ email, password }),
-                protocol: 'http:', // Force HTTP/1.1 protocol
+                body: JSON.stringify({email, password}),
             });
 
             const data = await response.json();
@@ -94,92 +93,92 @@ export const Login = ({ onClose }) => {
 
     return (
         <>
-            <div className="modal">
-                <div className="modal-content">
-                    <span className="close" onClick={onClose}>&times;</span>
-                    <div className="container">
-                        <div className='loginHeader'>
-                            <img src={Logo} alt='Logo' className='logo' />
-                        </div>
-                        <div className='loginHeader'>
-                            <div className='text'> Welcome </div>
-                        </div>
-                        <div className='loginHeaderText'> Please fill your detail to log in your account. </div>
-                        <div className={`inputs ${emailError || passwordError || errorMsg ? 'shakeError' : ''}`}>
-                            {/* Email Address*/}
-                            <div className='input'>
-                                <input
-                                    type='email'
-                                    placeholder=''
-                                    onChange={(e) => {
-                                        setEmail(e.target.value);
-                                        handleInputChange();
-                                    }}
-                                    onKeyDown={handleKeydown}
-                                />
-                                <label htmlFor='email'> Email Address </label>
-                            </div>
-                            {/* {emailError && <div className='error-message'>{emailError} </div>} */}
-                            {/* End of Email Address*/}
-                            {/* Password */}
-                            <div className='input'>
-                                <input
-                                    type={showPassword ? 'text' : 'password'}
-                                    placeholder=''
-                                    onChange={(e) => {
-                                        setPassword(e.target.value);
-                                        handleInputChange();
-                                    }}
-                                    onKeyDown={handleKeydown}
-                                />
-                                <label htmlFor='password'> Password </label>
-                                <button
-                                    className='show-password-button'
-                                    onClick={() => {
-                                        setShowPassword(!showPassword);
-                                        setIconType(showPassword ? FaLock : FaLockOpen); // This will Toggle the Icon
-                                    }}
-                                >
-                                    <span className='password-icon'>{iconType}</span>
-                                </button>
-                            </div>
-                            {/* {passwordError && <div className="error-message">{passwordError}</div>} */}
-                            {/* End of Password */}
-                        </div>
-                        <div className='password'>
-                            <div className='remember-me'>
-                                <input
-                                    type='checkbox'
-                                    id='remember-me'
-                                    checked={isRememberMeChecked}
-                                    onChange={(e) => setIsRememberMeChecked(e.target.checked)}
-                                />
-                                <label htmlFor='remember-me'> Remember me </label>
-                            </div>
-                            <div className='forgot-password' onClick={handleForgotPassClick}>Forgot Password? </div>
-                        </div>
-                        {errorMsg && <div className="loginErrorMsg">{errorMsg}</div>}
-                        {successMsg && <div className="loginErrorMsg">{successMsg}</div>}
-                        <div className='submit-container'>
-                            <button
-                                className='submit'
-                                onClick={() => {
-                                    handleValidation();
-                                    loginSubmit();
+        <div className="modal">
+            <div className="modal-content">
+                <span className="close" onClick={onClose}>&times;</span>
+                <div className="container">
+                    <div className='loginHeader'>
+                        <img src={Logo} alt='Logo' className='logo' />
+                    </div>
+                    <div className='loginHeader'>
+                        <div className='text'> Welcome </div>
+                    </div>
+                    <div className='loginHeaderText'> Please fill your detail to log in your account. </div>
+                    <div className={`inputs ${emailError || passwordError || errorMsg ? 'shakeError' : ''}`}>
+                        {/* Email Address*/}
+                        <div className='input'>
+                            <input
+                                type='email'
+                                placeholder=''
+                                onChange={(e) => {
+                                    setEmail(e.target.value);
+                                    handleInputChange();
                                 }}
                                 onKeyDown={handleKeydown}
-                            >Log In
+                            />
+                            <label htmlFor='email'> Email Address </label>
+                        </div>
+                        {/* {emailError && <div className='error-message'>{emailError} </div>} */}
+                        {/* End of Email Address*/}
+                        {/* Password */}
+                        <div className='input'>
+                            <input
+                                type={showPassword ? 'text' : 'password'}
+                                placeholder=''
+                                onChange={(e) => {
+                                    setPassword(e.target.value);
+                                    handleInputChange();
+                                }}
+                                onKeyDown={handleKeydown}
+                            />
+                            <label htmlFor='password'> Password </label>
+                            <button
+                                className='show-password-button'
+                                onClick={() => {
+                                    setShowPassword(!showPassword);
+                                    setIconType(showPassword ? FaLock : FaLockOpen); // This will Toggle the Icon
+                                }}
+                            >
+                                <span className='password-icon'>{iconType}</span>
                             </button>
                         </div>
-                        <div className='footer'>
-                            <a href=''> Terms of use </a>
-                            |
-                            <a href=''> Privacy Policy </a>
+                        {/* {passwordError && <div className="error-message">{passwordError}</div>} */}
+                        {/* End of Password */}
+                    </div>
+                    <div className='password'>
+                        <div className='remember-me'>
+                            <input
+                                type='checkbox'
+                                id='remember-me'
+                                checked={isRememberMeChecked}
+                                onChange={(e) => setIsRememberMeChecked(e.target.checked)}
+                            />
+                            <label htmlFor='remember-me'> Remember me </label>
                         </div>
+                        <div className='forgot-password' onClick={handleForgotPassClick}>Forgot Password? </div>
+                    </div>
+                    {errorMsg && <div className="loginErrorMsg">{errorMsg}</div>}
+                    {successMsg && <div className="loginErrorMsg">{successMsg}</div>}
+                    <div className='submit-container'>
+                        <button
+                            className='submit'
+                            onClick={() =>{
+                                handleValidation();
+                                loginSubmit();
+                            }}
+                            onKeyDown={handleKeydown}
+                        >Log In
+                        </button>
+                    </div>
+                    <div className='footer'>
+                        <a href=''> Terms of use </a>
+                        |
+                        <a href=''> Privacy Policy </a>
                     </div>
                 </div>
             </div>
-            {showModal && <ForgotPassModal onClose={() => setShowModal(false)} />}
+        </div>
+        {showModal && <ForgotPassModal onClose={() => setShowModal(false)} />}
         </>
     );
 };
