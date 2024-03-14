@@ -1,32 +1,44 @@
 <?php
 
-    header("Access-Control-Allow-Origin: http://localhost:5173");
-    header("Access-Control-Allow-Methods: GET, POST");
-    header("Access-Control-Allow-Headers: Content-Type");
+// Firebase credentials
+$firebase_url = 'https://careercompass-818c6.firebaseio.com';
+$firebase_secret = 'CysupyOQ5Tci2XTGapL7LPJv3c9moPMI3JDiVWdh';
 
-    include "../connection.php";
+// Get the POST data
+$email = $_POST['email'];
+$password = $_POST['password'];
 
-    $data = json_decode(file_get_contents("php://input"));
+// Fetch user data from Firebase
+$firebase_url = $firebase_url . '/tblaccount.json?orderBy="ACCOUNT_EMAIL"&equalTo="' . $email . '"';
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $firebase_url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json', 'Authorization: Bearer ' . $firebase_secret]);
+$response = curl_exec($ch);
+curl_close($ch);
 
-    if(isset($data->email) && isset($data->password)) {
-        $email = mysqli_real_escape_string($conn, $data->email);
-        $password = mysqli_real_escape_string($conn, $data->password);
+$data = json_decode($response, true);
 
-        $query = "SELECT * FROM tblaccount WHERE ACCOUNT_EMAIL='$email' AND ACCOUNT_PASSWORD='$password'";
-        $result = mysqli_query($conn, $query);
-
-        if (mysqli_num_rows($result) == 1) {
-            $response = array('success' => true, 'message' => 'Login Successful');
-        } else {
-            $response = array('success' => false, 'message' => 'Invalid email or password');
-        }
+// Check if user exists and verify password
+if ($data != null) {
+    $user_data = reset($data);
+    if ($user_data['ACCOUNT_PASSWORD'] == $password) {
+        // Password matches, login successful
+        header('Access-Control-Allow-Origin: *');
+        header('Content-Type: application/json');
+        echo json_encode(array('success' => true, 'message' => 'Login successful', 'user' => $user_data));
     } else {
-        $response = array('success' => false, 'message' => 'Invalid Request');
+        // Password does not match
+        header('Access-Control-Allow-Origin: *');
+        header('Content-Type: application/json');
+        echo json_encode(array('success' => false, 'message' => 'Incorrect password'));
     }
-
+} else {
+    // User not found
+    header('Access-Control-Allow-Origin: *');
     header('Content-Type: application/json');
-    echo json_encode($response);
-
-    mysqli_close($conn);
+    echo json_encode(array('success' => false, 'message' => 'User not found'));
+}
 
 ?>

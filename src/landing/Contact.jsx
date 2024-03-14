@@ -35,19 +35,19 @@ const Contact = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
+    
         try {
-            const response = await fetch('http://localhost/CareerCompass/backend/contact-us/send-email.php', {
+            const response = await fetch('https://careercompass-818c6.web.app/backend/contact-us/send-email.php', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application.json',
+                    'Content-Type': 'application/json', // Fixed typo here
                 },
                 body: JSON.stringify({ name, email, message }),
             });
-
+    
             const data = await response.json();
-
+    
             if (data.success) {
                 setSuccessMessage('Message sent successfully');
                 setName('');
@@ -57,7 +57,8 @@ const Contact = () => {
                 setErrorMessage(data.message);
             }
         } catch (error) {
-            setErrorMessage('An error occured while sending the message');
+            console.error('An error occurred while sending the message:', error); // Log error to console
+            setErrorMessage('An error occurred while sending the message');
         }
     };
 

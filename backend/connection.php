@@ -1,19 +1,26 @@
 <?php
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "ccdb";
+require __DIR__.'/vendor/autoload.php';
 
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
+use Kreait\Firebase\Factory;
 
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+// Initialize Firebase with service account JSON file
+$factory = (new Factory)
+    ->withServiceAccount(__DIR__.'/careercompass-818c6-firebase-adminsdk-sxhmh-f2b314603e.json')
+    ->withDatabaseUri('https://careercompass-818c6-default-rtdb.asia-southeast1.firebasedatabase.app/');
+
+// Get a reference to the Firebase Realtime Database
+$database = $factory->createDatabase();
+
+// Perform a read operation (e.g., reading data from a specific node)
+$data = $database->getReference('/')->getSnapshot()->getValue();
+
+// Check if data is retrieved
+if ($data) {
+    echo "Connected to Firebase Realtime Database. Data retrieved successfully:\n";
+    print_r($data);
+} else {
+    echo "Failed to retrieve data from Firebase Realtime Database.\n";
 }
 
-    function connectDB() {
-        global $conn;
-        return $conn;
-    }
+?>
