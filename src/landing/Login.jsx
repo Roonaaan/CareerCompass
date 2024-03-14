@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ForgotPassModal from './forgot-password/Forgotpass'
-import axios from 'axios';
 
 // CSS
 import './styles/Login.css';
@@ -66,7 +65,7 @@ export const Login = ({ onClose }) => {
         try {
             await new Promise(resolve => setTimeout(resolve, 1000));
 
-            const response = await axios.post('https://ccmps.000webhostapp.com/backend/login-page/login.php', {
+            const response = await fetch('https://ccmps.000webhostapp.com/backend/login-page/login.php', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
