@@ -106,16 +106,16 @@ const Roadmap = () => {
         <section className="leftSide">
           <ul className="progressBarList">
             <li className="progressBarItem">
-              <span className="phaseCount">1</span>
+              <span className="phaseCount ">1</span>
               <span className="phaseProgressLabel">Phase 1</span>
             </li>
 
-            <li className="progressBarItem">
+            <li className="progressBarItem currentItem  ">
               <span className="phaseCount">2</span>
               <span className="phaseProgressLabel">Phase 2</span>
             </li>
 
-            <li className="progressBarItem">
+            <li className="progressBarItem  ">
               <span className="phaseCount">3</span>
               <span className="phaseProgressLabel">Phase 3</span>
             </li>
