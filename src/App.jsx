@@ -6,6 +6,7 @@ import Home from './landing/Home'
 import About from './landing/About'
 import ContactUs from './landing/Contact'
 
+
 // Signed-In user page
 import ForgotPasswordChange from './landing/forgot-password/Forgotpasschange'
 
@@ -15,6 +16,7 @@ import EmpProfile from './signed_in/Profile'
 import Recommend from './signed_in/Recommend/Recommend'
 import SelectDept from './signed_in/Recommend/Selected'
 import Roadmap from './signed_in/Roadmap/Roadmap'
+import Form from './components/Form'
 
 function App() {
 
@@ -35,7 +37,8 @@ function App() {
           <Route path="/My-Profile" element={<EmpProfile />} />
           <Route path="/Recommend" element={<Recommend />} />
           <Route path="/Select-Department" element={<SelectDept />} />    
-          <Route path="/Roadmap" element={<Roadmap />} />       
+          <Route path="/Roadmap" element={<Roadmap />} />   
+          <Route path="/Form" element={<Form />} />     
         </Routes>
       </BrowserRouter>
     </>
