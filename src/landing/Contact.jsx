@@ -37,7 +37,7 @@ const Contact = () => {
         event.preventDefault();
 
         try {
-            const response = await fetch('http://localhost/CareerCompass/backend/contact-us/send-email.php', {
+            const response = await fetch('career-compass-theta.vercel.app/CareerCompass/backend/contact-us/send-email.php', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
