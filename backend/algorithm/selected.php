@@ -1,26 +1,34 @@
 <?php
 
-    header("Access-Control-Allow-Origin: http://localhost:5173");
-    header("Access-Control-Allow-Methods: GET, POST");
-    header("Access-Control-Allow-Headers: Content-Type");
+// Set headers to allow access from your React application
+header("Access-Control-Allow-Origin: http://localhost:5173");
+header("Access-Control-Allow-Methods: GET, POST");
+header("Access-Control-Allow-Headers: Content-Type");
 
-    include "../connection.php";
+// Include connection details from a separate file
+include "../connection.php";
 
-$query = "SELECT DEPARTMENT FROM tbldepartment";
-$result = $connection->query($query);
-
-$departments = [];
-
-if ($result->num_rows > 0) {
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+  }
+  
+  $sql = "SELECT DEPARTMENT FROM tbldepartment";
+  $result = $conn->query($sql);
+  
+  $departments = array();
+  
+  if ($result->num_rows > 0) {
+    // Fetch data from the database
     while($row = $result->fetch_assoc()) {
-        $departments[] = $row['DEPARTMENT'];
+      $departments[] = $row["DEPARTMENT"];
     }
-}
-
-$connection->close();
-
-header('Content-Type: application/json');
-echo json_encode($departments);
-?>
+  }
+  
+  $conn->close();
+  
+  // Send JSON response
+  header('Content-Type: application/json');
+  echo json_encode($departments);
 
 ?>

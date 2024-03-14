@@ -6,11 +6,12 @@ import './styles/recommend.css';
 import logo from "../../assets/homepage/final-topright-logo.png";
 import defaultImg from "../../assets/signed-in/defaultImg.jpg";
 
-const Recommend = () => {
+const SelectDept = () => {
     const [userImage, setUserImage] = useState('');
     const [userName, setUserName] = useState('');
     const [showDropdown, setShowDropdown] = useState(false);
     const [departments, setDepartments] = useState([]);
+    const [description, setDescriptions] = useState([]);
     const [showDescriptions, setShowDescriptions] = useState({
         job1: false,
         job2: false,
@@ -19,17 +20,12 @@ const Recommend = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const fetchDepartments = async () => {
-            try {
-                const response = await fetch('http://localhost/CareerCompass/backend/algorithm/selected.php');
-                const data = await response.json();
-                setDepartments(data);
-            } catch (error) {
-                console.error('Error fetching departments: ', error);
-            }
-        };
-        fetchDepartments();
-    }, []);
+        fetch('http://localhost/CareerCompass/backend/algorithm/selected.php')
+          .then(response => response.json())
+          .then(data => setDepartments(data))
+          .then(data => setDescriptions(data))
+          .catch(error => console.error('Error fetching departments:', error));
+      }, []);
 
     // React to PHP Connection
     useEffect(() => {
@@ -132,37 +128,37 @@ const Recommend = () => {
                             <div
                                 className="selectedJobContainerPanel"
                                 onClick={() => toggleDescription('job1')}>
-                                <p className='job-title'> Department 1 </p>
+                                <p className='job-title'> {departments.length > 0 && departments[0]} </p>
                                 {showDescriptions.job1 && <p className="job-description-selected">Description 1</p>}
                             </div>
                             <div
                                 className="selectedJobContainerPanel"
                                 onClick={() => toggleDescription('job2')}>
-                                <p className='job-title'> Department 2 </p>
+                                <p className='job-title'> {departments.length > 1 && departments[1]} </p>
                                 {showDescriptions.job2 && <p className="job-description-selected">Description 2</p>}
                             </div>
                             <div
                                 className="selectedJobContainerPanel"
                                 onClick={() => toggleDescription('job3')}>
-                                <p className='job-title'> Department 3 </p>
+                                <p className='job-title'> {departments.length > 2 && departments[2]} </p>
                                 {showDescriptions.job3 && <p className="job-description-selected">Description 3</p>}
                             </div>
                             <div
                                 className="selectedJobContainerPanel"
                                 onClick={() => toggleDescription('job1')}>
-                                <p className='job-title'> Department 4 </p>
+                                <p className='job-title'> {departments.length > 3 && departments[3]} </p>
                                 {showDescriptions.job1 && <p className="job-description-selected">Description 4</p>}
                             </div>
                             <div
                                 className="selectedJobContainerPanel"
                                 onClick={() => toggleDescription('job2')}>
-                                <p className='job-title'> Department 5 </p>
+                                <p className='job-title'> {departments.length > 4 && departments[4]} </p>
                                 {showDescriptions.job2 && <p className="job-description-selected">Description 5</p>}
                             </div>
                             <div
                                 className="selectedJobContainerPanel"
                                 onClick={() => toggleDescription('job3')}>
-                                <p className='job-title'> Department 6 </p>
+                                <p className='job-title'> {departments.length > 5 && departments[5]} </p>
                                 {showDescriptions.job3 && <p className="job-description-selected">Description 6</p>}
                             </div>
                         </div>
@@ -173,6 +169,16 @@ const Recommend = () => {
             </div>
         </>
     );
-};
+      return (
+        <div>
+          <h1>Departments</h1>
+          <ul>
+            {departments.map((department, index) => (
+              <li key={index}>{department}</li>
+            ))}
+          </ul>
+        </div>
+      );
 
-export default Recommend;
+}
+export default SelectDept;
