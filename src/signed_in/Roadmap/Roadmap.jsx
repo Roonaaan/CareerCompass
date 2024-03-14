@@ -13,11 +13,28 @@ const Roadmap = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const navigate = useNavigate();
 
-  // React to PHP Connection
+  0
+  const [doneOpacities, setDoneOpacities] = useState([100, 100, 100]); 
+  const [nextOpacity, setNextOpacity] = useState(50); 
+
+  
+  const handleDoneClick = (index) => {
+    const newOpacities = [...doneOpacities];
+    newOpacities[index] = 50; 
+    setDoneOpacities(newOpacities);
+    setNextOpacity(100); 
+  };
+
+  
+  const handleNextClick = () => {
+    
+  };
+
+  
   useEffect(() => {
     const fetchUserName = async () => {
       try {
-        const userEmail = sessionStorage.getItem("user"); // Retrieve user email from sessionStorage
+        const userEmail = sessionStorage.getItem("user"); 
         if (userEmail) {
           const response = await fetch(
             `http://localhost/CareerCompass/backend/signed-in/home.php?email=${userEmail}`
@@ -29,7 +46,7 @@ const Roadmap = () => {
             setUserImage(data.userImage);
 
             if (data.userImage) {
-              setUserImage(`data:image/jpeg;base64,${data.userImage}`); // Assuming JPEG format, adjust content type if needed
+              setUserImage(`data:image/jpeg;base64,${data.userImage}`); 
             } else {
               setUserImage(defaultImg);
             }
@@ -141,7 +158,13 @@ const Roadmap = () => {
               dolore magna aliqua.{" "}
             </div>
             <div className="button-section">
-              <button className="done-button"> Done </button>
+            <button
+        className="done-button"
+        onClick={() => handleDoneClick(0)} // Pass index of this button
+            style={{ opacity: `${doneOpacities[0]}%` }}
+      >
+        Done
+      </button>
             </div>
           </div>
           <div className="taskDiv">
@@ -153,7 +176,13 @@ const Roadmap = () => {
               dolore magna aliqua.{" "}
             </div>
             <div className="button-section">
-              <button className="done-button"> Done </button>
+            <button
+        className="done-button1"
+        onClick={() => handleDoneClick(1)} // Pass index of this button
+            style={{ opacity: `${doneOpacities[1]}%` }}
+      >
+        Done
+      </button>
             </div>
           </div>
           <div className="taskDiv">
@@ -165,13 +194,27 @@ const Roadmap = () => {
               dolore magna aliqua.{" "}
             </div>
             <div className="button-section">
-              <button className="done-button"> Done </button>
+            <button
+        className="done-button2"
+        onClick={() => handleDoneClick(2)} // Pass index of this button
+            style={{ opacity: `${doneOpacities[2]}%` }}
+      >
+        Done
+      </button>
             </div>
           </div>
         </section>
 
         <div className="button-section-footer">
-          <button className="done-button-footer"> NEXT PHASE </button>
+        <button className="prev-button-footer"> PREV PHASE </button>
+        <button
+        className="next-button-footer"
+        onClick={handleNextClick}
+        style={{ opacity: `${nextOpacity}%` }}
+      >
+        NEXT PHASE
+      </button>
+          
         </div>
       </div>
     </div>
