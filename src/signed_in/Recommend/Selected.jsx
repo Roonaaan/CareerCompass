@@ -11,11 +11,13 @@ const SelectDept = () => {
     const [userName, setUserName] = useState('');
     const [showDropdown, setShowDropdown] = useState(false);
     const [departments, setDepartments] = useState([]);
-    const [description, setDescriptions] = useState([]);
     const [showDescriptions, setShowDescriptions] = useState({
         job1: false,
         job2: false,
         job3: false,
+        job4: false,
+        job5: false,
+        job6: false,
     });
     const navigate = useNavigate();
 
@@ -23,7 +25,6 @@ const SelectDept = () => {
         fetch('http://localhost/CareerCompass/backend/algorithm/selected.php')
             .then(response => response.json())
             .then(data => setDepartments(data))
-            .then(data => setDescriptions(data))
             .catch(error => console.error('Error fetching departments:', error));
     }, []);
 
@@ -150,21 +151,21 @@ const SelectDept = () => {
                             </div>
                             <div
                                 className="selectedJobContainerPanel"
-                                onClick={() => toggleDescription('job1')}>
+                                onClick={() => toggleDescription('job4')}>
                                 <p className='job-title'> {departments.length > 3 && departments[3]} </p>
-                                {showDescriptions.job1 && <p className="job-description-selected">Description 4</p>}
+                                {showDescriptions.job4 && <p className="job-description-selected">Description 4</p>}
                             </div>
                             <div
                                 className="selectedJobContainerPanel"
-                                onClick={() => toggleDescription('job2')}>
+                                onClick={() => toggleDescription('job5')}>
                                 <p className='job-title'> {departments.length > 4 && departments[4]} </p>
-                                {showDescriptions.job2 && <p className="job-description-selected">Description 5</p>}
+                                {showDescriptions.job5 && <p className="job-description-selected">Description 5</p>}
                             </div>
                             <div
                                 className="selectedJobContainerPanel"
-                                onClick={() => toggleDescription('job3')}>
+                                onClick={() => toggleDescription('job6')}>
                                 <p className='job-title'> {departments.length > 5 && departments[5]} </p>
-                                {showDescriptions.job3 && <p className="job-description-selected">Description 6</p>}
+                                {showDescriptions.job6 && <p className="job-description-selected">Description 6</p>}
                             </div>
                         </div>
 
@@ -174,16 +175,6 @@ const SelectDept = () => {
             </div>
         </>
     );
-    return (
-        <div>
-            <h1>Departments</h1>
-            <ul>
-                {departments.map((department, index) => (
-                    <li key={index}>{department}</li>
-                ))}
-            </ul>
-        </div>
-    );
+};
 
-}
 export default SelectDept;

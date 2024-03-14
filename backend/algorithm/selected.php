@@ -13,7 +13,12 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
   }
   
-  $sql = "SELECT DEPARTMENT FROM tbldepartment";
+  // Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+  }
+  
+  $sql = "SELECT DEPARTMENT, DESCRIPTION FROM tbldepartment";
   $result = $conn->query($sql);
   
   $departments = array();
@@ -30,5 +35,6 @@ if ($conn->connect_error) {
   // Send JSON response
   header('Content-Type: application/json');
   echo json_encode($departments);
+
 
 ?>
