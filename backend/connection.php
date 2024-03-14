@@ -1,9 +1,9 @@
 <?php
 
     $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "ccdb";
+    $username = "id21976635_ccdb";
+    $password = "Ccdb2024!";
+    $dbname = "id21976635_ccdb";
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
