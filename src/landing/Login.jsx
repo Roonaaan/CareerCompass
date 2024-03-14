@@ -65,7 +65,7 @@ export const Login = ({ onClose }) => {
         try {
             await new Promise(resolve => setTimeout(resolve, 1000));
 
-            const response = await fetch('https://ccmps.000webhostapp.com//backend/login-page/login.php', {
+            const response = await fetch('http://localhost/CareerCompass/backend/login-page/login.php', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
