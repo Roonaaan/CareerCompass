@@ -24,7 +24,7 @@ function App() {
         <Routes>
           {/* Landing, About Us and Login Page */}
           <Route path="/" element={<Home />} />
-          <Route path="/About" element={<About />} />
+          <Route path="https://careercmps.netlify.app//About" element={<About />} />
           <Route path="/Contact-Us" element={<ContactUs />} />
 
           {/* Forgot Password Page */}
