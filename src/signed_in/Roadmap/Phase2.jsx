@@ -7,7 +7,7 @@ import "./styles/style.css";
 import logo from "../../assets/homepage/final-topright-logo.png";
 import defaultImg from "../../assets/signed-in/defaultImg.jpg";
 
-const Roadmap = () => {
+const Phase2 = () => {
   const [userImage, setUserImage] = useState("");
   const [userName, setUserName] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
@@ -103,12 +103,12 @@ const Roadmap = () => {
       <section className="progressFrame">
         <div className="leftSide">
           <ul className="progressBarList  ">
-            <li className="progressBarItem currentItem ">
+            <li className="progressBarItem  ">
               <span className="phaseCount ">1</span>
               <span className="phaseProgressLabel">Phase 1</span>
             </li>
 
-            <li className="progressBarItem  ">
+            <li className="progressBarItem currentItem ">
               <span className="phaseCount">2</span>
               <span className="phaseProgressLabel">Phase 2</span>
             </li>
@@ -190,4 +190,4 @@ const Roadmap = () => {
   );
 };
 
-export default Roadmap;
+export default Phase2;

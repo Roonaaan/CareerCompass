@@ -17,6 +17,10 @@ import Recommend from './signed_in/Recommend/Recommend'
 import SelectDept from './signed_in/Recommend/Selected'
 import Roadmap from './signed_in/Roadmap/Roadmap'
 import Form from './components/Form'
+import Phase1 from './signed_in/Roadmap/Phase1'
+import Phase2 from './signed_in/Roadmap/Phase2'
+import Phase3 from './signed_in/Roadmap/Phase3'
+import Phase4 from './signed_in/Roadmap/Phase4'
 
 function App() {
 
@@ -38,7 +42,11 @@ function App() {
           <Route path="/Recommend" element={<Recommend />} />
           <Route path="/Select-Department" element={<SelectDept />} />    
           <Route path="/Roadmap" element={<Roadmap />} />   
-          <Route path="/Form" element={<Form />} />     
+          <Route path="/Form" element={<Form />} />  
+          <Route path="/Phase1" element={<Phase1/>} /> 
+          <Route path="/Phase2" element={<Phase2/>} /> 
+          <Route path="/Phase3" element={<Phase3/>} /> 
+          <Route path="/Phase4" element={<Phase4/>} /> 
         </Routes>
       </BrowserRouter>
     </>

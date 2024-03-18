@@ -7,7 +7,7 @@ import "./styles/style.css";
 import logo from "../../assets/homepage/final-topright-logo.png";
 import defaultImg from "../../assets/signed-in/defaultImg.jpg";
 
-const Roadmap = () => {
+const Phase1 = () => {
   const [userImage, setUserImage] = useState("");
   const [userName, setUserName] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
@@ -190,4 +190,4 @@ const Roadmap = () => {
   );
 };
 
-export default Roadmap;
+export default Phase1;
