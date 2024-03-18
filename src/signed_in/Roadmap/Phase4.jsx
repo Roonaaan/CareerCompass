@@ -81,6 +81,11 @@ const Phase4 = () => {
     setShowDropdown(!showDropdown);
   };
 
+  const handlePrevButtonClick = () => {
+    navigate("/Phase3");
+  };
+
+
   return (
     <div className="roadmapWrapper">
       {/* Navigation Bar */}
@@ -130,7 +135,7 @@ const Phase4 = () => {
       {/* Middle Section */}
       <div className="middleSection">
         <section className="rightSide">
-          <div className="rightsideTitle"> INTRODUCTION </div>
+          <div className="rightsideTitle"> Phase 4 </div>
           <div className="taskDiv">
             <div className="taskTitle"> Task Title </div>
             <div className="taskDescription">
@@ -179,8 +184,9 @@ const Phase4 = () => {
         </section>
 
         <div className="button-section-footer">
-        <button className="prev-button-footer"> PREV PHASE </button>
-        <button className="next-button-footer">
+        <button className="prev-button-footer" onClick={handlePrevButtonClick}> 
+        PREV PHASE </button>
+        <button className="next-button-footer" disabled>
         NEXT PHASE
       </button>
           

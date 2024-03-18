@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+
 // ROADMAP CSS
 import "./styles/style.css";
 
@@ -81,6 +82,10 @@ const Phase1 = () => {
     setShowDropdown(!showDropdown);
   };
 
+  const handleNextButtonClick = () => {
+    navigate("/Phase2");
+  };
+  
   return (
     <div className="roadmapWrapper">
       {/* Navigation Bar */}
@@ -130,7 +135,7 @@ const Phase1 = () => {
       {/* Middle Section */}
       <div className="middleSection">
         <section className="rightSide">
-          <div className="rightsideTitle"> INTRODUCTION </div>
+          <div className="rightsideTitle"> Phase 1 </div>
           <div className="taskDiv">
             <div className="taskTitle"> Task Title </div>
             <div className="taskDescription">
@@ -179,8 +184,9 @@ const Phase1 = () => {
         </section>
 
         <div className="button-section-footer">
-        <button className="prev-button-footer"> PREV PHASE </button>
-        <button className="next-button-footer">
+        <button className="prev-button-footer" disabled> 
+        PREV PHASE </button>
+        <button className="next-button-footer" onClick={handleNextButtonClick}>
         NEXT PHASE
       </button>
           
